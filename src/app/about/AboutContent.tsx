@@ -15,7 +15,7 @@ const tabData = [
   {
     title: "Education for All",
     content: (
-      <div className="space-y-4">
+      <div className="space-y-4 text-justify">
         <p>
           It is of utmost importance for all human beings to be educated but
           there are many who do not get the opportunity. With the dream of equal
@@ -40,7 +40,7 @@ const tabData = [
   {
     title: "Vision & Mission",
     content: (
-      <div className="space-y-6">
+      <div className="space-y-6 text-justify">
         <p>
           We at Vishwanath Academy, focus our dedication towards evoking a
           passion for learning and developing the requisite set of attitudes,
@@ -80,7 +80,7 @@ const tabData = [
   {
     title: "The Edge\nAffiliated to CBSE!!",
     content: (
-      <div className="space-y-6">
+      <div className="space-y-6 text-justify">
         <p>
           CBSE, conducts two of the biggest competitive examinations - JEE for
           engineering and NEET for medical. These two exams allow students to
@@ -173,7 +173,7 @@ const tabData = [
   {
     title: "Vna at a Glance",
     content: (
-      <div className="space-y-4">
+      <div className="space-y-4 text-justify">
         <p>
           Vishwanath Academy nurtures academic excellence by teaching the
           curriculum creatively, holistically and to foster in students, the

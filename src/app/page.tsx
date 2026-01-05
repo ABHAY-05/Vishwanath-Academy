@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <AnnouncementPopup />
+      {/* <AnnouncementPopup /> */}
       <HeroSlider />
       <About />
       <ApplyAdmission />

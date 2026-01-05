@@ -13,7 +13,7 @@ export const seoData = {
       "Learning",
     ],
     ogImage: "/dhawapur.webp",
-    url: "https://vishwanathacademy.com",
+    url: "https://vishwanath-academy-mu.vercel.app",
   },
   home: {
     title: "Home | Vishwanath Academy",
