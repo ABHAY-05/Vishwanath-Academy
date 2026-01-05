@@ -187,7 +187,7 @@ export default function Footer() {
                 <MapPin size={20} className="stroke-[1.5]" /> Aashiana Campus
               </h3>
 
-              <div className="space-y-4 text-sm font-body text-gray-600 dark:text-gray-300 flex-grow">
+              <div className="space-y-4 text-sm font-body text-gray-600 dark:text-gray-300 grow">
                 <p className="leading-relaxed">
                   {siteConfig.branches.asiana.address}
                 </p>
@@ -241,7 +241,7 @@ export default function Footer() {
                 <MapPin size={20} className="stroke-[1.5]" /> Dhawapur Campus
               </h3>
 
-              <div className="space-y-4 text-sm font-body text-gray-600 dark:text-gray-300 flex-grow">
+              <div className="space-y-4 text-sm font-body text-gray-600 dark:text-gray-300 grow">
                 <p className="leading-relaxed">
                   {siteConfig.branches.dhawapur.address}
                 </p>

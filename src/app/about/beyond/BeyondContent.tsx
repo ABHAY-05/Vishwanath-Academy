@@ -13,7 +13,8 @@ import "swiper/css/pagination";
 import { aboutData } from "@/data/about-data";
 
 // Slider Images
-const sportsImages = aboutData.beyondClassroom.sportsImages;
+const { sportsImages, balancingImage, digitalImage, motivationalImage } =
+  aboutData.beyondClassroom;
 
 export default function LearningBeyondClassroom() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -72,7 +73,7 @@ export default function LearningBeyondClassroom() {
               className="relative w-full xl:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800"
             >
               <Image
-                src="/VNA-class.jpg"
+                src={balancingImage}
                 alt="Balancing Body, Mind & Soul"
                 fill
                 priority
@@ -129,7 +130,7 @@ export default function LearningBeyondClassroom() {
               className="relative w-full xl:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800"
             >
               <Image
-                src="/facilities/Digital-A.webp"
+                src={digitalImage}
                 alt="Use of Digital Technology"
                 fill
                 sizes="(max-width: 1280px) 100vw, 50vw"
@@ -288,7 +289,7 @@ export default function LearningBeyondClassroom() {
               className="relative w-full aspect-21/9 rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800"
             >
               <Image
-                src="/facilities/Learn.webp"
+                src={motivationalImage}
                 alt="Motivational Session"
                 fill
                 sizes="(max-width: 1200px) 100vw, 1200px"

@@ -79,6 +79,9 @@ export const aboutData = {
       "/learning/Swachh.webp",
       "/learning/HelpingKids1.webp",
     ],
+    balancingImage: "/VNA-class.jpg",
+    digitalImage: "/facilities/Digital-A.webp",
+    motivationalImage: "/learning/Learn.webp",
   },
   team: [
     {
