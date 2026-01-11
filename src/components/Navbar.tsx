@@ -10,6 +10,7 @@ import { useState } from "react";
 type Item = {
   name: string;
   href?: string;
+  target?: string;
   children?: Item[];
 };
 
@@ -29,7 +30,7 @@ const menu: Section[] = [
       {
         name: "CBSE Mandatory Disclosure",
         children: [
-          { name: "Asiana Branch", href: "/cbse/asiana" },
+          { name: "Aashiana Branch", href: "/cbse/asiana" },
           { name: "Dhawapur Branch", href: "/cbse/dhawapur" },
         ],
       },
@@ -49,14 +50,22 @@ const menu: Section[] = [
       {
         name: "Admission Enquiry",
         children: [
-          { name: "Asiana Branch", href: "/admissions/enquiry/asiana" },
-          { name: "Dhawapur Branch", href: "/admissions/enquiry/dhawapur" },
+          {
+            name: "Aashiana Branch",
+            href: "https://forms.edunexttechnologies.com/forms/val/application/",
+            target: "_blank",
+          },
+          {
+            name: "Dhawapur Branch",
+            href: "https://forms.edunexttechnologies.com/forms/vna/application/",
+            target: "_blank",
+          },
         ],
       },
       {
         name: "Fees Structure",
         children: [
-          { name: "Asiana Branch", href: "/admissions/fees/asiana" },
+          { name: "Aashiana Branch", href: "/admissions/fees/asiana" },
           { name: "Dhawapur Branch", href: "/admissions/fees/dhawapur" },
         ],
       },
@@ -71,8 +80,12 @@ const menu: Section[] = [
     name: "Academics",
     items: [
       { name: "Curriculum", href: "/academics/curriculum" },
-      { name: "Books & Stationary", href: "/academics/books" },
-      { name: "CBSE Circulars", href: "/academics/cbse" },
+      { name: "Books & Stationary", href: "/academics/books-and-stationary" },
+      {
+        name: "CBSE Circulars",
+        href: "https://cbseacademic.nic.in//circulars.html",
+        target: "_blank",
+      },
       { name: "Activity Calendar", href: "/academics/calendar" },
       { name: "Competitive Exam Details", href: "/academics/competitive" },
     ],
@@ -83,7 +96,7 @@ const menu: Section[] = [
       {
         name: "Yearly Academic Planner",
         children: [
-          { name: "Asiana Branch", href: "/students/planner/asiana" },
+          { name: "Aashiana Branch", href: "/students/planner/asiana" },
           { name: "Dhawapur Branch", href: "/students/planner/dhawapur" },
         ],
       },
@@ -113,7 +126,7 @@ const menu: Section[] = [
 ];
 
 const parentsLogin: Item[] = [
-  { name: "Asiana Branch", href: "/parents-login/asiana" },
+  { name: "Aashiana Branch", href: "/parents-login/asiana" },
   { name: "Dhawapur Branch", href: "/parents-login/dhawapur" },
 ];
 
@@ -179,6 +192,7 @@ export default function Navbar() {
                                   <Link
                                     key={child.name}
                                     href={child.href!}
+                                    target={child.target}
                                     className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary/5 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white transition-colors"
                                   >
                                     {child.name}
@@ -189,6 +203,7 @@ export default function Navbar() {
                           ) : (
                             <Link
                               href={item.href!}
+                              target={item.target}
                               className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary/5 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white transition-colors"
                             >
                               {item.name}
@@ -294,6 +309,7 @@ export default function Navbar() {
                             <Link
                               key={child.name}
                               href={child.href!}
+                              target={child.target}
                               onClick={() => setMobileOpen(false)}
                               className="block text-sm text-gray-600 dark:text-gray-400 hover:text-primary py-1"
                             >
@@ -306,6 +322,7 @@ export default function Navbar() {
                       <Link
                         key={item.name}
                         href={item.href!}
+                        target={item.target}
                         onClick={() => setMobileOpen(false)}
                         className="block text-sm text-gray-700 dark:text-gray-300 hover:text-primary py-1"
                       >
