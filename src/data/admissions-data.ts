@@ -303,7 +303,7 @@ export const admissionProcedure = {
           ],
         },
         {
-          heading: "Classes IX & IX",
+          heading: "Classes IX & XI",
           content:
             "Evaluation of student is done as per the CBSE guidelines and directives.",
         },
