@@ -161,7 +161,7 @@ export default function Navbar() {
               <div className="hidden lg:flex items-center gap-6 max-[1209px]:gap-4 ml-auto max-[1145px]:gap-3">
                 {menu.map((section) => (
                   <div key={section.name} className="relative group">
-                    <button className="flex items-center gap-1 text-sm font-medium hover:text-primary font-sans max-[1114px]:text-xs transition-colors">
+                    <button className="flex items-center gap-1 text-sm font-medium hover:text-primary dark:hover:text-secondary font-sans max-[1114px]:text-xs transition-colors">
                       {section.name}
                       <ChevronDown
                         size={14}
@@ -179,7 +179,7 @@ export default function Navbar() {
                         <div key={item.name} className="relative group/item">
                           {item.children ? (
                             <>
-                              <div className="flex items-center justify-between px-4 py-2 text-sm cursor-pointer hover:bg-primary/5 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-white transition-colors">
+                              <div className="flex items-center justify-between px-4 py-2 text-sm cursor-pointer hover:bg-primary/5 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-secondary transition-colors">
                                 {item.name}
                                 <ChevronRight
                                   size={14}
@@ -193,7 +193,7 @@ export default function Navbar() {
                                     key={child.name}
                                     href={child.href!}
                                     target={child.target}
-                                    className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary/5 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white transition-colors"
+                                    className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary/5 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-secondary transition-colors"
                                   >
                                     {child.name}
                                   </Link>
@@ -204,7 +204,7 @@ export default function Navbar() {
                             <Link
                               href={item.href!}
                               target={item.target}
-                              className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary/5 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white transition-colors"
+                              className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary/5 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-secondary transition-colors"
                             >
                               {item.name}
                             </Link>
@@ -226,7 +226,7 @@ export default function Navbar() {
                       <Link
                         key={p.name}
                         href={p.href!}
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary/5 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white transition-colors whitespace-nowrap"
+                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary/5 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-secondary transition-colors whitespace-nowrap"
                       >
                         {p.name}
                       </Link>
@@ -328,11 +328,11 @@ export default function Navbar() {
                       >
                         {item.name}
                       </Link>
-                    )
+                    ),
                   )}
                 </div>
               </details>
-            )
+            ),
           )}
 
           <div className="pt-4 border-t border-gray-100 dark:border-gray-800">

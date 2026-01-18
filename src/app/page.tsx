@@ -20,9 +20,9 @@ export default function Home() {
     <>
       {/* <AnnouncementPopup /> */}
       <HeroSlider />
+      <OurStrength />
       <About />
       <ApplyAdmission />
-      <OurStrength />
       <NoticeBoard />
       <OurManagement />
       <YoutubeSection />

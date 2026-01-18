@@ -43,11 +43,13 @@ export default function NoticeBoard() {
           <div className="lg:col-span-2 space-y-8">
             <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-800 pb-4">
               <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white">
-                Notice <span className="text-primary">Board</span>
+                <span className="text-primary dark:text-secondary">
+                  Announcements
+                </span>
               </h2>
               <Link
-                href="/notice-board"
-                className="group flex items-center gap-1 text-sm font-semibold text-primary hover:text-secondary transition"
+                href="/announcements"
+                className="group flex items-center gap-1 text-sm font-semibold text-primary dark:text-secondary dark:hover:text-white hover:text-secondary transition"
               >
                 View All
                 <ArrowUpRight
@@ -57,27 +59,29 @@ export default function NoticeBoard() {
               </Link>
             </div>
 
-            <div className="h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary scrollbar-track-transparent">
+            <div className="h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary/20 hover:scrollbar-thumb-primary/40 scrollbar-track-transparent">
               <div className="space-y-4">
                 {notices.map((notice, index) => (
                   <div
                     key={index}
-                    className="group relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-primary/20 transition-all duration-300"
+                    className="group relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-secondary/30 transition-all duration-300"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-2">
-                          <Calendar size={12} />
+                        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-secondary dark:text-secondary/80 mb-2">
+                          <div className="p-1 rounded bg-secondary/10">
+                            <Calendar size={12} />
+                          </div>
                           {notice.date}
                         </div>
-                        <h3 className="text-lg font-body font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary transition-colors">
+                        <h3 className="text-lg font-body font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-white transition-colors">
                           {notice.title}
                         </h3>
                       </div>
                       {notice.isExternal && (
                         <ExternalLink
                           size={18}
-                          className="text-gray-400 group-hover:text-primary transition-colors"
+                          className="text-gray-400 group-hover:text-secondary transition-colors"
                         />
                       )}
                     </div>
@@ -107,9 +111,9 @@ export default function NoticeBoard() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 group"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-lg hover:border-secondary/30 transition-all duration-300 group"
                 >
-                  <span className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-2xl group-hover:bg-primary group-hover:text-white transition-colors">
+                  <span className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 text-2xl group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
                     {item.icon}
                   </span>
                   <span className="font-san font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary dark:group-hover:text-white transition-colors">

@@ -61,7 +61,7 @@ export default function AnnouncementPopup() {
                   // Fallback to a colored div if image fails
                   e.currentTarget.style.display = "none";
                   e.currentTarget.parentElement!.style.backgroundColor =
-                    "#6B2C5E";
+                    "#002147";
                   e.currentTarget.parentElement!.innerHTML =
                     '<div class="flex h-full items-center justify-center text-white text-2xl font-display font-bold p-8 text-center">Admissions Open for 2025-26<br><span class="text-lg font-san font-normal mt-2 block">Apply Now</span></div>';
                 }}
@@ -85,7 +85,7 @@ export default function AnnouncementPopup() {
                 </button>
                 <a
                   href="/admissions"
-                  className="rounded-full bg-primary px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition shadow-lg shadow-purple-900/20"
+                  className="rounded-full bg-primary px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition shadow-lg shadow-blue-900/20"
                 >
                   Apply Now
                 </a>

@@ -47,7 +47,7 @@ export default function Footer() {
         href={fb}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-primary hover:scale-110 transition-all"
+        className="hover:text-secondary hover:scale-110 transition-all"
         aria-label="Facebook"
       >
         <Facebook size={18} />
@@ -56,7 +56,7 @@ export default function Footer() {
         href={x}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-primary hover:scale-110 transition-all"
+        className="hover:text-secondary hover:scale-110 transition-all"
         aria-label="X (formerly Twitter)"
       >
         <XLogo className="w-[18px] h-[18px]" />
@@ -65,7 +65,7 @@ export default function Footer() {
         href={google}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-primary hover:scale-110 transition-all"
+        className="hover:text-secondary hover:scale-110 transition-all"
         aria-label="Google Business"
       >
         <Map size={18} />
@@ -74,7 +74,7 @@ export default function Footer() {
         href={linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-primary hover:scale-110 transition-all"
+        className="hover:text-secondary hover:scale-110 transition-all"
         aria-label="LinkedIn"
       >
         <Linkedin size={18} />
@@ -83,7 +83,7 @@ export default function Footer() {
         href={whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-primary hover:scale-110 transition-all"
+        className="hover:text-secondary hover:scale-110 transition-all"
         aria-label="WhatsApp"
       >
         <MessageCircle size={18} />
@@ -161,7 +161,7 @@ export default function Footer() {
 
           {/* COLUMN 2: QUICK LINKS (2 cols) */}
           <div className="lg:col-span-2">
-            <h3 className="text-lg font-display font-bold text-primary mb-6">
+            <h3 className="text-lg font-display font-bold text-primary dark:text-secondary mb-6">
               Quick Links
             </h3>
             <ul className="space-y-3 font-san text-sm text-gray-600 dark:text-gray-400">
@@ -169,9 +169,9 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="hover:text-primary transition-colors flex items-center gap-2 group"
+                    className="hover:text-secondary transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600 group-hover:bg-primary transition-colors" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 group-hover:bg-secondary transition-colors" />
                     {item.name}
                   </Link>
                 </li>
@@ -182,8 +182,8 @@ export default function Footer() {
           {/* COLUMN 3: CONTACT (6 cols - Split into 2 sub-cols for branches) */}
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-8">
             {/* AASHIANA BRANCH */}
-            <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary/20 transition-all flex flex-col h-full">
-              <h3 className="text-lg font-display font-bold text-primary mb-4 flex items-center gap-2">
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-secondary/30 transition-all flex flex-col h-full group">
+              <h3 className="text-lg font-display font-bold text-primary dark:text-secondary mb-4 flex items-center gap-2 group-hover:text-secondary transition-colors">
                 <MapPin size={20} className="stroke-[1.5]" /> Aashiana Campus
               </h3>
 
@@ -200,7 +200,7 @@ export default function Footer() {
                     <a
                       key={i}
                       href={`tel:${ph.replace(/\D/g, "")}`}
-                      className="block hover:text-primary transition-colors font-medium"
+                      className="block hover:text-secondary transition-colors font-medium"
                     >
                       {ph}
                     </a>
@@ -213,7 +213,7 @@ export default function Footer() {
                   </p>
                   <a
                     href={`mailto:${siteConfig.branches.asiana.email}`}
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-secondary transition-colors"
                   >
                     {siteConfig.branches.asiana.email}
                   </a>
@@ -236,8 +236,8 @@ export default function Footer() {
             </div>
 
             {/* DHAWAPUR BRANCH */}
-            <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary/20 transition-all flex flex-col h-full">
-              <h3 className="text-lg font-display font-bold text-primary mb-4 flex items-center gap-2">
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-secondary/30 transition-all flex flex-col h-full group">
+              <h3 className="text-lg font-display font-bold text-primary dark:text-secondary mb-4 flex items-center gap-2 group-hover:text-secondary transition-colors">
                 <MapPin size={20} className="stroke-[1.5]" /> Dhawapur Campus
               </h3>
 
@@ -254,7 +254,7 @@ export default function Footer() {
                     <a
                       key={i}
                       href={`tel:${ph.replace(/\D/g, "")}`}
-                      className="block hover:text-primary transition-colors font-medium"
+                      className="block hover:text-secondary transition-colors font-medium"
                     >
                       {ph}
                     </a>
@@ -267,7 +267,7 @@ export default function Footer() {
                   </p>
                   <a
                     href={`mailto:${siteConfig.branches.dhawapur.email}`}
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-secondary transition-colors"
                   >
                     {siteConfig.branches.dhawapur.email}
                   </a>

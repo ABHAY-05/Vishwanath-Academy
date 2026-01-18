@@ -2,10 +2,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #6b2c5e;
+  --color-primary: #002147;
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #fdb931; /* Metallic Gold */
+  --color-secondary: #0ea5e9; /* Sky Blue */
   --color-secondary-foreground: #000000;
 
   --color-accent: #f8fafc;
@@ -33,11 +33,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #6b2c5e;
+  background: #002147;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #551b48;
+  background: #00152e;
 }
 
 body {
