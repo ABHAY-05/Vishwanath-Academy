@@ -88,22 +88,27 @@ export default function OurManagement() {
           >
             {[...management, ...management].map((person, index) => (
               <SwiperSlide key={`${person.name}-${index}`}>
-                <div className="text-center h-full">
-                  <div className="relative w-full aspect-4/5 mb-4 overflow-hidden rounded-lg border bg-white shadow-md">
-                    <Image
-                      src={person.image}
-                      alt={person.name}
-                      fill
-                      className="object-cover object-top"
-                    />
+                <Link
+                  href={`/about/team#${person.id}`}
+                  className="block h-full"
+                >
+                  <div className="text-center h-full">
+                    <div className="relative w-full aspect-4/5 mb-4 overflow-hidden rounded-lg border bg-white shadow-md">
+                      <Image
+                        src={person.image}
+                        alt={person.name}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">
+                      {person.name}
+                    </h3>
+                    <p className="text-primary dark:text-secondary font-medium text-sm font-body">
+                      {person.role}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">
-                    {person.name}
-                  </h3>
-                  <p className="text-primary dark:text-secondary font-medium text-sm font-body">
-                    {person.role}
-                  </p>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
