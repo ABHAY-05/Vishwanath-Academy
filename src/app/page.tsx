@@ -16,7 +16,7 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <main className="min-h-screen relative overflow-hidden bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-500 flex flex-col items-center justify-center p-6">
+    <main className="min-h-screen relative overflow-hidden bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-500 flex flex-col items-center justify-center p-6 pt-20 lg:p-6 lg:pt-0">
       {/* BACKGROUND ELEMENTS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('/pattern-grid.svg')] bg-[length:40px_40px] opacity-[0.03] dark:opacity-[0.05]" />
@@ -43,7 +43,7 @@ export default function LandingPage() {
       </div>
 
       {/* THEME TOGGLE */}
-      <div className="absolute top-8 right-6 z-50">
+      <div className="absolute top-6 right-6 z-50">
         {mounted && (
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -71,8 +71,7 @@ export default function LandingPage() {
               alt="Vishwanath Academy"
               width={320}
               height={120}
-              className="relative z-10 drop-shadow-2xl dark:brightness-110 hidden dark:block"
-              style={{ width: "auto", height: "auto" }}
+              className="relative z-10 drop-shadow-2xl dark:brightness-110 hidden dark:block h-auto"
               priority
             />
             <Image
@@ -80,8 +79,7 @@ export default function LandingPage() {
               alt="Vishwanath Academy"
               width={320}
               height={120}
-              className="relative z-10 drop-shadow-xl dark:hidden block"
-              style={{ width: "auto", height: "auto" }}
+              className="relative z-10 drop-shadow-xl dark:hidden block h-auto"
               priority
             />
           </motion.div>
@@ -129,7 +127,7 @@ export default function LandingPage() {
                 key={i}
                 className="flex flex-col items-center gap-4 bg-white/60 dark:bg-gray-800/60 p-6 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 hover:scale-105 transition-transform duration-300 backdrop-blur-sm"
               >
-                <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-xl flex-shrink-0">
+                <div className="w-24 h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-xl flex-shrink-0 transition-all">
                   <Image
                     src={person.img}
                     alt={person.name}

@@ -189,8 +189,7 @@ export default function Footer({ branch }: { branch?: string }) {
                 alt="Vishwanath Academy"
                 width={200}
                 height={80}
-                className="block dark:hidden"
-                style={{ width: "auto", height: "auto" }}
+                className="block dark:hidden h-auto"
                 priority
               />
               <Image
@@ -198,8 +197,7 @@ export default function Footer({ branch }: { branch?: string }) {
                 alt="Vishwanath Academy"
                 width={200}
                 height={80}
-                className="hidden dark:block"
-                style={{ width: "auto", height: "auto" }}
+                className="hidden dark:block h-auto"
                 priority
               />
             </Link>
