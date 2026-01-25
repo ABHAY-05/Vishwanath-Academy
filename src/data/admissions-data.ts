@@ -15,7 +15,7 @@ export type BranchFeeData = {
 };
 
 export const admissionsData: Record<string, BranchFeeData> = {
-  asiana: {
+  aashiana: {
     title: "AASHIANA BRANCH",
     session: "SESSION - 2025-2026",
     paymentLink: "https://vna.edunext4.com/DirectStudentOnlineFee",
@@ -38,7 +38,7 @@ export const admissionsData: Record<string, BranchFeeData> = {
     ],
     extraFees: [
       "Admission Form Charges : Rs.500/-",
-      "Diary Fee and ID Card Fees : Rs.250/-(One Time – Yearly)",
+      "Diary Fee and ID Card Fees : Rs.250/-(One Time - Yearly)",
       "Transfer Certificate Fees : Rs.500/-",
       "Transport Facility Available",
     ],
@@ -137,7 +137,7 @@ export const schoolRules = {
     {
       title: "Withdrawals",
       content: [
-        "One clear calendar months’ notice in writing, or a month’s fees in lieu of such notice must be given before a pupil is withdrawn from the School.",
+        "One clear calendar months' notice in writing, or a month's fees in lieu of such notice must be given before a pupil is withdrawn from the School.",
         "Those who leave the school in May have to in all cases pay the fees for the months of May and June.",
         "Transfer certificate shall not be issued until all dues of the school are clear.",
         "Students can be restricted from the school on grounds of indiscipline and bad conduct.",
@@ -182,7 +182,7 @@ export const schoolRules = {
         "Giving tip to the employees of the school is not allowed.",
         "Strict action will be taken if a student is found guilty of damaging school property.",
         "To ensure safety of their bicycle, students are advised to lock their bicycle and park them only at allotted bicycle stand.",
-        "Parent’s co- operation is required to ensure overall development of their child.",
+        "Parent's co- operation is required to ensure overall development of their child.",
         "If a child is absent for more than three days without information his/her name will automatically be struck off.",
       ],
     },
@@ -276,9 +276,9 @@ export const admissionProcedure = {
     {
       title: "Admission Criteria",
       items: [
-        "Admission in class PG and Nursery is based on child’s performance in the interview whereas for classes LKG to IX and XI, admission would be done through entrance test and interview.",
-        "The name of the student, date of birth, father’s name, mother’s name will not be changed once filled in the form.",
-        "Guardians of the candidates selected for admission are required to present a photocopy of the report card of the previous class, Permanent Education Number [PEN], Parents Photograph, Transfer Certificate from the school last attended at the time of admission within 30 days. Till then admission will be considered provisional, thereafter and after that the admission will be treated as ‘Cancelled’.",
+        "Admission in class PG and Nursery is based on child's performance in the interview whereas for classes LKG to IX and XI, admission would be done through entrance test and interview.",
+        "The name of the student, date of birth, father's name, mother's name will not be changed once filled in the form.",
+        "Guardians of the candidates selected for admission are required to present a photocopy of the report card of the previous class, Permanent Education Number [PEN], Parents Photograph, Transfer Certificate from the school last attended at the time of admission within 30 days. Till then admission will be considered provisional, thereafter and after that the admission will be treated as 'Cancelled'.",
         "Those coming from other districts should have their T. C. countersigned by a competent Educational Authority of the place, PERMANENT EDUCATION NUMBER from UDISE portal.",
         "Birth certificate in original from Nagar Mahapalika/Maternity Hospital would be required for the admission in pre-primary classes.",
       ],
@@ -286,12 +286,12 @@ export const admissionProcedure = {
     {
       title: "Pupil Evaluation and Progress Reports",
       description:
-        "In keeping with the recommendation of National Policy of Education and National Curriculum Frame work-2005, the schools have integrated ‘Evaluation’ with the over all teaching-learning process. The child’s progress in scholastic & non-scholastic area is reported to parents/guardians periodically as follows:",
+        "In keeping with the recommendation of National Policy of Education and National Curriculum Frame work-2005, the schools have integrated 'Evaluation' with the over all teaching-learning process. The child's progress in scholastic & non-scholastic area is reported to parents/guardians periodically as follows:",
       subsections: [
         {
           heading: "Pre-Primary",
           content:
-            "At pre-primary stage evaluation of students is done on a three point scale of grading. At pre-primary stage assessment is purely qualitative judgement of children’s activities in various domains and an assessment of the health and physical development, based on observation through everyday interaction.",
+            "At pre-primary stage evaluation of students is done on a three point scale of grading. At pre-primary stage assessment is purely qualitative judgement of children's activities in various domains and an assessment of the health and physical development, based on observation through everyday interaction.",
         },
         {
           heading: "Classes I To VIII",
@@ -311,7 +311,7 @@ export const admissionProcedure = {
     },
     {
       title: "Academic Session",
-      content: "School’s academic session is from April to March.",
+      content: "School's academic session is from April to March.",
     },
   ],
 };

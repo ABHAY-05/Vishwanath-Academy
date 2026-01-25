@@ -27,7 +27,13 @@ const images = [
   },
 ];
 
+import { useParams } from "next/navigation";
+
 export default function HeroSlider() {
+  const params = useParams();
+  const branch = params?.branch as string | undefined;
+  const prefix = branch ? `/${branch}` : "";
+
   return (
     <section className="relative w-full h-[calc(100vh-5rem)] overflow-hidden">
       {/* BACKGROUND SLIDER */}
@@ -81,6 +87,7 @@ export default function HeroSlider() {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-5xl lg:text-7xl font-sans font-bold text-white leading-tight"
             >
@@ -94,6 +101,7 @@ export default function HeroSlider() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.7, duration: 0.8 }}
               className="text-lg lg:text-xl text-gray-200 font-body max-w-2xl leading-relaxed"
             >
@@ -104,11 +112,12 @@ export default function HeroSlider() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.9, duration: 0.8 }}
               className="flex flex-wrap gap-4 pt-2"
             >
               <a
-                href="/admissions"
+                href={`${prefix}/admissions`}
                 className="group relative px-8 py-4 bg-primary text-white font-semibold rounded-none overflow-hidden transition-all hover:bg-blue-900"
               >
                 <span className="relative z-10 flex items-center gap-2">
@@ -131,7 +140,7 @@ export default function HeroSlider() {
               </a>
 
               <a
-                href="/admissions/prospectus"
+                href={`${prefix}/admissions/prospectus`}
                 className="group px-8 py-4 bg-white text-primary font-semibold rounded-none transition-all hover:bg-gray-100 flex items-center gap-2"
               >
                 Download Brochure

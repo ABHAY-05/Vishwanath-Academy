@@ -3,11 +3,9 @@
 import {
   Facebook,
   Linkedin,
-  Mail,
+  Map, // For Google Maps
   MapPin,
   MessageCircle, // For WhatsApp
-  Map, // For Google Maps
-  Globe,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,8 +24,20 @@ const XLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default function Footer() {
+export default function Footer({ branch }: { branch?: string }) {
   const quickLinks = navigationData.quickLinks;
+  const isSingleBranch = !!branch;
+
+  // Helper to prefix links with branch
+  const getLink = (path?: string) => {
+    if (!path) return "#";
+    if (path.startsWith("http")) return path;
+    const cleanPath = path.startsWith("/") ? path : `/${path}`;
+    return branch ? `/${branch}${cleanPath}` : cleanPath;
+  };
+
+  const linksCols = isSingleBranch ? "lg:col-span-2" : "lg:col-span-2";
+  const contactCols = isSingleBranch ? "lg:col-span-6" : "lg:col-span-6";
 
   const SocialLinks = ({
     fb,
@@ -88,6 +98,82 @@ export default function Footer() {
       >
         <MessageCircle size={18} />
       </a>
+    </div>
+  );
+
+  const BranchContactCard = ({
+    data,
+    withMap = false,
+  }: {
+    data: any; // Using any for brevity with config structure
+    withMap?: boolean;
+  }) => (
+    <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-secondary/30 transition-all flex flex-col lg:flex-row gap-6 h-full group">
+      <div className="flex-1 flex flex-col h-full">
+        <h3 className="text-lg font-display font-bold text-primary dark:text-secondary mb-4 flex items-center gap-2 group-hover:text-secondary transition-colors">
+          <MapPin size={20} className="stroke-[1.5]" /> {data.name}
+        </h3>
+
+        <div className="space-y-4 text-sm font-body text-gray-600 dark:text-gray-300 grow">
+          <p className="leading-relaxed">{data.address}</p>
+
+          <div>
+            <p className="text-xs uppercase text-gray-400 font-san font-bold tracking-wider mb-1">
+              Contact
+            </p>
+            {data.phone.map((ph: string, i: number) => (
+              <a
+                key={i}
+                href={`tel:${ph.replace(/\D/g, "")}`}
+                className="block hover:text-secondary transition-colors font-medium"
+              >
+                {ph}
+              </a>
+            ))}
+          </div>
+
+          <div>
+            <p className="text-xs uppercase text-gray-400 font-san font-bold tracking-wider mb-1">
+              Email
+            </p>
+            <a
+              href={`mailto:${data.email}`}
+              className="hover:text-secondary transition-colors"
+            >
+              {data.email}
+            </a>
+          </div>
+        </div>
+
+        {/* Socials */}
+        <div className="pt-4 mt-auto border-t border-gray-200 dark:border-gray-700">
+          <SocialLinks
+            fb={data.socials.facebook}
+            x={data.socials.x}
+            google={data.socials.google}
+            linkedin={data.socials.linkedin}
+            whatsapp={data.socials.whatsapp}
+          />
+          <div className="mt-3 text-xs text-gray-500 font-san">
+            Affiliation No.: {data.affiliation}
+          </div>
+        </div>
+      </div>
+
+      {withMap && data.mapUrl && (
+        <div className="w-full lg:w-[45%] min-h-[250px] lg:min-h-0 rounded-xl overflow-hidden shadow-inner border border-gray-200 dark:border-gray-700 bg-gray-200">
+          <iframe
+            src={data.mapUrl}
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-full"
+          />
+        </div>
+      )}
     </div>
   );
 
@@ -159,8 +245,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* COLUMN 2: QUICK LINKS (2 cols) */}
-          <div className="lg:col-span-2">
+          {/* COLUMN 2: QUICK LINKS */}
+          <div className={linksCols}>
             <h3 className="text-lg font-display font-bold text-primary dark:text-secondary mb-6">
               Quick Links
             </h3>
@@ -168,7 +254,7 @@ export default function Footer() {
               {quickLinks.map((item) => (
                 <li key={item.name}>
                   <Link
-                    href={item.href}
+                    href={getLink(item.href)}
                     className="hover:text-secondary transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 group-hover:bg-secondary transition-colors" />
@@ -179,115 +265,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* COLUMN 3: CONTACT (6 cols - Split into 2 sub-cols for branches) */}
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {/* AASHIANA BRANCH */}
-            <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-secondary/30 transition-all flex flex-col h-full group">
-              <h3 className="text-lg font-display font-bold text-primary dark:text-secondary mb-4 flex items-center gap-2 group-hover:text-secondary transition-colors">
-                <MapPin size={20} className="stroke-[1.5]" /> Aashiana Campus
-              </h3>
-
-              <div className="space-y-4 text-sm font-body text-gray-600 dark:text-gray-300 grow">
-                <p className="leading-relaxed">
-                  {siteConfig.branches.asiana.address}
-                </p>
-
-                <div>
-                  <p className="text-xs uppercase text-gray-400 font-san font-bold tracking-wider mb-1">
-                    Contact
-                  </p>
-                  {siteConfig.branches.asiana.phone.map((ph, i) => (
-                    <a
-                      key={i}
-                      href={`tel:${ph.replace(/\D/g, "")}`}
-                      className="block hover:text-secondary transition-colors font-medium"
-                    >
-                      {ph}
-                    </a>
-                  ))}
-                </div>
-
-                <div>
-                  <p className="text-xs uppercase text-gray-400 font-san font-bold tracking-wider mb-1">
-                    Email
-                  </p>
-                  <a
-                    href={`mailto:${siteConfig.branches.asiana.email}`}
-                    className="hover:text-secondary transition-colors"
-                  >
-                    {siteConfig.branches.asiana.email}
-                  </a>
-                </div>
+          {/* COLUMN 3: CONTACT */}
+          <div className={contactCols}>
+            {branch === "aashiana" && (
+              <BranchContactCard
+                data={siteConfig.branches.aashiana}
+                withMap={true}
+              />
+            )}
+            {branch === "dhawapur" && (
+              <BranchContactCard
+                data={siteConfig.branches.dhawapur}
+                withMap={true}
+              />
+            )}
+            {!branch && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <BranchContactCard data={siteConfig.branches.aashiana} />
+                <BranchContactCard data={siteConfig.branches.dhawapur} />
               </div>
-
-              {/* Aashiana Socials */}
-              <div className="pt-4 mt-auto border-t border-gray-200 dark:border-gray-700">
-                <SocialLinks
-                  fb={siteConfig.branches.asiana.socials.facebook}
-                  x={siteConfig.branches.asiana.socials.x}
-                  google={siteConfig.branches.asiana.socials.google}
-                  linkedin={siteConfig.branches.asiana.socials.linkedin}
-                  whatsapp={siteConfig.branches.asiana.socials.whatsapp}
-                />
-                <div className="mt-3 text-xs text-gray-500 font-san">
-                  Affiliation No.: {siteConfig.branches.asiana.affiliation}
-                </div>
-              </div>
-            </div>
-
-            {/* DHAWAPUR BRANCH */}
-            <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-secondary/30 transition-all flex flex-col h-full group">
-              <h3 className="text-lg font-display font-bold text-primary dark:text-secondary mb-4 flex items-center gap-2 group-hover:text-secondary transition-colors">
-                <MapPin size={20} className="stroke-[1.5]" /> Dhawapur Campus
-              </h3>
-
-              <div className="space-y-4 text-sm font-body text-gray-600 dark:text-gray-300 grow">
-                <p className="leading-relaxed">
-                  {siteConfig.branches.dhawapur.address}
-                </p>
-
-                <div>
-                  <p className="text-xs uppercase text-gray-400 font-san font-bold tracking-wider mb-1">
-                    Contact
-                  </p>
-                  {siteConfig.branches.dhawapur.phone.map((ph, i) => (
-                    <a
-                      key={i}
-                      href={`tel:${ph.replace(/\D/g, "")}`}
-                      className="block hover:text-secondary transition-colors font-medium"
-                    >
-                      {ph}
-                    </a>
-                  ))}
-                </div>
-
-                <div>
-                  <p className="text-xs uppercase text-gray-400 font-san font-bold tracking-wider mb-1">
-                    Email
-                  </p>
-                  <a
-                    href={`mailto:${siteConfig.branches.dhawapur.email}`}
-                    className="hover:text-secondary transition-colors"
-                  >
-                    {siteConfig.branches.dhawapur.email}
-                  </a>
-                </div>
-              </div>
-
-              {/* Dhawapur Socials */}
-              <div className="pt-4 mt-auto border-t border-gray-200 dark:border-gray-700">
-                <SocialLinks
-                  fb={siteConfig.branches.dhawapur.socials.facebook}
-                  x={siteConfig.branches.dhawapur.socials.x}
-                  google={siteConfig.branches.dhawapur.socials.google}
-                  linkedin={siteConfig.branches.dhawapur.socials.linkedin}
-                  whatsapp={siteConfig.branches.dhawapur.socials.whatsapp}
-                />
-                <div className="mt-3 text-xs text-gray-500 font-san">
-                  Affiliation No.: {siteConfig.branches.dhawapur.affiliation}
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

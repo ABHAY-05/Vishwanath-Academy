@@ -72,10 +72,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${lora.variable} ${quicksand.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
-          <Navbar />
-          <FloatingWhatsApp />
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

@@ -7,7 +7,7 @@ export const siteConfig = {
       "https://apps.apple.com/us/app/edunext-parent/id1516241231?platform=iphone",
   },
   branches: {
-    asiana: {
+    aashiana: {
       name: "Aashiana Campus",
       address: "Sector M-1, Parag Dairy Road, Aashiana, Lucknow - 226012",
       phone: ["+91-9695660388", "+91-9169388348"],

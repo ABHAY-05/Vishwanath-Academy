@@ -3,6 +3,8 @@
 import { ArrowUpRight, Calendar, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
+import { useParams } from "next/navigation";
+
 const notices = [
   {
     date: "22 Dec, 2025",
@@ -32,6 +34,32 @@ const quickLinks = [
 ];
 
 export default function NoticeBoard() {
+  const params = useParams();
+  const branch = params?.branch as string | undefined;
+  const prefix = branch ? `/${branch}` : "";
+
+  // Helper to prefix links
+  const getLink = (path: string) => {
+    if (path.startsWith("http")) return path;
+    const cleanPath = path.startsWith("/") ? path : `/${path}`;
+    return `${prefix}${cleanPath}`;
+  };
+
+  // Filter notices based on branch
+  const filteredNotices = notices.filter((notice) => {
+    if (!branch) return true; // Show all on root/non-branch pages? But this component is usually on branch page.
+    const lowerTitle = notice.title.toLowerCase();
+
+    // If notice is for Dhawapur but we are on Asiana
+    if (lowerTitle.includes("dhawapur") && branch !== "dhawapur") return false;
+
+    // If notice is for Aashiana but we are on Dhawapur
+    if (lowerTitle.includes("aashiana") && !branch.includes("aashiana"))
+      return false;
+
+    return true;
+  });
+
   return (
     <section className="bg-gray-50 dark:bg-gray-900 py-16 relative overflow-hidden">
       {/* Decorative background blob */}
@@ -48,7 +76,7 @@ export default function NoticeBoard() {
                 </span>
               </h2>
               <Link
-                href="/announcements"
+                href={`${prefix}/announcements`}
                 className="group flex items-center gap-1 text-sm font-semibold text-primary dark:text-secondary dark:hover:text-white hover:text-secondary transition"
               >
                 View All
@@ -61,7 +89,7 @@ export default function NoticeBoard() {
 
             <div className="h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary/20 hover:scrollbar-thumb-primary/40 scrollbar-track-transparent">
               <div className="space-y-4">
-                {notices.map((notice, index) => (
+                {filteredNotices.map((notice, index) => (
                   <div
                     key={index}
                     className="group relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-secondary/30 transition-all duration-300"
@@ -87,7 +115,7 @@ export default function NoticeBoard() {
                     </div>
 
                     <a
-                      href={notice.href}
+                      href={getLink(notice.href)}
                       target={notice.isExternal ? "_blank" : undefined}
                       rel={
                         notice.isExternal ? "noopener noreferrer" : undefined
@@ -110,7 +138,7 @@ export default function NoticeBoard() {
               {quickLinks.map((item) => (
                 <Link
                   key={item.title}
-                  href={item.href}
+                  href={getLink(item.href)}
                   className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-lg hover:border-secondary/30 transition-all duration-300 group"
                 >
                   <span className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 text-2xl group-hover:bg-secondary group-hover:text-white transition-colors duration-300">

@@ -27,8 +27,8 @@ const textLink = (label: string, url: string = "#"): LinkCell => ({
   url,
 });
 
-export const cbseData: { asiana: SectionData[]; dhawapur: SectionData[] } = {
-  asiana: [
+export const cbseData: { aashiana: SectionData[]; dhawapur: SectionData[] } = {
+  aashiana: [
     {
       title: "General Information",
       headers: ["SL.NO.", "INFORMATION", "DETAILS"],
@@ -275,7 +275,7 @@ export const cbseData: { asiana: SectionData[]; dhawapur: SectionData[] } = {
         {
           data: [
             "4.",
-            "COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009, AND IT’S RENEWAL IF APPLICABLE",
+            "COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009, AND IT'S RENEWAL IF APPLICABLE",
             viewLink(),
           ],
         },

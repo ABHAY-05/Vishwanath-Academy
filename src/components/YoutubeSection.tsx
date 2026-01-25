@@ -9,16 +9,20 @@ const videos = [
     title: "Aashiana Branch",
     thumbnail: "/aashiana.webp",
     videoId: "YQczJujBrbs",
+    branch: "aashiana",
   },
   {
     title: "Dhawapur Branch",
     thumbnail: "/dhawapur.webp",
     videoId: "s8DMBZLVzw4",
+    branch: "dhawapur",
   },
 ];
 
-export default function YoutubeSection() {
+export default function YoutubeSection({ branch }: { branch?: string }) {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
+  const filteredVideos = videos.filter((v) => !branch || v.branch === branch);
 
   return (
     <>
@@ -39,13 +43,13 @@ export default function YoutubeSection() {
           </div>
 
           {/* VIDEOS */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {videos.map((video) => (
+          <div
+            className={`grid grid-cols-1 ${
+              filteredVideos.length > 1 ? "lg:grid-cols-2" : "max-w-4xl mx-auto"
+            } gap-10`}
+          >
+            {filteredVideos.map((video) => (
               <div key={video.title} className="group">
-                <h3 className="mb-4 text-xl font-sans font-semibold text-gray-800 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors pl-1 border-l-4 border-secondary">
-                  {video.title}
-                </h3>
-
                 <div
                   onClick={() => setActiveVideo(video.videoId)}
                   className="relative cursor-pointer overflow-hidden rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 group-hover:shadow-2xl transition-all duration-300"

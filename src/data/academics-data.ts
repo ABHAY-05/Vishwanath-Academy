@@ -3,7 +3,7 @@ export const academicsData = {
     title: "Curriculum",
     intro: [
       "Vishwanath Academy is affiliated to the “Central Board of Secondary Education (CBSE).” a widely recognized and highly regarded school board in the country following the 10+2 pattern of education.",
-      "At Vishwanath Academy, we provide effective framework for education through a relevant, broad, balanced, rigorously-taught and monitored curriculum. We place great importance on education the ‘Whole child’ at their individual level of ability and potential to ensure a happy learner.",
+      "At Vishwanath Academy, we provide effective framework for education through a relevant, broad, balanced, rigorously-taught and monitored curriculum. We place great importance on education the 'Whole child' at their individual level of ability and potential to ensure a happy learner.",
       "Through a holistic approach towards learning we aim to provide our students with:",
     ],
     objectives: [
@@ -88,7 +88,7 @@ export const activityCalendar = {
         },
         {
           month: "August",
-          activity: "Flag Making, Fancy Dress on Theme ‘Our Nation",
+          activity: "Flag Making, Fancy Dress on Theme 'Our Nation",
           pdfUrl: "#",
         },
         {
@@ -331,7 +331,7 @@ export const activityCalendar = {
 export const competitiveExams = {
   title: "Competitive Exams After 12th",
   intro: [
-    "Choosing a specific field after 12th standard can be confusing and burdening. Since your whole life ahead – your career is completely dependent on the competitive exam you take after your 12th standard, you must choose it wisely.",
+    "Choosing a specific field after 12th standard can be confusing and burdening. Since your whole life ahead - your career is completely dependent on the competitive exam you take after your 12th standard, you must choose it wisely.",
     "There are a lot of competitive exams you can choose from, both regionally and nationally, to get into the best colleges of engineering, designing, medical, agriculture, pharmacy and many more.",
     "We have covered the most popular competitive exams after 12th in different streams here. Read on to find out.",
   ],
@@ -375,7 +375,7 @@ export const competitiveExams = {
         "All India Entrance Examination for Design (AIEED)",
         "Symbiosis Institute of Design Exam",
         "Footwear Design and Development Institute",
-        "Maeer’s MIT Institute of Design",
+        "Maeer's MIT Institute of Design",
         "National Institute of Fashion Design",
         "National Aptitude Test in Architecture",
         "Center for Environmental Planning and Technology (CEPT)",
@@ -448,7 +448,7 @@ export const competitiveExams = {
             { label: "Maharashtra", url: "dtemaharashtra.gov.in" },
             { label: "West Bengal", url: "wbjeeb.in" },
             { label: "Chattisgarh", url: "cgdteraipur.cgstate.gov.in" },
-            { label: "Gujarat – CET", url: "gujcet.gseb.org" },
+            { label: "Gujarat - CET", url: "gujcet.gseb.org" },
             { label: "Jammu and Kashmir", url: "www.jakbopee.org" },
             { label: "Odisha", url: "ojee.nic.in" },
             { label: "Uttar Pradesh", url: "upsee.nic.in" },
@@ -481,7 +481,7 @@ export const competitiveExams = {
         {
           name: "1. Indian Maritime University Common Entrance Test",
           purpose:
-            "Candidates can secure admission to Diploma in Nautical Science (DNS) leading to B.Sc. (Nautical Science) through this entrance test. Entry to B.Tech in ‘Marine Engineering’ & ‘Naval Architechture & Ocean Engineering’ is also through this exam.",
+            "Candidates can secure admission to Diploma in Nautical Science (DNS) leading to B.Sc. (Nautical Science) through this entrance test. Entry to B.Tech in 'Marine Engineering' & 'Naval Architechture & Ocean Engineering' is also through this exam.",
           applicationMode: "Online",
           website: "imu.edu.in",
         },
@@ -557,7 +557,7 @@ export const competitiveExams = {
         {
           name: "3. TISS Bachelors Admission Test (TISS-BAT)",
           purpose:
-            "This is conducted for admission to B.A. Social Sciences in any of the campuses of TISS – Tuljapur, Guwahati and Hyderabad.",
+            "This is conducted for admission to B.A. Social Sciences in any of the campuses of TISS - Tuljapur, Guwahati and Hyderabad.",
           applicationMode: "Online mode",
           website: "tiss.edu/admissions",
         },
@@ -639,7 +639,7 @@ export const competitiveExams = {
           {
             title: "Competitive Exams after 12th Arts",
             content:
-              "Students who have completed 12th in Arts stream have a wide range of course options available to choose from. Here’s the list of courses for which students can appear for the entrance exam after 12th Arts:",
+              "Students who have completed 12th in Arts stream have a wide range of course options available to choose from. Here's the list of courses for which students can appear for the entrance exam after 12th Arts:",
             list: [
               "MRNAT (for Manav Rachna)",
               "NCHMCT JEE",

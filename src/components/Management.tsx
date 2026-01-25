@@ -10,34 +10,38 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-const management = [
+const managementData = [
   {
     name: "Shri. Markandey Tewari",
     role: "Founder & Chairman",
-    image: "/management/markandey-tewari.webp",
+    image: "/management/markandey-tewari.jpg",
     id: "markandey-tewari",
+    branch: "all",
   },
   {
     name: "Shri. Siddhartha Tewari",
     role: "Director",
-    image: "/management/siddhartha-tewari.webp",
+    image: "/management/siddhartha-tewari.jpg",
     id: "siddhartha-tewari",
+    branch: "all",
   },
   {
     name: "Ms. (Dr.) Charu Khare",
-    role: "Sr. Principal - Aashiana Branch",
-    image: "/management/charu-khare.webp",
+    role: "Sr. Principal",
+    image: "/management/charu-khare.jpg",
     id: "charu-khare",
+    branch: "aashiana",
   },
   {
     name: "Ms. Chhaya Joshi",
-    role: "Principal - Dhawapur Branch",
-    image: "/management/chhaya-joshi.webp",
+    role: "Principal",
+    image: "/management/chhaya-joshi.jpg",
     id: "chhaya-joshi",
+    branch: "dhawapur",
   },
 ];
 
-export default function OurManagement() {
+export default function OurManagement({ branch }: { branch?: string }) {
   const [slidesPerView, setSlidesPerView] = useState(1);
 
   useEffect(() => {
@@ -54,6 +58,13 @@ export default function OurManagement() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const filteredManagement = managementData.filter(
+    (person) =>
+      person.branch === "all" ||
+      (branch && person.branch === branch) ||
+      (!branch && true),
+  );
 
   return (
     <section className="bg-white dark:bg-gray-900">
@@ -86,37 +97,40 @@ export default function OurManagement() {
             slidesPerView={slidesPerView}
             className="pb-4"
           >
-            {[...management, ...management].map((person, index) => (
-              <SwiperSlide key={`${person.name}-${index}`}>
-                <Link
-                  href={`/about/team#${person.id}`}
-                  className="block h-full"
-                >
-                  <div className="text-center h-full">
-                    <div className="relative w-full aspect-4/5 mb-4 overflow-hidden rounded-lg border bg-white shadow-md">
-                      <Image
-                        src={person.image}
-                        alt={person.name}
-                        fill
-                        className="object-cover object-top"
-                      />
+            {[...filteredManagement, ...filteredManagement].map(
+              (person, index) => (
+                <SwiperSlide key={`${person.name}-${index}`}>
+                  <Link
+                    href={`/${branch || "aashiana"}/about/team#${person.id}`}
+                    className="block h-full"
+                  >
+                    <div className="text-center h-full">
+                      <div className="relative w-full aspect-4/5 mb-4 overflow-hidden rounded-lg border bg-white shadow-md">
+                        <Image
+                          src={person.image}
+                          alt={person.name}
+                          fill
+                          sizes="(max-width: 1280px) 100vw"
+                          className="object-cover object-top"
+                        />
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">
+                        {person.name}
+                      </h3>
+                      <p className="text-primary dark:text-secondary font-medium text-sm font-body">
+                        {person.role}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">
-                      {person.name}
-                    </h3>
-                    <p className="text-primary dark:text-secondary font-medium text-sm font-body">
-                      {person.role}
-                    </p>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ))}
+                  </Link>
+                </SwiperSlide>
+              ),
+            )}
           </Swiper>
         </div>
 
         {/* DESKTOP GRID (>= 1280px) */}
-        <div className="hidden xl:grid grid-cols-4 gap-8">
-          {management.map((person, index) => (
+        <div className="hidden xl:grid grid-cols-3 md:grid-cols-3 gap-8 justify-center">
+          {filteredManagement.map((person, index) => (
             <motion.div
               key={person.name}
               initial={{ opacity: 0, y: 30 }}
@@ -135,7 +149,7 @@ export default function OurManagement() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                   <Link
-                    href={`/about/team#${person.id}`}
+                    href={`/${branch || "aashiana"}/about/team#${person.id}`}
                     className="inline-flex items-center gap-2 px-6 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full hover:bg-white hover:text-primary transition-all font-medium transform translate-y-4 group-hover:translate-y-0 duration-300"
                   >
                     View Profile <ExternalLink size={16} />

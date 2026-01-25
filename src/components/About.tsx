@@ -3,7 +3,13 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+import { useParams } from "next/navigation";
+
 export default function About() {
+  const params = useParams();
+  const branch = params?.branch as string | undefined;
+  const prefix = branch ? `/${branch}` : "";
+
   return (
     <section
       id="about-section"
@@ -26,11 +32,10 @@ export default function About() {
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                priority={false}
+                priority
               />
             </div>
             {/* Decorative Elements */}
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-secondary rounded-xl -z-10" />
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-full blur-xl -z-10" />
           </motion.div>
 
@@ -74,7 +79,7 @@ export default function About() {
 
             <div className="pt-6">
               <a
-                href="/about"
+                href={`${prefix}/about`}
                 className="text-primary dark:text-secondary font-semibold hover:text-secondary dark:hover:text-white transition-colors inline-flex items-center gap-2 group"
               >
                 Learn More About Us

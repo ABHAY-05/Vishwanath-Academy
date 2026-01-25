@@ -38,7 +38,7 @@ export const aboutData = {
     {
       title: "Computer Lab",
       thumbnail: "/facilities/Digital-A.webp",
-      images: ["/facilities/Digital-A.webp"],
+      images: ["/facilities/Digital-A.jpg"],
     },
     {
       title: "Art & Craft Room",
@@ -48,7 +48,7 @@ export const aboutData = {
     {
       title: "Smart Classes",
       thumbnail: "/learning/Learn.webp",
-      images: ["/learning/Learn.webp"],
+      images: ["/learning/Learn.jpg"],
     },
     {
       title: "Games",
@@ -80,15 +80,15 @@ export const aboutData = {
       "/learning/HelpingKids1.webp",
     ],
     balancingImage: "/VNA-class.jpg",
-    digitalImage: "/facilities/Digital-A.webp",
-    motivationalImage: "/learning/Learn.webp",
+    digitalImage: "/facilities/Digital-A.jpg",
+    motivationalImage: "/learning/Learn.jpg",
   },
   team: [
     {
       id: "markandey-tewari",
       name: "Mr. Markandey Tewari",
       title: "Founder & Chairman - Vishwanath Academy",
-      image: "/management/markandey-tewari.webp",
+      image: "/management/markandey-tewari.jpg",
       socials: [
         {
           type: "facebook",
@@ -107,7 +107,7 @@ export const aboutData = {
       id: "siddhartha-tewari",
       name: "Siddhartha Tewari",
       title: "Director - Vishwanath Academy",
-      image: "/management/siddhartha-tewari.webp",
+      image: "/management/siddhartha-tewari.jpg",
       socials: [
         {
           type: "facebook",
@@ -133,7 +133,7 @@ export const aboutData = {
       id: "charu-khare",
       name: "Dr. Charu Khare",
       title: "Sr. Principal ( Aashiana Branch )",
-      image: "/management/charu-khare.webp",
+      image: "/management/charu-khare.jpg",
       socials: [
         {
           type: "facebook",
@@ -156,7 +156,7 @@ export const aboutData = {
       id: "chhaya-joshi",
       name: "Ms. Chhaya Joshi",
       title: "Principal ( Dhawapur Branch )",
-      image: "/management/chhaya-joshi.webp",
+      image: "/management/chhaya-joshi.jpg",
       socials: [],
       content: [
         "At Vishwanath Academy, our vision for education is to create a strong, lively, and well-rounded learning experience that fosters excellence in every aspect of human development. We are dedicated to providing high-quality education that enhances intellectual, social, and cultural vitality among our students.",
