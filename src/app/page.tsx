@@ -42,8 +42,8 @@ export default function LandingPage() {
         />
       </div>
 
-      {/* THEME TOGGLE (Top Right) */}
-      <div className="absolute top-6 right-6 z-50">
+      {/* THEME TOGGLE */}
+      <div className="absolute top-8 right-6 z-50">
         {mounted && (
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -76,7 +76,7 @@ export default function LandingPage() {
               priority
             />
             <Image
-              src="/vna-logo-light.webp" // Assuming a light version exists or reusing main if dark text
+              src="/vna-logo-light.webp"
               alt="Vishwanath Academy"
               width={320}
               height={120}
