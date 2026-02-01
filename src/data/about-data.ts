@@ -24,55 +24,79 @@ export const aboutData = {
   facilities: [
     {
       title: "Laboratories",
-      thumbnail: "/facilities/Bio-gallery.webp",
-      images: ["/facilities/Bio-gallery.webp", "/facilities/lab-gallery.webp"],
-    },
-    {
-      title: "Library",
-      thumbnail: "/facilities/Library1-gallery.webp",
+      thumbnail: "/facilities/laboratories/1.jpg",
       images: [
-        "/facilities/Library1-gallery.webp",
-        "/facilities/Library__1-gallery.webp",
+        "/facilities/laboratories/1.jpg",
+        "/facilities/laboratories/2.jpg",
+        "/facilities/laboratories/3.jpg",
+        "/facilities/laboratories/4.jpg",
+        "/facilities/laboratories/5.jpg",
       ],
     },
     {
+      title: "Library",
+      thumbnail: "/facilities/library/1.jpg",
+      images: ["/facilities/library/1.jpg", "/facilities/library/2.jpg"],
+    },
+    {
       title: "Computer Lab",
-      thumbnail: "/facilities/Digital-A.webp",
-      images: ["/facilities/Digital-A.jpg"],
+      thumbnail: "/facilities/computer-lab/1.jpg",
+      images: [
+        "/facilities/computer-lab/1.jpg",
+        "/facilities/computer-lab/2.jpg",
+        "/facilities/computer-lab/3.jpg",
+      ],
     },
     {
       title: "Art & Craft Room",
-      thumbnail: "/facilities/artandcraft.webp",
-      images: ["/facilities/artandcraft.webp"],
+      thumbnail: "/facilities/art-craft/1.jpg",
+      images: [
+        "/facilities/art-craft/1.jpg",
+        "/facilities/art-craft/2.jpg",
+        "/facilities/art-craft/3.jpg",
+        "/facilities/art-craft/4.jpg",
+      ],
     },
     {
       title: "Smart Classes",
-      thumbnail: "/learning/Learn.webp",
-      images: ["/learning/Learn.jpg"],
+      thumbnail: "/facilities/smart-class/1.jpg",
+      images: [
+        "/facilities/smart-class/1.jpg",
+        "/facilities/smart-class/2.jpg",
+        "/facilities/smart-class/3.jpg",
+      ],
     },
     {
       title: "Games",
-      thumbnail: "/facilities/game1-gallery.webp",
+      thumbnail: "/facilities/games/1.jpg",
       images: [
-        "/facilities/game1-gallery.webp",
-        "/facilities/game2-gallery.webp",
+        "/facilities/games/1.jpg",
+        "/facilities/games/2.jpg",
+        "/facilities/games/3.jpg",
+        "/facilities/games/4.jpg",
       ],
     },
     {
       title: "Music Room",
-      thumbnail: "/facilities/music-gallery.webp",
-      images: ["/facilities/music-gallery.webp"],
+      thumbnail: "/facilities/music/1.webp",
+      images: ["/facilities/music/1.webp"],
     },
     {
       title: "Transport Facility",
-      thumbnail: "/facilities/bus-gallery.webp",
-      images: ["/facilities/bus-gallery.webp"],
+      thumbnail: "/facilities/transport/1.jpg",
+      images: [
+        "/facilities/transport/1.jpg",
+        "/facilities/transport/2.jpg",
+        "/facilities/transport/3.jpg",
+      ],
     },
   ],
   beyondClassroom: {
     sportsImages: [
-      "/learning/Sport.webp",
-      "/learning/Sports-5.webp",
+      "/facilities/games/1.jpg",
+      "/facilities/games/2.jpg",
+      "/facilities/games/3.jpg",
+      "/facilities/games/4.jpg",
       "/learning/tabletennis.webp",
       "/learning/tree.webp",
       "/learning/tree1.webp",
@@ -80,8 +104,8 @@ export const aboutData = {
       "/learning/HelpingKids1.webp",
     ],
     balancingImage: "/VNA-class.jpg",
-    digitalImage: "/facilities/Digital-A.jpg",
-    motivationalImage: "/learning/Learn.jpg",
+    digitalImage: "/facilities/computer-lab/1.jpg",
+    motivationalImage: "/facilities/smart-class/3.jpg",
   },
   team: [
     {

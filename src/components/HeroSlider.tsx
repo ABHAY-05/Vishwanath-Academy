@@ -13,17 +13,18 @@ const images = [
   {
     src: "/slider/slider-1.jpg",
     title: "Creating Learners for Life",
-    subtitle: "Empowering students with knowledge, character, and vision.",
   },
   {
     src: "/slider/slider-2.jpg",
     title: "Excellence in Education",
-    subtitle: "State-of-the-art facilities for holistic development.",
   },
   {
     src: "/slider/slider-3.jpg",
     title: "Nurturing Future Leaders",
-    subtitle: "A legacy of academic brilliance.",
+  },
+  {
+    src: "/slider/slider-4.jpg",
+    title: "Nurturing Future Leaders",
   },
 ];
 
