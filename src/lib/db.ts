@@ -8,7 +8,6 @@ if (!MONGODB_URI) {
   );
 }
 
-// Global cached connection for hot-reloading
 let cached = (global as any).mongoose;
 
 if (!cached) {
