@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { Lora, Playfair_Display, Quicksand } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -67,14 +68,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${playfair.variable} ${lora.variable} ${quicksand.variable} antialiased`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="light">
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${playfair.variable} ${lora.variable} ${quicksand.variable} antialiased`}
+        >
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

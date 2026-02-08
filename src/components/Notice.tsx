@@ -2,29 +2,9 @@
 
 import { ArrowUpRight, Calendar, ExternalLink } from "lucide-react";
 import Link from "next/link";
-
 import { useParams } from "next/navigation";
-
-const notices = [
-  {
-    date: "22 Dec, 2025",
-    title: "Holiday Notice, Dhawapur Branch",
-    href: "/notice-board/holiday-dhawapur",
-    isExternal: false,
-  },
-  {
-    date: "17 Dec, 2025",
-    title: "Parent Teacher Meeting, Dhawapur Branch",
-    href: "/notice-board/ptm-dhawapur",
-    isExternal: false,
-  },
-  {
-    date: "15 Dec, 2025",
-    title: "Winter Uniform Guidelines",
-    href: "https://example.com/winter-uniform-pdf", // Example external link
-    isExternal: true,
-  },
-];
+import { useState } from "react";
+import NoticeModal from "./NoticeModal";
 
 const quickLinks = [
   { title: "Apply for Scholarship", icon: "🎓", href: "/students/scholarship" },
@@ -33,10 +13,21 @@ const quickLinks = [
   { title: "Syllabus", icon: "📂", href: "/academics/syllabus" },
 ];
 
-export default function NoticeBoard() {
+interface Notice {
+  _id: string;
+  title: string;
+  description: string;
+  createdAt: string;
+  file?: string;
+  branch: string;
+  author?: string;
+}
+
+export default function NoticeBoard({ notices = [] }: { notices?: Notice[] }) {
   const params = useParams();
   const branch = params?.branch as string | undefined;
   const prefix = branch ? `/${branch}` : "";
+  const [selectedNotice, setSelectedNotice] = useState<Notice | null>(null);
 
   // Helper to prefix links
   const getLink = (path: string) => {
@@ -44,21 +35,6 @@ export default function NoticeBoard() {
     const cleanPath = path.startsWith("/") ? path : `/${path}`;
     return `${prefix}${cleanPath}`;
   };
-
-  // Filter notices based on branch
-  const filteredNotices = notices.filter((notice) => {
-    if (!branch) return true; // Show all on root/non-branch pages? But this component is usually on branch page.
-    const lowerTitle = notice.title.toLowerCase();
-
-    // If notice is for Dhawapur but we are on Asiana
-    if (lowerTitle.includes("dhawapur") && branch !== "dhawapur") return false;
-
-    // If notice is for Aashiana but we are on Dhawapur
-    if (lowerTitle.includes("aashiana") && !branch.includes("aashiana"))
-      return false;
-
-    return true;
-  });
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900 py-16 relative overflow-hidden">
@@ -76,7 +52,7 @@ export default function NoticeBoard() {
                 </span>
               </h2>
               <Link
-                href={`${prefix}/announcements`}
+                href={`${prefix}/notice-board`}
                 className="group flex items-center gap-1 text-sm font-semibold text-primary dark:text-secondary dark:hover:text-white hover:text-secondary transition"
               >
                 View All
@@ -89,42 +65,46 @@ export default function NoticeBoard() {
 
             <div className="h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary/20 hover:scrollbar-thumb-primary/40 scrollbar-track-transparent">
               <div className="space-y-4">
-                {filteredNotices.map((notice, index) => (
-                  <div
-                    key={index}
-                    className="group relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-secondary/30 transition-all duration-300"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-secondary dark:text-secondary/80 mb-2">
-                          <div className="p-1 rounded bg-secondary/10">
-                            <Calendar size={12} />
-                          </div>
-                          {notice.date}
-                        </div>
-                        <h3 className="text-lg font-body font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-white transition-colors">
-                          {notice.title}
-                        </h3>
-                      </div>
-                      {notice.isExternal && (
-                        <ExternalLink
-                          size={18}
-                          className="text-gray-400 group-hover:text-secondary transition-colors"
-                        />
-                      )}
-                    </div>
-
-                    <a
-                      href={getLink(notice.href)}
-                      target={notice.isExternal ? "_blank" : undefined}
-                      rel={
-                        notice.isExternal ? "noopener noreferrer" : undefined
-                      }
-                      className="absolute inset-0"
-                      aria-label={`Read more about ${notice.title}`}
-                    />
+                {notices.length === 0 ? (
+                  <div className="text-center py-10 text-gray-500">
+                    No recent announcements.
                   </div>
-                ))}
+                ) : (
+                  notices.map((notice) => (
+                    <div
+                      key={notice._id}
+                      onClick={() => setSelectedNotice(notice)}
+                      className="group relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-secondary/30 transition-all duration-300 cursor-pointer"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-secondary dark:text-secondary/80 mb-2">
+                            <div className="p-1 rounded bg-secondary/10">
+                              <Calendar size={12} />
+                            </div>
+                            {new Date(notice.createdAt).toLocaleDateString(
+                              "en-GB",
+                              {
+                                day: "numeric",
+                                month: "short",
+                                year: "numeric",
+                              },
+                            )}
+                          </div>
+                          <h3 className="text-lg font-body font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-white transition-colors">
+                            {notice.title}
+                          </h3>
+                        </div>
+                        {notice.file && (
+                          <ExternalLink
+                            size={18}
+                            className="text-gray-400 group-hover:text-secondary transition-colors"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>
@@ -157,6 +137,12 @@ export default function NoticeBoard() {
           </div>
         </div>
       </div>
+
+      <NoticeModal
+        isOpen={!!selectedNotice}
+        onClose={() => setSelectedNotice(null)}
+        notice={selectedNotice}
+      />
     </section>
   );
 }

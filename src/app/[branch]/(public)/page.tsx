@@ -6,6 +6,7 @@ import OurManagement from "@/components/Management";
 import NoticeBoard from "@/components/Notice";
 import OurStrength from "@/components/Strength";
 import YoutubeSection from "@/components/YoutubeSection";
+import PrincipalMessage from "@/components/PrincipalMessage";
 
 import { Metadata } from "next";
 import { seoData } from "@/data/seo-config";
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   description: seoData.home.description,
 };
 
-import PrincipalMessage from "@/components/PrincipalMessage";
+import { getNotices } from "@/actions/notice";
 
 export default async function Home({
   params,
@@ -23,6 +24,9 @@ export default async function Home({
   params: Promise<{ branch: string }>;
 }) {
   const { branch } = await params;
+  const allNotices = await getNotices(branch);
+  const notices = allNotices.slice(0, 5);
+
   return (
     <>
       <HeroSlider />
@@ -30,7 +34,7 @@ export default async function Home({
       <About />
       <PrincipalMessage branch={branch} />
       <ApplyAdmission />
-      <NoticeBoard />
+      <NoticeBoard notices={notices} />
       <OurManagement branch={branch} />
       <YoutubeSection branch={branch} />
     </>
