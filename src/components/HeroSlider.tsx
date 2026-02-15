@@ -26,6 +26,14 @@ const images = [
     src: "/slider/slider-4.jpg",
     title: "Nurturing Future Leaders",
   },
+  {
+    src: "/slider/slider-5.jpg",
+    title: "Nurturing Future Leaders",
+  },
+  {
+    src: "/slider/slider-6.jpg",
+    title: "Nurturing Future Leaders",
+  },
 ];
 
 import { useParams } from "next/navigation";

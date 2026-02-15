@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   description: seoData.about.team.description,
 };
 
-export default function TeamPage() {
-  return <TeamContent />;
+export default async function TeamPage({
+  params,
+}: {
+  params: Promise<{ branch: string }>;
+}) {
+  const { branch } = await params;
+  return <TeamContent branch={branch} />;
 }

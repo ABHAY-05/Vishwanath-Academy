@@ -19,7 +19,40 @@ import { aboutData } from "@/data/about-data";
 
 const teamMembers = aboutData.team;
 
-export default function TeamPage() {
+export default function TeamPage({ branch }: { branch: string }) {
+  // Filter and Process Team Members
+  const filteredMembers = teamMembers
+    .filter((member) => {
+      // Keep Management (Founder, Director)
+      if (
+        member.title.includes("Founder") ||
+        member.title.includes("Director")
+      ) {
+        return true;
+      }
+
+      // Filter Principals by Branch
+      const titleLower = member.title.toLowerCase();
+      const branchLower = branch.toLowerCase();
+
+      if (titleLower.includes("principal")) {
+        // If the title contains the OTHER branch's name, exclude it
+        const otherBranch =
+          branchLower === "aashiana" ? "dhawapur" : "aashiana";
+        if (titleLower.includes(otherBranch)) {
+          return false;
+        }
+        return true;
+      }
+
+      return true; // Default keep others
+    })
+    .map((member) => ({
+      ...member,
+      // Remove text in parentheses from title (e.g., "( Aashiana Branch )")
+      title: member.title.replace(/\s*\(.*?\)\s*/g, "").trim(),
+    }));
+
   return (
     <main className="bg-white dark:bg-gray-950 pb-20 overflow-hidden">
       {/* 1. HERO SECTION - Modern Gradient */}
@@ -63,7 +96,7 @@ export default function TeamPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 md:px-6 relative z-10 py-16 space-y-32">
-        {teamMembers.map((member, index) => (
+        {filteredMembers.map((member, index) => (
           <div key={member.id} id={member.id} className="scroll-mt-32">
             <div
               className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center ${
@@ -152,7 +185,7 @@ export default function TeamPage() {
                 </div>
               </motion.div>
             </div>
-            {index !== teamMembers.length - 1 && (
+            {index !== filteredMembers.length - 1 && (
               <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent mt-32" />
             )}
           </div>
