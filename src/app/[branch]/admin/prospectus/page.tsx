@@ -68,6 +68,7 @@ export default function AdminProspectusPage() {
       await upload(`prospectus-${Date.now()}.pdf`, formFile, {
         access: "public",
         handleUploadUrl: "/api/upload-prospectus",
+        multipart: true,
         onUploadProgress: (progressEvent) => {
           if (progressEvent.percentage) {
             setUploadProgress(progressEvent.percentage);
@@ -79,16 +80,20 @@ export default function AdminProspectusPage() {
       toast.success("Prospectus uploaded and saved successfully");
       setFormFile(null);
 
-      // Delay fetch slightly to allow webhook to complete updating MongoDB
       setTimeout(() => {
         fetchProspectus();
       }, 1000);
     } catch (error: any) {
-      console.error(error);
-      toast.error(
-        error.message ||
-          "An error occurred during upload. Do you have BLOB_READ_WRITE_TOKEN set?",
-      );
+      console.error("Vercel Blob Upload Error:", error);
+
+      let errorMessage = "An error occurred during upload. Please try again.";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else if (error?.response?.data?.error) {
+        errorMessage = error.response.data.error;
+      }
+
+      toast.error(errorMessage);
     } finally {
       setSaving(false);
       setUploadProgress(0);
