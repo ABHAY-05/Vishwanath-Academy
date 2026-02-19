@@ -5,11 +5,7 @@ import { Upload, FileText, Loader2, Save, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import ConfirmationModal from "@/components/ConfirmationModal";
 import Link from "next/link";
-import {
-  getProspectus,
-  deleteProspectus,
-  saveProspectusUrl,
-} from "@/actions/prospectus";
+import { getProspectus, deleteProspectus } from "@/actions/prospectus";
 import { upload } from "@vercel/blob/client";
 
 export default function AdminProspectusPage() {
@@ -69,8 +65,7 @@ export default function AdminProspectusPage() {
       setUploadProgress(0);
 
       // Direct client upload via Vercel Blob
-      // This automatically calls our /api/upload-prospectus handler to get a token
-      const newBlob = await upload(`prospectus-${Date.now()}.pdf`, formFile, {
+      await upload(`prospectus-${Date.now()}.pdf`, formFile, {
         access: "public",
         handleUploadUrl: "/api/upload-prospectus",
         onUploadProgress: (progressEvent) => {
@@ -80,19 +75,14 @@ export default function AdminProspectusPage() {
         },
       });
 
-      // 3. Save the resulting URL to our database
-      const saveRes = await saveProspectusUrl(
-        newBlob.url,
-        newBlob.url, // Using URL as public_id for blob since we don't have cloudinary public_id
-      );
+      // Database save is handled by Vercel Blob webhook (onUploadCompleted) automatically.
+      toast.success("Prospectus uploaded and saved successfully");
+      setFormFile(null);
 
-      if (saveRes.success) {
-        toast.success(saveRes.message || "Prospectus uploaded successfully");
-        setFormFile(null);
+      // Delay fetch slightly to allow webhook to complete updating MongoDB
+      setTimeout(() => {
         fetchProspectus();
-      } else {
-        toast.error(saveRes.message || "Failed to save prospectus link");
-      }
+      }, 1000);
     } catch (error: any) {
       console.error(error);
       toast.error(
