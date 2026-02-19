@@ -17,11 +17,6 @@ export async function POST(request: Request): Promise<NextResponse> {
           validUntil: Date.now() + 1000 * 60 * 5, // 5 minutes validity
         };
       },
-      onUploadCompleted: async ({ blob, tokenPayload }) => {
-        // Vercel Blob requires this callback to exist to finalize the upload connection.
-        // We do the actual database saving on the client-side to avoid localhost webhook routing issues.
-        console.log("Blob upload completed:", blob.url);
-      },
     });
 
     return NextResponse.json(jsonResponse);
