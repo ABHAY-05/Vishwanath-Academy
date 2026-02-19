@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import RulesContent from "./RulesContent";
 
+import { seoData } from "@/data/seo-config";
+
 export const metadata: Metadata = {
-  title: "School Rules | Vishwanath Academy",
-  description:
-    "Guidelines and rules for students and parents at Vishwanath Academy.",
+  title: seoData.admissions.rules.title,
+  description: seoData.admissions.rules.description,
 };
 
 export default function SchoolRulesPage() {

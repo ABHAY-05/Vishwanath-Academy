@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import CurriculumContent from "./CurriculumContent";
 
+import { seoData } from "@/data/seo-config";
+
 export const metadata: Metadata = {
-  title: "Curriculum | Vishwanath Academy",
-  description:
-    "Explore the holistic CBSE curriculum at Vishwanath Academy, focusing on the whole child from Primary to Senior years.",
+  title: seoData.academics.curriculum.title,
+  description: seoData.academics.curriculum.description,
 };
 
 export default function CurriculumPage() {

@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import UniformContent from "./UniformContent";
 
+import { seoData } from "@/data/seo-config";
+
 export const metadata: Metadata = {
-  title: "School Uniform | Vishwanath Academy",
-  description:
-    "Details regarding the circular summer uniform for boys and girls at Vishwanath Academy.",
+  title: seoData.admissions.uniform.title,
+  description: seoData.admissions.uniform.description,
 };
 
 export default function SchoolUniformPage() {

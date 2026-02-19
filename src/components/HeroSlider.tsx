@@ -126,7 +126,13 @@ export default function HeroSlider() {
               className="flex flex-wrap gap-4 pt-2"
             >
               <a
-                href={`${prefix}/admissions`}
+                href={
+                  branch === "aashiana"
+                    ? "https://forms.edunexttechnologies.com/forms/val/application/"
+                    : "https://forms.edunexttechnologies.com/forms/vna/application/"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative px-8 py-4 bg-primary text-white font-semibold rounded-none overflow-hidden transition-all hover:bg-blue-900"
               >
                 <span className="relative z-10 flex items-center gap-2">

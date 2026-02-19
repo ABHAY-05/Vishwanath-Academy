@@ -7,6 +7,8 @@ type Props = {
   params: Promise<{ branch: string }>;
 };
 
+import { getBranchSeo } from "@/data/seo-config";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { branch } = await params;
   const data = admissionsData[branch];
@@ -17,10 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  return {
-    title: `Fee Structure - ${data.title} | Vishwanath Academy`,
-    description: `View the fee structure for ${data.title} for the session ${data.session}.`,
-  };
+  return getBranchSeo("fees", branch, data.title);
 }
 
 export default async function FeesPage({ params }: Props) {

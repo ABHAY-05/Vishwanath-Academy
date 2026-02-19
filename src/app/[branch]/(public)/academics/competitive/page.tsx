@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import CompetitiveContent from "./CompetitiveContent";
 
+import { seoData } from "@/data/seo-config";
+
 export const metadata: Metadata = {
-  title: "Competitive Exams | Vishwanath Academy",
-  description:
-    "Explore various competitive exams after 12th in Science, Commerce, and Arts streams including JEE, NEET, CLAT, NIFT, and more. Get details on eligibility, purpose, and application.",
+  title: seoData.academics.competitive.title,
+  description: seoData.academics.competitive.description,
 };
 
 export default function CompetitiveExamsPage() {

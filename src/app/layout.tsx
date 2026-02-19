@@ -62,6 +62,10 @@ export const metadata: Metadata = {
   },
 };
 
+import { Toaster } from "sonner";
+
+// ...
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -75,6 +79,7 @@ export default function RootLayout({
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
+            <Toaster position="top-center" richColors />
           </ThemeProvider>
         </body>
       </html>

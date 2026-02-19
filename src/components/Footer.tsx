@@ -1,18 +1,11 @@
 "use client";
 
-import {
-  Facebook,
-  Linkedin,
-  Map, // For Google Maps
-  MapPin,
-  MessageCircle, // For WhatsApp
-} from "lucide-react";
+import { Facebook, Linkedin, Map, MapPin, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
 import { navigationData } from "@/data/navigation";
 
-// Custom X Logo Component
 const XLogo = ({ className }: { className?: string }) => (
   <svg
     viewBox="0 0 24 24"
@@ -28,7 +21,6 @@ export default function Footer({ branch }: { branch?: string }) {
   const quickLinks = navigationData.quickLinks;
   const isSingleBranch = !!branch;
 
-  // Helper to prefix links with branch
   const getLink = (path?: string) => {
     if (!path) return "#";
     if (path.startsWith("http")) return path;
@@ -105,7 +97,7 @@ export default function Footer({ branch }: { branch?: string }) {
     data,
     withMap = false,
   }: {
-    data: any; // Using any for brevity with config structure
+    data: any;
     withMap?: boolean;
   }) => (
     <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-secondary/30 transition-all flex flex-col lg:flex-row gap-6 h-full group">

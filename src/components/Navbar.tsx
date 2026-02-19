@@ -29,12 +29,18 @@ export default function Navbar({ branch }: { branch?: string }) {
 
   const getLink = (path: string) => {
     if (!path) return "#";
+    // If it's already an absolute URL (like Cloudinary), return it as is
     if (path.startsWith("http")) return path;
     const cleanPath = path.startsWith("/") ? path : `/${path}`;
     return branch ? `/${branch}${cleanPath}` : cleanPath;
   };
+  const ParentsLoginLink: Record<string, string> = {
+    aashiana: "https://val.edunext4.com/Index",
+    dhawapur: "https://vna.edunext4.com/Index",
+  };
 
-  // ... (rest of code)
+  const currentParentsLoginLink =
+    ParentsLoginLink[branch as string] || ParentsLoginLink["aashiana"];
 
   const admissionLinks: Record<string, string> = {
     dhawapur: "https://forms.edunexttechnologies.com/forms/vna/application/",
@@ -52,14 +58,14 @@ export default function Navbar({ branch }: { branch?: string }) {
         { name: "Our Team", href: "/about/team" },
         { name: "Facilities", href: "/about/facilities" },
         { name: "Learning Beyond Classroom", href: "/about/beyond" },
-        { name: "CBSE Mandatory Disclosure", href: "/cbse" },
+        { name: "CBSE Mandatory Disclosure", href: "/about/cbse" },
       ],
     },
     {
       name: "Results",
       items: [
         { name: "Students with Scholarship", href: "/results/scholarship" },
-        { name: "Board Exam Result", href: "/results/board" },
+        { name: "Board Exam Result", href: "/results/board-results" },
         { name: "School Awards", href: "/results/awards" },
       ],
     },
@@ -72,7 +78,10 @@ export default function Navbar({ branch }: { branch?: string }) {
           target: "_blank",
         },
         { name: "Fees Structure", href: "/admissions/fees" },
-        { name: "School Prospectus", href: "/admissions/prospectus" },
+        {
+          name: "School Prospectus",
+          href: "/admissions/prospectus",
+        },
         { name: "School Rules", href: "/admissions/rules" },
         { name: "School Uniform", href: "/admissions/uniform" },
         { name: "Subject Combination", href: "/admissions/subjects" },
@@ -97,10 +106,13 @@ export default function Navbar({ branch }: { branch?: string }) {
       name: "Students Corner",
       items: [
         { name: "Yearly Academic Planner", href: "/students/planner" },
-        { name: "Blog", href: "/students/blog" },
         { name: "Gallery", href: "/students/gallery" },
         { name: "Press Release", href: "/students/press" },
-        { name: "Apply for Scholarship", href: "/students/scholarship" },
+        {
+          name: "Apply for Scholarship",
+          href: "https://docs.google.com/forms/d/e/1FAIpQLScrfjlAw5JPZ45VUwtK9_cAZEQ5CWn116S1zLngfRsey4DWaw/viewform?usp=send_form",
+          target: "_blank",
+        },
       ],
     },
     {
@@ -117,7 +129,11 @@ export default function Navbar({ branch }: { branch?: string }) {
         { name: "Contact Us", href: "/contact" },
         { name: "Career", href: "/contact/career" },
         { name: "B-Ed Training Application", href: "/contact/bed" },
-        { name: "Feedback Form", href: "/contact/feedback" },
+        {
+          name: "Feedback Form",
+          href: "https://docs.google.com/forms/d/e/1FAIpQLSchtLqyI3eO9MieMghpMATG-xLA7K0BfLR8PvkI1Kq1KDkSQw/viewform",
+          target: "_blank",
+        },
       ],
     },
   ];
@@ -184,7 +200,8 @@ export default function Navbar({ branch }: { branch?: string }) {
 
                 {/* PARENTS LOGIN */}
                 <Link
-                  href={getLink("/parents-login")}
+                  href={currentParentsLoginLink}
+                  target="_blank"
                   className="flex items-center gap-1 text-sm font-semibold text-white bg-primary px-4 py-2 rounded-full hover:bg-secondary hover:text-black transition-all shadow-md"
                 >
                   Parents Login
@@ -276,7 +293,8 @@ export default function Navbar({ branch }: { branch?: string }) {
           ))}
 
           <Link
-            href={getLink("/parents-login")}
+            href={currentParentsLoginLink}
+            target="_blank"
             onClick={() => setMobileOpen(false)}
             className="block text-center w-full rounded-full bg-primary text-white font-bold py-2 hover:bg-secondary hover:text-black transition-colors"
           >

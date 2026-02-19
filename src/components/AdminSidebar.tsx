@@ -10,6 +10,10 @@ import {
   Menu,
   X,
   LogOut,
+  Trophy,
+  FileText,
+  Award,
+  FileBadge,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -39,9 +43,29 @@ export default function AdminSidebar({ branch, username }: AdminSidebarProps) {
       icon: ClipboardList,
     },
     {
-      name: "Blogs",
-      href: `/${branch}/admin/blogs`,
+      name: "Gallery",
+      href: `/${branch}/admin/gallery`,
       icon: Newspaper,
+    },
+    {
+      name: "Scholarship",
+      href: `/${branch}/admin/scholarship`,
+      icon: Trophy,
+    },
+    {
+      name: "Board Results",
+      href: `/${branch}/admin/board-results`,
+      icon: FileText,
+    },
+    {
+      name: "School Awards",
+      href: `/${branch}/admin/school-awards`,
+      icon: Award,
+    },
+    {
+      name: "School Prospectus",
+      href: `/${branch}/admin/prospectus`,
+      icon: FileBadge,
     },
   ];
 

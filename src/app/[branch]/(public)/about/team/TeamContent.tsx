@@ -20,10 +20,8 @@ import { aboutData } from "@/data/about-data";
 const teamMembers = aboutData.team;
 
 export default function TeamPage({ branch }: { branch: string }) {
-  // Filter and Process Team Members
   const filteredMembers = teamMembers
     .filter((member) => {
-      // Keep Management (Founder, Director)
       if (
         member.title.includes("Founder") ||
         member.title.includes("Director")
@@ -31,12 +29,10 @@ export default function TeamPage({ branch }: { branch: string }) {
         return true;
       }
 
-      // Filter Principals by Branch
       const titleLower = member.title.toLowerCase();
       const branchLower = branch.toLowerCase();
 
       if (titleLower.includes("principal")) {
-        // If the title contains the OTHER branch's name, exclude it
         const otherBranch =
           branchLower === "aashiana" ? "dhawapur" : "aashiana";
         if (titleLower.includes(otherBranch)) {
@@ -45,24 +41,20 @@ export default function TeamPage({ branch }: { branch: string }) {
         return true;
       }
 
-      return true; // Default keep others
+      return true;
     })
     .map((member) => ({
       ...member,
-      // Remove text in parentheses from title (e.g., "( Aashiana Branch )")
       title: member.title.replace(/\s*\(.*?\)\s*/g, "").trim(),
     }));
 
   return (
     <main className="bg-white dark:bg-gray-950 pb-20 overflow-hidden">
-      {/* 1. HERO SECTION - Modern Gradient */}
       <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
-        {/* Background Image/Pattern */}
         <div className="absolute inset-0 bg-blue-900 dark:bg-gray-900">
           <div className="absolute inset-0 opacity-20 bg-[url('/pattern-grid.svg')] bg-repeat" />
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-black/80 dark:from-black/90 dark:to-blue-950/50" />
 
-          {/* Animated Blobs */}
           <motion.div
             animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -122,11 +114,9 @@ export default function TeamPage({ branch }: { branch: string }) {
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       sizes="(min-width: 1024px) 40vw, 100vw"
                     />
-                    {/* Overlay Gradient on Image Bottom */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
                   </div>
 
-                  {/* Decorative Elements */}
                   <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/20 rounded-full blur-3xl -z-10" />
                   <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl -z-10" />
                 </div>

@@ -25,7 +25,6 @@ const NoticeSchema: Schema = new Schema(
   { timestamps: true },
 );
 
-// Prevent model overwrite warning in development
 if (process.env.NODE_ENV !== "production") {
   delete mongoose.models.Notice;
 }

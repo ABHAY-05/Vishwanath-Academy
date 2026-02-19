@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import {
   Search,
-  FileText,
   ChevronLeft,
   ChevronRight,
   Eye,
@@ -14,7 +13,6 @@ import { useParams, notFound } from "next/navigation";
 import { useState, useMemo } from "react";
 import { cbseData, SectionData, LinkCell } from "@/data/cbse-data";
 
-// Helper to check if a cell is a LinkCell
 const isLinkCell = (cell: unknown): cell is LinkCell => {
   return (
     typeof cell === "object" &&
@@ -23,13 +21,11 @@ const isLinkCell = (cell: unknown): cell is LinkCell => {
   );
 };
 
-// --- Disclosure Table Component ---
 function DisclosureTable({ section }: { section: SectionData }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
-  // Filter rows based on search
   const filteredRows = useMemo(() => {
     if (!searchQuery) return section.rows;
     return section.rows.filter((row) =>
@@ -40,14 +36,12 @@ function DisclosureTable({ section }: { section: SectionData }) {
     );
   }, [section.rows, searchQuery]);
 
-  // Pagination logic
   const totalPages = Math.ceil(filteredRows.length / itemsPerPage);
   const paginatedRows = filteredRows.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage,
   );
 
-  // Reset page on search
   useMemo(() => {
     setCurrentPage(1);
   }, [searchQuery]);
@@ -216,8 +210,8 @@ function DisclosureTable({ section }: { section: SectionData }) {
   );
 }
 
-// --- Main Page Component ---
-export default function CBSEDisclosurePage() {
+// --- Main Client Component ---
+export default function CBSEContent() {
   const params = useParams();
   const branchKey = params.branch as string;
 

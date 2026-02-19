@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import BooksContent from "./BooksContent";
 
+import { seoData } from "@/data/seo-config";
+
 export const metadata: Metadata = {
-  title: "Books & Stationary | Vishwanath Academy",
-  description:
-    "Download the list of books and stationary for all classes at Vishwanath Academy.",
+  title: seoData.academics.books.title,
+  description: seoData.academics.books.description,
 };
 
 export default function BooksAndStationaryPage() {

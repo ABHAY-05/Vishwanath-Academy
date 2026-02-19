@@ -9,7 +9,6 @@ export default async function NoticeEditor({
 }) {
   const { branch } = await params;
 
-  // Fetch notices
   const notices = await getNotices(branch);
 
   return (

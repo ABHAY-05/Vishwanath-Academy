@@ -1,7 +1,7 @@
 "use server";
 
 import dbConnect from "@/lib/db";
-import Notice from "@/models/Notice";
+import Notice from "@/lib/models/Notice";
 import { revalidatePath } from "next/cache";
 
 export async function getNotices(branch: string) {
