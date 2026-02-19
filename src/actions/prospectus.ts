@@ -3,15 +3,6 @@
 import dbConnect from "@/lib/db";
 import Prospectus from "@/lib/models/prospectus";
 import { revalidatePath } from "next/cache";
-import { v2 as cloudinary } from "cloudinary";
-import { processAndUploadDocument } from "@/lib/cloudinary";
-
-// Configure Cloudinary
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 
 export async function getProspectus() {
   try {
@@ -28,36 +19,27 @@ export async function getProspectus() {
   }
 }
 
-export async function saveProspectusUrl(url: string, publicId: string) {
+export async function saveProspectusUrl(url: string) {
   try {
     await dbConnect();
 
-    if (!url || !publicId) {
-      return { success: false, message: "Missing required fields" };
+    if (!url) {
+      return { success: false, message: "Missing required URL field" };
     }
 
     const existing = await Prospectus.findOne();
 
     if (existing) {
-      // Delete old PDF from Cloudinary if it exists and is different
-      if (existing.pdf?.publicId && existing.pdf.publicId !== publicId) {
-        try {
-          await cloudinary.uploader.destroy(existing.pdf.publicId);
-        } catch (e) {
-          console.error("Failed to delete replacing PDF:", e);
-        }
-      }
-
       existing.pdf = {
         url,
-        publicId,
+        publicId: "manual-link",
       };
       await existing.save();
     } else {
       await Prospectus.create({
         pdf: {
           url,
-          publicId,
+          publicId: "manual-link",
         },
       });
     }
@@ -81,11 +63,6 @@ export async function deleteProspectus() {
     const existing = await Prospectus.findOne();
     if (!existing) {
       return { success: false, message: "Prospectus not found" };
-    }
-
-    // Delete file from Cloudinary
-    if (existing.pdf?.publicId) {
-      await cloudinary.uploader.destroy(existing.pdf.publicId);
     }
 
     await Prospectus.findOneAndDelete();

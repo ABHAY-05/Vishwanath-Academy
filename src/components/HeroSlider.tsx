@@ -156,6 +156,8 @@ export default function HeroSlider() {
 
               <a
                 href={`${prefix}/admissions/prospectus`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group px-8 py-4 bg-white text-primary font-semibold rounded-none transition-all hover:bg-gray-100 flex items-center gap-2"
               >
                 Download Brochure

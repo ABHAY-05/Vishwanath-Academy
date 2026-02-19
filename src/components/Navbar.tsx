@@ -81,6 +81,7 @@ export default function Navbar({ branch }: { branch?: string }) {
         {
           name: "School Prospectus",
           href: "/admissions/prospectus",
+          target: "_blank",
         },
         { name: "School Rules", href: "/admissions/rules" },
         { name: "School Uniform", href: "/admissions/uniform" },

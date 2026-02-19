@@ -1,21 +1,23 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Upload, FileText, Loader2, Save, Trash2 } from "lucide-react";
+import { Link2, Loader2, Save, Trash2, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import ConfirmationModal from "@/components/ConfirmationModal";
 import Link from "next/link";
-import { getProspectus, deleteProspectus } from "@/actions/prospectus";
-import { upload } from "@vercel/blob/client";
+import {
+  getProspectus,
+  deleteProspectus,
+  saveProspectusUrl,
+} from "@/actions/prospectus";
 
 export default function AdminProspectusPage() {
   const [prospectusUrl, setProspectusUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   // Form State
-  const [formFile, setFormFile] = useState<File | null>(null);
+  const [linkInput, setLinkInput] = useState("");
   const [saving, setSaving] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
 
   // Delete State
   const [isDeleting, setIsDeleting] = useState(false);
@@ -30,73 +32,36 @@ export default function AdminProspectusPage() {
     const res = await getProspectus();
     if (res.success && res.data) {
       setProspectusUrl(res.data.pdf.url);
+      setLinkInput(res.data.pdf.url);
     } else {
       setProspectusUrl(null);
+      setLinkInput("");
     }
     setLoading(false);
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      if (file.type !== "application/pdf") {
-        toast.error("Please select a valid PDF file");
-        setFormFile(null);
-      } else {
-        setFormFile(file);
-      }
-    } else {
-      setFormFile(null);
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formFile) {
-      toast.error("Please select a PDF file");
+    if (!linkInput.trim()) {
+      toast.error("Please enter a valid link");
       return;
     }
 
     setSaving(true);
-    const formData = new FormData();
-    formData.append("file", formFile);
 
     try {
-      setUploadProgress(0);
-
-      // Direct client upload via Vercel Blob
-      await upload(`prospectus-${Date.now()}.pdf`, formFile, {
-        access: "public",
-        handleUploadUrl: "/api/upload-prospectus",
-        multipart: true,
-        onUploadProgress: (progressEvent) => {
-          if (progressEvent.percentage) {
-            setUploadProgress(progressEvent.percentage);
-          }
-        },
-      });
-
-      // Database save is handled by Vercel Blob webhook (onUploadCompleted) automatically.
-      toast.success("Prospectus uploaded and saved successfully");
-      setFormFile(null);
-
-      setTimeout(() => {
+      const res = await saveProspectusUrl(linkInput.trim());
+      if (res.success) {
+        toast.success("Prospectus link saved successfully");
         fetchProspectus();
-      }, 1000);
-    } catch (error: any) {
-      console.error("Vercel Blob Upload Error:", error);
-
-      let errorMessage = "An error occurred during upload. Please try again.";
-      if (error instanceof Error) {
-        errorMessage = error.message;
-      } else if (error?.response?.data?.error) {
-        errorMessage = error.response.data.error;
+      } else {
+        toast.error(res.message || "Failed to save prospectus link");
       }
-
-      toast.error(errorMessage);
+    } catch (error: any) {
+      console.error(error);
+      toast.error(error.message || "An error occurred while saving the link.");
     } finally {
       setSaving(false);
-      setUploadProgress(0);
     }
   };
 
@@ -120,9 +85,9 @@ export default function AdminProspectusPage() {
           School Prospectus
         </h1>
         <p className="text-gray-500 dark:text-gray-400 mt-1">
-          Upload and manage the common school prospectus PDF. This file is
-          shared across all branches globally. Uploading a new PDF will
-          automatically replace the old one.
+          Manage the common school prospectus link. This link is shared globally
+          across all branches. Paste a Google Drive (or any direct PDF) link
+          below.
         </p>
       </div>
 
@@ -138,10 +103,10 @@ export default function AdminProspectusPage() {
             </div>
           ) : prospectusUrl ? (
             <div className="flex flex-col items-center justify-center space-y-4 p-8 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-900/50">
-              <FileText size={64} className="text-red-500" />
+              <ExternalLink size={64} className="text-blue-500" />
               <div className="text-center">
                 <p className="font-semibold text-gray-900 dark:text-gray-100">
-                  Global Prospectus Active
+                  Global Link Active
                 </p>
                 <div className="flex items-center gap-4 mt-4">
                   <Link
@@ -149,9 +114,10 @@ export default function AdminProspectusPage() {
                     target="_blank"
                     className="text-sm text-primary hover:underline font-medium"
                   >
-                    View PDF
+                    View Link
                   </Link>
                   <button
+                    type="button"
                     onClick={() => setShowDeleteModal(true)}
                     className="text-sm text-red-600 hover:text-red-700 font-medium flex items-center gap-1"
                   >
@@ -162,8 +128,8 @@ export default function AdminProspectusPage() {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl text-gray-500">
-              <FileText size={48} className="mb-2 opacity-50" />
-              <p>No prospectus uploaded yet.</p>
+              <Link2 size={48} className="mb-2 opacity-50" />
+              <p>No prospectus link saved yet.</p>
             </div>
           )}
         </div>
@@ -171,50 +137,26 @@ export default function AdminProspectusPage() {
         {/* Upload Form */}
         <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
-            {prospectusUrl ? "Replace Prospectus" : "Upload Prospectus"}
+            {prospectusUrl ? "Update Prospectus Link" : "Add Prospectus Link"}
           </h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <div
-                className={`relative border-2 border-dashed rounded-xl p-8 text-center transition-colors ${
-                  formFile
-                    ? "border-primary bg-primary/5"
-                    : "border-gray-300 dark:border-gray-600 hover:border-primary"
-                }`}
-              >
-                <input
-                  type="file"
-                  accept="application/pdf"
-                  required
-                  onChange={handleFileChange}
-                  className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
-                />
-                <div className="flex flex-col items-center gap-3 text-gray-500">
-                  {formFile ? (
-                    <>
-                      <FileText className="text-primary" size={32} />
-                      <span className="text-sm text-primary font-medium truncate w-full px-4">
-                        {formFile.name}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <Upload size={32} />
-                      <div className="space-y-1">
-                        <p className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                          Click to browse for a PDF
-                        </p>
-                        <p className="text-xs text-gray-500">PDF only.</p>
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Document URL
+              </label>
+              <input
+                type="url"
+                required
+                placeholder="https://drive.google.com/file/d/..."
+                value={linkInput}
+                onChange={(e) => setLinkInput(e.target.value)}
+                className="w-full border-2 border-gray-300 dark:border-gray-600 p-3 rounded-xl bg-transparent text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-colors"
+              />
             </div>
 
             <button
               type="submit"
-              disabled={saving || !formFile}
+              disabled={saving || !linkInput.trim()}
               className="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-secondary hover:text-black transition-colors flex justify-center items-center gap-2 shadow-lg shadow-primary/25 disabled:opacity-50"
             >
               {saving ? (
@@ -222,11 +164,7 @@ export default function AdminProspectusPage() {
               ) : (
                 <Save size={18} />
               )}
-              {saving
-                ? `Uploading (${uploadProgress}%)`
-                : prospectusUrl
-                  ? "Replace PDF"
-                  : "Upload PDF"}
+              {saving ? "Saving..." : "Save Link"}
             </button>
           </form>
         </div>
@@ -237,7 +175,7 @@ export default function AdminProspectusPage() {
         onClose={() => setShowDeleteModal(false)}
         onConfirm={confirmDelete}
         title="Delete Prospectus"
-        message="Are you sure you want to delete the school prospectus? The PDF link will no longer work until a new one is uploaded."
+        message="Are you sure you want to delete the school prospectus link? The Prospectus button will no longer work until a new link is saved."
         confirmText="Delete"
         isLoading={isDeleting}
         variant="danger"

@@ -1,7 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IProspectus extends Document {
-  branch: string;
   pdf: {
     url: string;
     publicId: string;
@@ -12,7 +11,6 @@ export interface IProspectus extends Document {
 
 const ProspectusSchema = new Schema<IProspectus>(
   {
-    branch: { type: String, required: true },
     pdf: {
       url: { type: String, required: true },
       publicId: { type: String, required: true },
