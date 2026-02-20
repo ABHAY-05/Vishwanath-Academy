@@ -186,7 +186,7 @@ export default function CBSEAdminPage({
   if (loading) {
     return (
       <div className="flex justify-center items-center py-32">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        <Loader2 className="w-8 h-8 animate-spin text-primary dark:text-secondary" />
       </div>
     );
   }
@@ -197,7 +197,7 @@ export default function CBSEAdminPage({
         <div className="mb-8 border-b dark:border-gray-800 pb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
-              <ShieldCheck className="w-8 h-8 text-primary" />
+              <ShieldCheck className="w-8 h-8 text-primary dark:text-secondary" />
               CBSE Disclosure Editor
             </h1>
             <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-2xl">
@@ -380,7 +380,7 @@ export default function CBSEAdminPage({
                                         String(cell),
                                       )
                                     }
-                                    className="opacity-0 group-hover:opacity-100 p-2 text-primary hover:bg-primary/10 rounded-lg transition-all shrink-0"
+                                    className="opacity-0 group-hover:opacity-100 p-2 text-primary dark:text-secondary hover:bg-primary/10 rounded-lg transition-all shrink-0"
                                     aria-label="Edit cell"
                                   >
                                     <Edit3 className="w-4 h-4" />

@@ -21,10 +21,13 @@ import {
   FileBadge,
   Calendar,
   ShieldCheck,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAdmin } from "@/components/AdminContext";
+import { useTheme } from "next-themes";
 
 interface AdminSidebarProps {
   branch: string;
@@ -33,7 +36,13 @@ interface AdminSidebarProps {
 
 export default function AdminSidebar({ branch, username }: AdminSidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     setIsOpen(false);
@@ -205,7 +214,22 @@ export default function AdminSidebar({ branch, username }: AdminSidebarProps) {
               {username}
             </span>
           </div>
-          <UserButton />
+          <div className="flex items-center gap-2">
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors shrink-0"
+                title="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="w-5 h-5 text-neutral-600 dark:text-neutral-300" />
+                ) : (
+                  <Moon className="w-5 h-5 text-neutral-600" />
+                )}
+              </button>
+            )}
+            <UserButton />
+          </div>
         </div>
       </div>
     </div>

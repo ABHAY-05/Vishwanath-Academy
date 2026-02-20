@@ -129,7 +129,7 @@ export default function AdminPressReleasePage() {
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
           {loading ? (
             <div className="flex justify-center py-12">
-              <Loader2 className="animate-spin text-primary" size={32} />
+              <Loader2 className="animate-spin text-primary dark:text-secondary" size={32} />
             </div>
           ) : releases.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
@@ -235,8 +235,8 @@ export default function AdminPressReleasePage() {
                     <div className="flex flex-col items-center gap-2 text-gray-500">
                       {formFile ? (
                         <>
-                          <ImageIcon className="text-primary" size={24} />
-                          <span className="text-sm text-primary font-medium truncate w-48">
+                          <ImageIcon className="text-primary dark:text-secondary" size={24} />
+                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-48">
                             {formFile.name}
                           </span>
                         </>

@@ -147,7 +147,7 @@ export default function AdminTCPage({
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
-              <FileKey className="w-8 h-8 text-primary" />
+              <FileKey className="w-8 h-8 text-primary dark:text-secondary" />
               Transfer Certificates
             </h1>
             <p className="text-gray-500 dark:text-gray-400 mt-1">
@@ -182,7 +182,7 @@ export default function AdminTCPage({
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
           {loading ? (
             <div className="flex justify-center py-12">
-              <Loader2 className="animate-spin text-primary" size={32} />
+              <Loader2 className="animate-spin text-primary dark:text-secondary" size={32} />
             </div>
           ) : filteredTcs.length > 0 ? (
             <div className="overflow-x-auto">
@@ -228,7 +228,7 @@ export default function AdminTCPage({
                             href={item.file.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors"
+                            className="inline-flex items-center justify-center p-2 text-primary dark:text-secondary hover:bg-primary/10 rounded-lg transition-colors"
                             title="View Document"
                           >
                             <FileIcon size={18} />
@@ -334,8 +334,8 @@ export default function AdminTCPage({
                     <div className="flex flex-col items-center gap-2 text-gray-500">
                       {formFile ? (
                         <>
-                          <FileIcon className="text-primary" size={24} />
-                          <span className="text-sm text-primary font-medium truncate w-48">
+                          <FileIcon className="text-primary dark:text-secondary" size={24} />
+                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-48">
                             {formFile.name}
                           </span>
                           <span className="text-xs text-gray-400">

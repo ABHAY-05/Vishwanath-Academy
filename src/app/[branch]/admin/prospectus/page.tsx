@@ -101,7 +101,7 @@ export default function AdminProspectusPage() {
             </h2>
             {loading ? (
               <div className="flex justify-center py-12">
-                <Loader2 className="animate-spin text-primary" size={32} />
+                <Loader2 className="animate-spin text-primary dark:text-secondary" size={32} />
               </div>
             ) : prospectusUrl ? (
               <div className="flex flex-col items-center justify-center space-y-4 p-8 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-900/50">
@@ -114,7 +114,7 @@ export default function AdminProspectusPage() {
                     <Link
                       href={prospectusUrl}
                       target="_blank"
-                      className="text-sm text-primary hover:underline font-medium"
+                      className="text-sm text-primary dark:text-secondary hover:underline font-medium"
                     >
                       View Link
                     </Link>

@@ -170,7 +170,7 @@ export default function PermissionsAdminPage({
   if (loading) {
     return (
       <div className="flex justify-center items-center py-32">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        <Loader2 className="w-8 h-8 animate-spin text-primary dark:text-secondary" />
       </div>
     );
   }
@@ -179,7 +179,7 @@ export default function PermissionsAdminPage({
     <div className="p-6 max-w-7xl mx-auto pb-32">
       <div className="mb-8 border-b dark:border-gray-800 pb-6">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
-          <KeyRound className="w-8 h-8 text-primary" />
+          <KeyRound className="w-8 h-8 text-primary dark:text-secondary" />
           Roles & Access Control
         </h1>
         <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-2xl">
@@ -195,7 +195,7 @@ export default function PermissionsAdminPage({
           <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden sticky top-32">
             <div className="p-6 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
               <h2 className="text-xl font-bold font-display text-gray-900 dark:text-white flex items-center gap-2">
-                <UserPlus className="w-5 h-5 text-primary" />
+                <UserPlus className="w-5 h-5 text-primary dark:text-secondary" />
                 Delegate Access
               </h2>
             </div>
@@ -232,7 +232,7 @@ export default function PermissionsAdminPage({
                         type="checkbox"
                         checked={newPermissions.includes(section.id)}
                         onChange={() => toggleNewPermission(section.id)}
-                        className="mt-1 w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary"
+                        className="mt-1 w-4 h-4 text-primary dark:text-secondary rounded border-gray-300 focus:ring-primary"
                       />
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                         {section.label}
@@ -350,7 +350,7 @@ export default function PermissionsAdminPage({
                             type="checkbox"
                             checked={editPermissions.includes(section.id)}
                             onChange={() => toggleEditPermission(section.id)}
-                            className="mt-0.5 w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary"
+                            className="mt-0.5 w-4 h-4 text-primary dark:text-secondary rounded border-gray-300 focus:ring-primary"
                           />
                           <span className="text-sm font-medium text-gray-700 dark:text-gray-300 leading-tight">
                             {section.label}

@@ -243,7 +243,7 @@ export default function AdminScholarshipPage() {
           onClick={() => setActiveTab("students")}
           className={`pb-4 px-2 font-medium transition-colors relative ${
             activeTab === "students"
-              ? "text-primary"
+              ? "text-primary dark:text-secondary"
               : "text-gray-500 hover:text-gray-700 dark:text-gray-400"
           }`}
         >
@@ -262,7 +262,7 @@ export default function AdminScholarshipPage() {
           onClick={() => setActiveTab("gallery")}
           className={`pb-4 px-2 font-medium transition-colors relative ${
             activeTab === "gallery"
-              ? "text-primary"
+              ? "text-primary dark:text-secondary"
               : "text-gray-500 hover:text-gray-700 dark:text-gray-400"
           }`}
         >
@@ -326,7 +326,7 @@ export default function AdminScholarshipPage() {
                 {loadingStudents ? (
                   <tr>
                     <td colSpan={5} className="px-6 py-12 text-center">
-                      <Loader2 className="animate-spin mx-auto text-primary" />
+                      <Loader2 className="animate-spin mx-auto text-primary dark:text-secondary" />
                     </td>
                   </tr>
                 ) : students.length > 0 ? (
@@ -341,7 +341,7 @@ export default function AdminScholarshipPage() {
                       <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">
                         {student.name}
                       </td>
-                      <td className="px-6 py-4 text-sm font-bold text-primary">
+                      <td className="px-6 py-4 text-sm font-bold text-primary dark:text-secondary">
                         {student.percentage}
                       </td>
                       <td className="px-6 py-4 text-sm font-medium text-green-600 dark:text-green-400">
@@ -455,7 +455,7 @@ export default function AdminScholarshipPage() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {loadingImages ? (
                 <div className="col-span-full py-12 text-center">
-                  <Loader2 className="animate-spin mx-auto text-primary" />
+                  <Loader2 className="animate-spin mx-auto text-primary dark:text-secondary" />
                 </div>
               ) : images.length > 0 ? (
                 images.map((img) => (

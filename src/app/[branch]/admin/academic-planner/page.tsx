@@ -117,12 +117,12 @@ export default function AcademicPlannerAdminPage({
       <div className="p-6 max-w-5xl mx-auto">
         <div className="mb-8 border-b dark:border-gray-800 pb-6">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
-            <CalendarDays className="w-8 h-8 text-primary" />
+            <CalendarDays className="w-8 h-8 text-primary dark:text-secondary" />
             Yearly Academic Planner
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-3xl">
             Upload the Yearly Academic Planner PDF for the{" "}
-            <span className="font-semibold text-primary capitalize">
+            <span className="font-semibold text-primary dark:text-secondary capitalize">
               {branch}
             </span>{" "}
             branch. This PDF will be directly accessible from the "Students
@@ -132,7 +132,7 @@ export default function AcademicPlannerAdminPage({
 
         {loading ? (
           <div className="flex justify-center items-center py-24">
-            <Loader2 className="w-8 h-8 animate-spin text-primary" />
+            <Loader2 className="w-8 h-8 animate-spin text-primary dark:text-secondary" />
           </div>
         ) : (
           <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -163,7 +163,7 @@ export default function AcademicPlannerAdminPage({
                   />
 
                   {file ? (
-                    <div className="flex flex-col items-center gap-3 text-primary">
+                    <div className="flex flex-col items-center gap-3 text-primary dark:text-secondary">
                       <FileText className="w-16 h-16 text-red-500" />
                       <p className="font-bold truncate max-w-[200px]">
                         {file.name}

@@ -105,13 +105,13 @@ export default function CareerHiringAdminPage({
       <div className="p-6 max-w-5xl mx-auto">
         <div className="mb-8 border-b dark:border-gray-800 pb-6">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
-            <Briefcase className="w-8 h-8 text-primary" />
+            <Briefcase className="w-8 h-8 text-primary dark:text-secondary" />
             Career Hiring Graphic
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-3xl">
             Upload the "Current Openings" poster that will be displayed on the
             public{" "}
-            <span className="font-semibold text-primary">
+            <span className="font-semibold text-primary dark:text-secondary">
               Contact Us &gt; Career
             </span>{" "}
             page. This image is global, meaning the same image will be displayed
@@ -121,7 +121,7 @@ export default function CareerHiringAdminPage({
 
         {loading ? (
           <div className="flex justify-center items-center py-24">
-            <Loader2 className="w-8 h-8 animate-spin text-primary" />
+            <Loader2 className="w-8 h-8 animate-spin text-primary dark:text-secondary" />
           </div>
         ) : (
           <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -152,7 +152,7 @@ export default function CareerHiringAdminPage({
                   />
 
                   {file ? (
-                    <div className="flex flex-col items-center gap-3 text-primary">
+                    <div className="flex flex-col items-center gap-3 text-primary dark:text-secondary">
                       <img
                         src={URL.createObjectURL(file)}
                         alt="Preview"

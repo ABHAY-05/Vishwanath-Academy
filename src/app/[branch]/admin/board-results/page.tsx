@@ -193,7 +193,7 @@ export default function AdminBoardResultsPage({
           onClick={() => setActiveTab("highlight")}
           className={`pb-4 px-2 font-medium transition-colors relative ${
             activeTab === "highlight"
-              ? "text-primary"
+              ? "text-primary dark:text-secondary"
               : "text-gray-500 hover:text-gray-700 dark:text-gray-400"
           }`}
         >
@@ -212,7 +212,7 @@ export default function AdminBoardResultsPage({
           onClick={() => setActiveTab("results")}
           className={`pb-4 px-2 font-medium transition-colors relative ${
             activeTab === "results"
-              ? "text-primary"
+              ? "text-primary dark:text-secondary"
               : "text-gray-500 hover:text-gray-700 dark:text-gray-400"
           }`}
         >
@@ -239,7 +239,7 @@ export default function AdminBoardResultsPage({
             </h3>
             {loadingHighlight ? (
               <div className="flex justify-center py-12">
-                <Loader2 className="animate-spin text-primary" />
+                <Loader2 className="animate-spin text-primary dark:text-secondary" />
               </div>
             ) : highlightImage ? (
               <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
@@ -357,7 +357,7 @@ export default function AdminBoardResultsPage({
                 {loadingResults ? (
                   <tr>
                     <td colSpan={5} className="px-6 py-12 text-center">
-                      <Loader2 className="animate-spin mx-auto text-primary" />
+                      <Loader2 className="animate-spin mx-auto text-primary dark:text-secondary" />
                     </td>
                   </tr>
                 ) : results.length > 0 ? (
@@ -481,8 +481,8 @@ export default function AdminBoardResultsPage({
                     <div className="flex flex-col items-center gap-2 text-gray-500">
                       {formClassXFile ? (
                         <>
-                          <ImageIcon className="text-primary" size={24} />
-                          <span className="text-sm text-primary font-medium truncate w-48">
+                          <ImageIcon className="text-primary dark:text-secondary" size={24} />
+                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-48">
                             {formClassXFile.name}
                           </span>
                         </>
@@ -516,8 +516,8 @@ export default function AdminBoardResultsPage({
                     <div className="flex flex-col items-center gap-2 text-gray-500">
                       {formClassXIIFile ? (
                         <>
-                          <ImageIcon className="text-primary" size={24} />
-                          <span className="text-sm text-primary font-medium truncate w-48">
+                          <ImageIcon className="text-primary dark:text-secondary" size={24} />
+                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-48">
                             {formClassXIIFile.name}
                           </span>
                         </>

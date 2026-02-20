@@ -106,7 +106,6 @@ export default function BooksAdminPage() {
     );
     if (res.success) {
       toast.success(res.message);
-      // Optimistic updatre
       setDocuments((prev) =>
         prev.filter((d) => d._id !== documentToDelete._id),
       );
@@ -123,14 +122,17 @@ export default function BooksAdminPage() {
       <div className="p-6 max-w-6xl mx-auto">
         <div className="mb-8 border-b dark:border-gray-800 pb-6">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
-            <BookOpen className="w-8 h-8 text-primary" />
+            <BookOpen className="w-8 h-8 text-primary dark:text-secondary" />
             Books & Stationary Management
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-3xl">
             Upload PDF documents containing book lists for specific classes.
             This setting is global; the documents uploaded here will appear on
-            the `/academics/books-and-stationary` page for both branches.
-            Maximum file size is 10MB per PDF.
+            the{" "}
+            <span className="font-semibold text-primary dark:text-secondary">
+              Academics &gt; Books & Stationary
+            </span>{" "}
+            page for both branches. Maximum file size is 10MB per PDF.
           </p>
         </div>
 
@@ -183,7 +185,7 @@ export default function BooksAdminPage() {
                 />
 
                 {file ? (
-                  <div className="flex flex-col items-center gap-3 text-primary">
+                  <div className="flex flex-col items-center gap-3 text-primary dark:text-secondary">
                     <FileText className="w-16 h-16 text-red-500" />
                     <p className="font-bold truncate max-w-[200px]">
                       {file.name}
@@ -230,7 +232,7 @@ export default function BooksAdminPage() {
             <div className="flex-1">
               {loading ? (
                 <div className="flex justify-center items-center py-24">
-                  <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                  <Loader2 className="w-8 h-8 animate-spin text-primary dark:text-secondary" />
                 </div>
               ) : documents.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
