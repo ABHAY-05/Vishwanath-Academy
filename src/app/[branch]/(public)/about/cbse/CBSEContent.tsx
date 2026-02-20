@@ -8,10 +8,31 @@ import {
   Eye,
   ShieldCheck,
   Download,
+  FileText,
 } from "lucide-react";
 import { useParams, notFound } from "next/navigation";
-import { useState, useMemo } from "react";
-import { cbseData, SectionData, LinkCell } from "@/data/cbse-data";
+import { useState, useMemo, useEffect } from "react";
+import { getCBSESections } from "@/actions/cbseSection";
+
+interface LinkCell {
+  type: "link";
+  label: string;
+  url: string;
+}
+
+type CellData = string | LinkCell;
+
+interface TableRow {
+  data: CellData[];
+}
+
+interface SectionData {
+  _id: string;
+  title: string;
+  headers: string[];
+  rows: TableRow[];
+  showNote?: boolean;
+}
 
 const isLinkCell = (cell: unknown): cell is LinkCell => {
   return (
@@ -110,17 +131,15 @@ function DisclosureTable({ section }: { section: SectionData }) {
                       {isLinkCell(cell) ? (
                         <a
                           href={cell.url}
-                          target={
-                            cell.url.startsWith("http") ? "_blank" : undefined
-                          }
-                          rel={
-                            cell.url.startsWith("http")
-                              ? "noopener noreferrer"
-                              : undefined
-                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 dark:bg-blue-900/30 text-primary dark:text-blue-300 font-bold hover:bg-primary hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-all text-xs uppercase tracking-wide"
                         >
-                          {cell.label === "View" ? (
+                          {cell.label === "PDF" || cell.url.includes(".pdf") ? (
+                            <FileText size={14} />
+                          ) : cell.label === "View" &&
+                            !cell.url.includes(".pdf") &&
+                            cell.url !== "#" ? (
                             <Eye size={14} />
                           ) : (
                             <Download size={14} />
@@ -213,22 +232,28 @@ function DisclosureTable({ section }: { section: SectionData }) {
 // --- Main Client Component ---
 export default function CBSEContent() {
   const params = useParams();
-  const branchKey = params.branch as string;
+  const branchKey = params.branch as "aashiana" | "dhawapur";
 
-  // Validate branch
-  const isAashiana = branchKey === "aashiana";
+  const [sections, setSections] = useState<SectionData[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const sections = isAashiana
-    ? cbseData.aashiana
-    : branchKey === "dhawapur"
-      ? cbseData.dhawapur
-      : null;
+  useEffect(() => {
+    async function fetchDocs() {
+      setIsLoading(true);
+      const res = await getCBSESections(branchKey);
+      if (res.success && res.data) {
+        setSections(res.data);
+      }
+      setIsLoading(false);
+    }
+    fetchDocs();
+  }, [branchKey]);
 
-  if (!sections) {
+  if (!branchKey) {
     notFound();
   }
 
-  const branchName = isAashiana ? "Aashiana" : "Dhawapur";
+  const branchName = branchKey === "aashiana" ? "Aashiana" : "Dhawapur";
 
   return (
     <main className="bg-white dark:bg-gray-950 pb-20 overflow-hidden">
@@ -273,9 +298,26 @@ export default function CBSEContent() {
 
       {/* Content */}
       <div className="mx-auto max-w-7xl px-4 md:px-6 relative z-10">
-        {sections.map((section, idx) => (
-          <DisclosureTable key={idx} section={section} />
-        ))}
+        {isLoading ? (
+          <div className="flex justify-center py-32">
+            <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        ) : sections.length > 0 ? (
+          sections.map((section, idx) => (
+            <DisclosureTable key={idx} section={section} />
+          ))
+        ) : (
+          <div className="text-center py-20 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm">
+            <ShieldCheck className="w-16 h-16 text-gray-300 dark:text-gray-700 mx-auto mb-4" />
+            <h3 className="text-xl font-bold font-display text-gray-900 dark:text-white mb-2">
+              No Disclosure Data Available
+            </h3>
+            <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto">
+              The administration has not yet published the mandatory disclosure
+              data for this branch. Please check back later.
+            </p>
+          </div>
+        )}
       </div>
     </main>
   );

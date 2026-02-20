@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
 export interface IGalleryImage extends Document {
   url: string;
@@ -37,10 +37,6 @@ const GalleryImageSchema = new Schema<IGalleryImage>(
     timestamps: true,
   },
 );
-
-const GalleryImage: Model<IGalleryImage> =
-  mongoose.models.GalleryImage ||
-  mongoose.model<IGalleryImage>("GalleryImage", GalleryImageSchema);
 
 if (process.env.NODE_ENV === "development") {
   if (mongoose.models.GalleryImage) {

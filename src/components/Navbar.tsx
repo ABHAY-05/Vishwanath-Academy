@@ -6,6 +6,8 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { getProspectus } from "@/actions/prospectus";
+import { getAcademicPlanner } from "@/actions/academicPlanner";
 
 type Item = {
   name: string;
@@ -22,15 +24,33 @@ export default function Navbar({ branch }: { branch?: string }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [prospectusUrl, setProspectusUrl] = useState<string | null>(null);
+  const [plannerFileUrl, setPlannerFileUrl] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    const fetchGlobalData = async () => {
+      const prospectusRes = await getProspectus();
+      if (prospectusRes.success && prospectusRes.data?.url) {
+        setProspectusUrl(prospectusRes.data.url);
+      }
+      if (branch) {
+        const plannerRes = await getAcademicPlanner(branch);
+        if (plannerRes.success && plannerRes.data?.file?.url) {
+          setPlannerFileUrl(plannerRes.data.file.url);
+        }
+      }
+    };
+    fetchGlobalData();
+  }, [branch]); // Re-fetch if branch changes
+
   const getLink = (path: string) => {
     if (!path) return "#";
-    // If it's already an absolute URL (like Cloudinary), return it as is
     if (path.startsWith("http")) return path;
+    if (path.endsWith(".pdf")) return path.startsWith("/") ? path : `/${path}`;
     const cleanPath = path.startsWith("/") ? path : `/${path}`;
     return branch ? `/${branch}${cleanPath}` : cleanPath;
   };
@@ -80,7 +100,7 @@ export default function Navbar({ branch }: { branch?: string }) {
         { name: "Fees Structure", href: "/admissions/fees" },
         {
           name: "School Prospectus",
-          href: "/admissions/prospectus",
+          href: prospectusUrl || "/admissions/prospectus", // Use fetched prospectus URL
           target: "_blank",
         },
         { name: "School Rules", href: "/admissions/rules" },
@@ -106,7 +126,16 @@ export default function Navbar({ branch }: { branch?: string }) {
     {
       name: "Students Corner",
       items: [
-        { name: "Yearly Academic Planner", href: "/students/planner" },
+        {
+          name: "Yearly Academic Planner",
+          href: plannerFileUrl || "/students/planner",
+          target: "_blank",
+        }, // Use fetched planner URL
+        {
+          name: "Blogs",
+          href: "https://blog.vishwanathacademy.com/",
+          target: "_blank",
+        },
         { name: "Gallery", href: "/students/gallery" },
         { name: "Press Release", href: "/students/press" },
         {
@@ -121,7 +150,11 @@ export default function Navbar({ branch }: { branch?: string }) {
       items: [
         { name: "Notice Board", href: "/notice-board" },
         { name: "Download TC", href: "/download-tc" },
-        { name: "VNA Chatbot", href: "/chatbot" },
+        {
+          name: "VNA Chatbot",
+          href: "/Vishwanath-Academy-chatbot.pdf",
+          target: "_blank",
+        },
       ],
     },
     {
@@ -129,7 +162,7 @@ export default function Navbar({ branch }: { branch?: string }) {
       items: [
         { name: "Contact Us", href: "/contact" },
         { name: "Career", href: "/contact/career" },
-        { name: "B-Ed Training Application", href: "/contact/bed" },
+        { name: "B-Ed Training Application", href: "/contact/b-ed-training" },
         {
           name: "Feedback Form",
           href: "https://docs.google.com/forms/d/e/1FAIpQLSchtLqyI3eO9MieMghpMATG-xLA7K0BfLR8PvkI1Kq1KDkSQw/viewform",

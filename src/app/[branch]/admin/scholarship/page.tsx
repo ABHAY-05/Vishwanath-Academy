@@ -26,6 +26,7 @@ import {
   deleteScholarshipImage,
   getScholarshipImages,
 } from "@/actions/scholarship";
+import AdminPageGuard from "@/components/AdminPageGuard";
 
 // Types
 interface Student {

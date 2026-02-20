@@ -22,6 +22,7 @@ import {
   addBoardResult,
   deleteBoardResult,
 } from "@/actions/board-results";
+import AdminPageGuard from "@/components/AdminPageGuard";
 
 interface BoardResult {
   _id: string;

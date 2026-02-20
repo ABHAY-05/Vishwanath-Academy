@@ -34,7 +34,7 @@ export default async function PublicNoticeBoardPage({
         </p>
       </div>
 
-      <NoticeBoardClient notices={notices} branch={branch} />
+      <NoticeBoardClient notices={notices} />
     </div>
   );
 }

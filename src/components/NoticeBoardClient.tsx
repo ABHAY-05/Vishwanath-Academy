@@ -13,13 +13,7 @@ interface Notice {
   author?: string;
 }
 
-export default function NoticeBoardClient({
-  notices,
-  branch,
-}: {
-  notices: Notice[];
-  branch: string;
-}) {
+export default function NoticeBoardClient({ notices }: { notices: Notice[] }) {
   const [selectedNotice, setSelectedNotice] = useState<Notice | null>(null);
 
   return (

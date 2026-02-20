@@ -76,16 +76,11 @@ export const processAndUploadDocument = async (
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
 
-  // Create highly unique temp file path
   const tempDir = os.tmpdir();
   const uniqueFilename = `${uuidv4()}-${file.name.replace(/[^a-zA-Z0-9.]/g, "")}`;
   const tempFilePath = path.join(tempDir, uniqueFilename);
 
   fs.writeFileSync(tempFilePath, buffer);
 
-  // Use resource_type: "image" for PDFs so they can be viewed directly instead of forced download
-  // Wait, the user specifically wants to upload this PDF correctly.
-  // Cloudinary recommends "image" for PDFs to allow inline viewing, but "raw" if you want strict document hosting.
-  // Actually, Cloudinary handles PDFs as "image" by default. Let's explicitly pass "image".
   return uploadOnCloudinary(tempFilePath, folder, 3, "image");
 };

@@ -1,28 +1,33 @@
 "use client";
 
-import { activityCalendar } from "@/data/academics-data";
-import { Search, FileText, Calendar, Filter } from "lucide-react";
-import { useState } from "react";
+import { Search, FileText, Calendar, Filter, Download } from "lucide-react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useParams, notFound } from "next/navigation";
+import { getActivityCalendarSections } from "@/actions/activityCalendar";
 
-type CalendarEvent = {
+interface CalendarEventData {
   month: string;
   activity: string;
-  pdfUrl?: string;
-};
+  pdfUrl: string | null;
+  pdfPublicId: string | null;
+}
+
+interface ActivityCalendarSectionData {
+  _id: string;
+  className: string;
+  events: CalendarEventData[];
+}
 
 type CalendarGroupProps = {
-  group: {
-    className: string;
-    events: CalendarEvent[];
-  };
+  section: ActivityCalendarSectionData;
   index: number;
 };
 
-const CalendarGroup = ({ group, index }: CalendarGroupProps) => {
+const CalendarGroup = ({ section, index }: CalendarGroupProps) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredEvents = group.events.filter(
+  const filteredEvents = section.events.filter(
     (event) =>
       event.month.toLowerCase().includes(searchTerm.toLowerCase()) ||
       event.activity.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -44,7 +49,7 @@ const CalendarGroup = ({ group, index }: CalendarGroupProps) => {
           </div>
           <div>
             <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white">
-              Class: {group.className}
+              Class: {section.className}
             </h2>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Academic Year Plan
@@ -138,7 +143,27 @@ const CalendarGroup = ({ group, index }: CalendarGroupProps) => {
 };
 
 export default function CalendarContent() {
-  const { title, subtitle, groups } = activityCalendar;
+  const params = useParams();
+  const branchKey = params.branch as "aashiana" | "dhawapur";
+
+  const [sections, setSections] = useState<ActivityCalendarSectionData[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  if (!branchKey) {
+    notFound();
+  }
+
+  useEffect(() => {
+    async function fetchDocs() {
+      setIsLoading(true);
+      const res = await getActivityCalendarSections();
+      if (res.success && res.data) {
+        setSections(res.data);
+      }
+      setIsLoading(false);
+    }
+    fetchDocs();
+  }, []);
 
   return (
     <main className="bg-white dark:bg-gray-950 pb-20 overflow-hidden">
@@ -172,19 +197,36 @@ export default function CalendarContent() {
               Yearly Schedule
             </span>
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">
-              {title}
+              Activity Calendar
             </h1>
             <p className="text-lg md:text-xl text-blue-100/90 max-w-2xl mx-auto font-light leading-relaxed">
-              {subtitle}
+              Explore the monthly activities & events schedule
             </p>
           </motion.div>
         </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-4 md:px-6 relative z-10 py-12">
-        {groups.map((group, index) => (
-          <CalendarGroup key={index} group={group} index={index} />
-        ))}
+        {isLoading ? (
+          <div className="flex justify-center py-32">
+            <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        ) : sections.length > 0 ? (
+          sections.map((section, index) => (
+            <CalendarGroup key={section._id} section={section} index={index} />
+          ))
+        ) : (
+          <div className="text-center py-20 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm mt-8">
+            <Calendar className="w-16 h-16 text-gray-300 dark:text-gray-700 mx-auto mb-4" />
+            <h3 className="text-xl font-bold font-display text-gray-900 dark:text-white mb-2">
+              No Calendar Data Available
+            </h3>
+            <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto">
+              The administration has not yet published the activity calendar for
+              this branch. Please check back later.
+            </p>
+          </div>
+        )}
       </div>
     </main>
   );

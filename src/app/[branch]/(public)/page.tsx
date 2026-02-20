@@ -1,5 +1,4 @@
 import About from "@/components/About";
-import AnnouncementPopup from "@/components/AnnouncementPopup";
 import ApplyAdmission from "@/components/AppyAdmission";
 import HeroSlider from "@/components/HeroSlider";
 import OurManagement from "@/components/Management";

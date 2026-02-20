@@ -13,10 +13,18 @@ import {
   Trophy,
   FileText,
   Award,
+  Briefcase,
+  CalendarDays,
+  BookOpen,
+  Images,
+  FileKey,
   FileBadge,
+  Calendar,
+  ShieldCheck,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useAdmin } from "@/components/AdminContext";
 
 interface AdminSidebarProps {
   branch: string;
@@ -31,43 +39,108 @@ export default function AdminSidebar({ branch, username }: AdminSidebarProps) {
     setIsOpen(false);
   }, [pathname]);
 
-  const navItems = [
+  const { role, permissions } = useAdmin();
+
+  let navItems = [
     {
       name: "Dashboard",
       href: `/${branch}/admin`,
       icon: LayoutDashboard,
+      id: "dashboard",
     },
     {
       name: "Notice Board",
       href: `/${branch}/admin/notices`,
       icon: ClipboardList,
+      id: "notices",
     },
     {
       name: "Gallery",
       href: `/${branch}/admin/gallery`,
+      icon: Images,
+      id: "gallery",
+    },
+    {
+      name: "Press Release",
+      href: `/${branch}/admin/press`,
       icon: Newspaper,
+      id: "press",
     },
     {
       name: "Scholarship",
       href: `/${branch}/admin/scholarship`,
       icon: Trophy,
+      id: "scholarship",
     },
     {
       name: "Board Results",
       href: `/${branch}/admin/board-results`,
       icon: FileText,
+      id: "board-results",
     },
     {
       name: "School Awards",
       href: `/${branch}/admin/school-awards`,
       icon: Award,
+      id: "school-awards",
     },
     {
       name: "School Prospectus",
       href: `/${branch}/admin/prospectus`,
       icon: FileBadge,
+      id: "prospectus",
+    },
+    {
+      name: "Download TC",
+      href: `/${branch}/admin/tc`,
+      icon: FileKey,
+      id: "tc",
+    },
+    {
+      name: "Career Hiring",
+      href: `/${branch}/admin/career-hiring`,
+      icon: Briefcase,
+      id: "career-hiring",
+    },
+    {
+      name: "Academic Planner",
+      href: `/${branch}/admin/academic-planner`,
+      icon: CalendarDays,
+      id: "academic-planner",
+    },
+    {
+      name: "Books & Stationary",
+      href: `/${branch}/admin/books`,
+      icon: BookOpen,
+      id: "books",
+    },
+    {
+      name: "Activity Calendar",
+      href: `/${branch}/admin/calendar`,
+      icon: Calendar,
+      id: "calendar",
+    },
+    {
+      name: "CBSE Disclosure",
+      href: `/${branch}/admin/cbse`,
+      icon: ShieldCheck,
+      id: "cbse",
     },
   ];
+
+  if (role === "superadmin") {
+    navItems.push({
+      name: "Permissions & Access",
+      href: `/${branch}/admin/permissions`,
+      icon: FileKey,
+      id: "permissions",
+    });
+  } else {
+    // Regular admins only see dashboard and explicitly allowed sections
+    navItems = navItems.filter(
+      (item) => item.id === "dashboard" || permissions.includes(item.id),
+    );
+  }
 
   const SidebarContent = () => (
     <div className="flex flex-col h-full bg-white dark:bg-neutral-900 border-r border-neutral-200 dark:border-neutral-800">

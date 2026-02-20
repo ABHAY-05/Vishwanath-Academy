@@ -19,8 +19,5 @@ const ProspectusSchema = new Schema<IProspectus>(
   { timestamps: true },
 );
 
-// We only need one active prospectus per branch.
-// We will replace the existing document when uploading a new one.
-
 export default mongoose.models.Prospectus ||
   mongoose.model<IProspectus>("Prospectus", ProspectusSchema);

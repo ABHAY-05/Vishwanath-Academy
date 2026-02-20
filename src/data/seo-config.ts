@@ -108,6 +108,30 @@ export const seoData = {
         "Explore the prestigious awards and recognitions earned by Vishwanath Academy and its students.",
     },
   },
+  privacy: {
+    title: "Privacy Policy | Vishwanath Academy",
+    description:
+      "Read the Privacy Policy of Vishwanath Academy, Lucknow. Understand how we collect, use, and protect your personal information.",
+    keywords: [
+      "privacy policy",
+      "data protection",
+      "vishwanath academy privacy",
+      "school privacy terms",
+      "lucknow school data policy",
+    ],
+  },
+  terms: {
+    title: "Terms and Conditions | Vishwanath Academy",
+    description:
+      "Read the Terms and Conditions for using the Vishwanath Academy website.",
+    keywords: [
+      "terms and conditions",
+      "website terms",
+      "vishwanath academy terms",
+      "school policies",
+      "usage conditions",
+    ],
+  },
 };
 
 export const getBranchSeo = (
@@ -119,6 +143,11 @@ export const getBranchSeo = (
     | "fees"
     | "scholarship"
     | "awards"
+    | "press"
+    | "downloadTc"
+    | "downloadTc"
+    | "career"
+    | "bedTraining"
     | "board",
   branch: string,
   extra?: string,
@@ -165,6 +194,26 @@ export const getBranchSeo = (
       return {
         title: `School Awards | Vishwanath Academy ${capitalizedBranch}`,
         description: `Explore the prestigious awards and recognitions earned by Vishwanath Academy ${capitalizedBranch} and its students.`,
+      };
+    case "press":
+      return {
+        title: `Press Releases | Vishwanath Academy ${capitalizedBranch}`,
+        description: `Read the latest press releases and news coverage featuring Vishwanath Academy ${capitalizedBranch}.`,
+      };
+    case "downloadTc":
+      return {
+        title: `Download TC | Vishwanath Academy ${capitalizedBranch}`,
+        description: `Securely download your Transfer Certificate for the ${capitalizedBranch} branch by entering your Admission Number.`,
+      };
+    case "career":
+      return {
+        title: `Career & Hiring | Vishwanath Academy ${capitalizedBranch}`,
+        description: `Explore current job openings and apply to join the teaching and administrative staff at Vishwanath Academy ${capitalizedBranch}.`,
+      };
+    case "bedTraining":
+      return {
+        title: `B.Ed Training Application | Vishwanath Academy ${capitalizedBranch}`,
+        description: `Apply for the B.Ed Training program at Vishwanath Academy ${capitalizedBranch}. Submit your academic details and college letter online.`,
       };
     default:
       return seoData.default;

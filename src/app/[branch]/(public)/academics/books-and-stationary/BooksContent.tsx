@@ -3,9 +3,28 @@
 import { booksAndStationary } from "@/data/academics-data";
 import { BookOpen, Download, FileText } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { getBookLists } from "@/actions/bookList";
+
+interface BookListData {
+  _id: string;
+  className: string;
+  file: { url: string; publicId: string };
+}
 
 export default function BooksContent() {
   const { title, subtitle, intro, classes } = booksAndStationary;
+  const [bookLists, setBookLists] = useState<BookListData[]>([]);
+
+  useEffect(() => {
+    async function fetchLists() {
+      const res = await getBookLists();
+      if (res.success && res.data) {
+        setBookLists(res.data);
+      }
+    }
+    fetchLists();
+  }, []);
 
   return (
     <main className="bg-white dark:bg-gray-950 pb-20 overflow-hidden">
@@ -99,10 +118,32 @@ export default function BooksContent() {
                   Academic Session 2025-26
                 </p>
 
-                <button className="w-full py-3 px-4 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white font-bold text-sm flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
-                  <Download className="w-4 h-4" />
-                  Download PDF
-                </button>
+                {(() => {
+                  const match = bookLists.find(
+                    (doc) => doc.className === className,
+                  );
+                  if (match) {
+                    return (
+                      <a
+                        href={match.file.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3 px-4 rounded-xl bg-gray-50 dark:bg-gray-800 text-primary dark:text-white font-bold text-sm flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm border border-primary/20 group-hover:border-transparent"
+                      >
+                        <Download className="w-4 h-4" />
+                        Download PDF
+                      </a>
+                    );
+                  }
+                  return (
+                    <button
+                      disabled
+                      className="w-full py-3 px-4 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-400 dark:text-gray-500 font-bold text-sm flex items-center justify-center gap-2 cursor-not-allowed border border-gray-100 dark:border-gray-800"
+                    >
+                      Unavailable
+                    </button>
+                  );
+                })()}
               </div>
             </motion.div>
           ))}

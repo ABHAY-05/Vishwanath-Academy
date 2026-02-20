@@ -207,7 +207,10 @@ export const cbseData: { aashiana: SectionData[]; dhawapur: SectionData[] } = {
           data: [
             "7.",
             "LINK OF YOUTUBE VIDEO OF THE INSPECTION OF SCHOOLCOVERING THE INFRASTRUCTURE OF THE SCHOOL",
-            textLink("Link"),
+            textLink(
+              "Link",
+              "https://www.youtube.com/watch?v=yV8EjhzntWs&t=8s&ab_channel=VishwanathAcademy",
+            ),
           ],
         },
       ],
@@ -392,7 +395,7 @@ export const cbseData: { aashiana: SectionData[]; dhawapur: SectionData[] } = {
           data: [
             "7.",
             "LINK OF YOUTUBE VIDEO OF THE INSPECTION OF SCHOOL COVERING THE INFRASTRUCTURE OF THE SCHOOL",
-            textLink("Link"),
+            textLink("Link", "https://youtu.be/nkT7NNp_pvE"),
           ],
         },
       ],

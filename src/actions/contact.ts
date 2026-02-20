@@ -15,7 +15,7 @@ export async function sendEmail(prevState: any, formData: FormData) {
   try {
     const { data, error } = await resend.emails.send({
       from: "Vishwanath Academy <onboarding@resend.dev>", // Update this with your verified domain later
-      to: ["vna.lko@gmail.com"], // Replace with school email or dynamic based on branch
+      to: [process.env.CONTACT_EMAIL || "vna.lko@gmail.com"],
       subject: `New Contact Form Submission: ${subject} (${branch})`,
       html: `
         <h2>New Contact Form Submission</h2>

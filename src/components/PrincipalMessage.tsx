@@ -71,14 +71,14 @@ export default function PrincipalMessage({ branch }: { branch: string }) {
             </div>
 
             <h2 className="text-3xl lg:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">
-              Principal's{" "}
+              Principal&apos;s{" "}
               <span className="text-primary dark:text-secondary">Message</span>
             </h2>
 
             <div className="relative">
               <Quote className="absolute -top-6 -left-4 text-primary/10 dark:text-white/5 w-24 h-24 transform -scale-x-100" />
               <blockquote className="relative z-10 text-lg text-gray-600 dark:text-gray-300 italic font-body leading-relaxed mb-8">
-                "{data.message}"
+                &quot;{data.message}&quot;
               </blockquote>
             </div>
 

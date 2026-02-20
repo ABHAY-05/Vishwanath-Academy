@@ -241,17 +241,31 @@ export default function Footer({ branch }: { branch?: string }) {
               Quick Links
             </h3>
             <ul className="space-y-3 font-san text-sm text-gray-600 dark:text-gray-400">
-              {quickLinks.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={getLink(item.href)}
-                    className="hover:text-secondary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 group-hover:bg-secondary transition-colors" />
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+              {quickLinks.map((item) => {
+                let itemHref = item.href;
+                if (item.name === "Admission Enquiry") {
+                  if (branch === "aashiana") {
+                    itemHref =
+                      "https://forms.edunexttechnologies.com/forms/val/application/";
+                  } else if (branch === "dhawapur") {
+                    itemHref =
+                      "https://forms.edunexttechnologies.com/forms/vna/application/";
+                  }
+                }
+
+                return (
+                  <li key={item.name}>
+                    <Link
+                      href={getLink(itemHref)}
+                      target={item.target}
+                      className="hover:text-secondary transition-colors flex items-center gap-2 group"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 group-hover:bg-secondary transition-colors" />
+                      {item.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
