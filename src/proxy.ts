@@ -25,7 +25,7 @@ export default clerkMiddleware(async (auth, request) => {
   const isBlogsSubdomain =
     hostname.startsWith("blog.") ||
     hostname === "blog.localhost:3000" ||
-    hostname === "blogs.vishwanath-academy-mu.vercel.app/" ||
+    hostname === "blog.vishwanath-academy-mu.vercel.app/" ||
     hostname === "blog.vishwanathacademy.com";
 
   if (isBlogsSubdomain) {
