@@ -21,6 +21,7 @@ export const siteConfig = {
         google: "https://g.page/r/CVmGjF6cjjXnEAE",
         linkedin: "https://www.linkedin.com/company/7846010/",
         whatsapp: "https://wa.me/919169388348",
+        instagram: "http://instagram.com/vishwanathacademy",
       },
     },
     dhawapur: {
@@ -38,6 +39,7 @@ export const siteConfig = {
         google: "https://g.page/r/CVmGjF6cjjXnEAE",
         linkedin: "https://www.linkedin.com/company/7846010/",
         whatsapp: "https://wa.me/916393025211",
+        instagram: "http://instagram.com/vishwanathacademy",
       },
     },
   },

@@ -23,6 +23,7 @@ import {
   ShieldCheck,
   Sun,
   Moon,
+  Rss,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -62,6 +63,12 @@ export default function AdminSidebar({ branch, username }: AdminSidebarProps) {
       href: `/${branch}/admin/notices`,
       icon: ClipboardList,
       id: "notices",
+    },
+    {
+      name: "Blogs",
+      href: `/${branch}/admin/blogs`,
+      icon: Rss,
+      id: "blogs",
     },
     {
       name: "Gallery",

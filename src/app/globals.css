@@ -66,3 +66,8 @@ body {
   background-image: radial-gradient(currentColor 1px, transparent 1px);
   background-size: 20px 20px;
 }
+
+.prose p:empty::after,
+.prose p:has(br:only-child)::after {
+  content: "\00a0";
+}

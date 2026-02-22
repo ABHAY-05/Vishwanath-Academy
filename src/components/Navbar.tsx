@@ -133,7 +133,7 @@ export default function Navbar({ branch }: { branch?: string }) {
         }, // Use fetched planner URL
         {
           name: "Blogs",
-          href: "https://blog.vishwanathacademy.com/",
+          href: process.env.NEXT_PUBLIC_BLOG_URL!,
           target: "_blank",
         },
         { name: "Gallery", href: "/students/gallery" },

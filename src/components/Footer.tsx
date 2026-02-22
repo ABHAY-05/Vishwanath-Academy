@@ -1,6 +1,13 @@
 "use client";
 
-import { Facebook, Linkedin, Map, MapPin, MessageCircle } from "lucide-react";
+import {
+  Facebook,
+  Linkedin,
+  Map,
+  MapPin,
+  MessageCircle,
+  Instagram,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
@@ -37,12 +44,14 @@ export default function Footer({ branch }: { branch?: string }) {
     google,
     linkedin,
     whatsapp,
+    instagram,
   }: {
     fb: string;
     x: string;
     google: string;
     linkedin: string;
     whatsapp: string;
+    instagram: string;
   }) => (
     <div className="flex gap-4 mt-4 text-gray-500 dark:text-gray-400">
       <a
@@ -89,6 +98,15 @@ export default function Footer({ branch }: { branch?: string }) {
         aria-label="WhatsApp"
       >
         <MessageCircle size={18} />
+      </a>
+      <a
+        href={instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-pink-600 hover:scale-110 transition-all"
+        aria-label="Instagram"
+      >
+        <Instagram size={18} />
       </a>
     </div>
   );
@@ -145,6 +163,7 @@ export default function Footer({ branch }: { branch?: string }) {
             google={data.socials.google}
             linkedin={data.socials.linkedin}
             whatsapp={data.socials.whatsapp}
+            instagram={data.socials.instagram}
           />
           <div className="mt-3 text-xs text-gray-500 font-san">
             Affiliation No.: {data.affiliation}

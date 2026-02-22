@@ -1,5 +1,6 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { getNotices } from "@/actions/notice";
+import { getBlogs } from "@/actions/blog";
 import { Users, FileText, Bell, Newspaper } from "lucide-react";
 import NoticeActions from "@/components/NoticeActions";
 
@@ -13,7 +14,8 @@ export default async function AdminDashboard({
 
   // Fetch data
   const notices = await getNotices(branch);
-  const totalBlogs = 0; // Placeholder
+  const blogsRes = await getBlogs({ limit: 1 });
+  const totalBlogs = blogsRes.success ? blogsRes.totalBlogs : 0;
 
   const stats = [
     {

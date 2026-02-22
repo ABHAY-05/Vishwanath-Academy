@@ -39,6 +39,7 @@ const AVAILABLE_SECTIONS = [
   { id: "books", label: "Books & Stationary" },
   { id: "calendar", label: "Activity Calendar" },
   { id: "cbse", label: "CBSE Disclosure" },
+  { id: "blogs", label: "Blogs" },
 ];
 
 export default function PermissionsAdminPage({

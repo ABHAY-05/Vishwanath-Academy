@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/aashiana/admin/", "/dhawapur/admin/", "/api/"],
     },
-    sitemap: "https://vishwanath-academy-mu.vercel.app/sitemap.xml",
+    sitemap: `${process.env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`,
   };
 }
