@@ -40,6 +40,33 @@
   background: #00152e;
 }
 
+/* Firefox Scrollbar Support */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #002147 transparent;
+}
+
+.dark html {
+  scrollbar-color: #002147 #0f172a;
+}
+
+/* iOS Safari Viewport Height Fix */
+.min-h-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Custom Component Scrollbars for Firefox */
+.scrollbar-thin,
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 33, 71, 0.5) transparent;
+}
+.dark .scrollbar-thin,
+.dark .custom-scrollbar {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
 body {
   font-family: var(--font-body);
   background-color: var(--color-background);

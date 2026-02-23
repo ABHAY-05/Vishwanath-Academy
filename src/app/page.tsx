@@ -55,35 +55,41 @@ export default function LandingPage() {
         )}
       </div>
 
+      {/* HEADER LOGO & CBSE BADGE */}
+      <div className="max-w-7xl w-full relative z-10 flex flex-col items-center mb-12 lg:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative flex flex-col items-center"
+        >
+          <div className="absolute inset-0 bg-primary/20 blur-3xl opacity-20 dark:opacity-40 rounded-full" />
+          <Image
+            src="/vna-logo.webp"
+            alt="Vishwanath Academy"
+            width={400}
+            height={150}
+            className="relative z-10 drop-shadow-2xl dark:brightness-110 hidden dark:block h-auto mb-5"
+            priority
+          />
+          <Image
+            src="/vna-logo-light.webp"
+            alt="Vishwanath Academy"
+            width={400}
+            height={150}
+            className="relative z-10 drop-shadow-xl dark:hidden block h-auto mb-5"
+            priority
+          />
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 text-primary dark:bg-secondary/10 dark:text-secondary font-bold text-sm tracking-widest uppercase border border-primary/20 dark:border-secondary/20 shadow-sm relative z-10">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            CBSE Affiliated School
+          </div>
+        </motion.div>
+      </div>
+
       <div className="max-w-7xl w-full relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         {/* LEFT COLUMN: BRANDING & LEADERSHIP */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-10">
-          {/* LOGO */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="absolute inset-0 bg-primary/20 blur-3xl opacity-20 dark:opacity-40 rounded-full" />
-            <Image
-              src="/vna-logo.webp"
-              alt="Vishwanath Academy"
-              width={320}
-              height={120}
-              className="relative z-10 drop-shadow-2xl dark:brightness-110 hidden dark:block h-auto"
-              priority
-            />
-            <Image
-              src="/vna-logo-light.webp"
-              alt="Vishwanath Academy"
-              width={320}
-              height={120}
-              className="relative z-10 drop-shadow-xl dark:hidden block h-auto"
-              priority
-            />
-          </motion.div>
-
           {/* MESSAGE */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

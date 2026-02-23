@@ -75,6 +75,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.9,
   });
 
+  routes.push({
+    url: `${process.env.NEXT_PUBLIC_BLOG_URL}/educate-a-child-in-need`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  });
+
   try {
     const res = await getBlogs({ limit: 1000 });
     if (res.success && res.data) {

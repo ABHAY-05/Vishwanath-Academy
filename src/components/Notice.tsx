@@ -7,9 +7,9 @@ import { useState } from "react";
 import NoticeModal from "./NoticeModal";
 
 const quickLinks = [
-  { title: "Apply for Scholarship", icon: "🎓", href: "/students/scholarship" },
+  { title: "Apply for Scholarship", icon: "🎓", href: "/results/scholarship" },
   { title: "Curriculum", icon: "📘", href: "/academics/curriculum" },
-  { title: "Blogs", icon: "📝", href: "/students/blog" },
+  { title: "Blogs", icon: "📝", href: process.env.NEXT_PUBLIC_BLOG_URL! },
   { title: "Syllabus", icon: "📂", href: "/academics/syllabus" },
 ];
 

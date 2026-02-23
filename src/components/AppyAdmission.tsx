@@ -1,12 +1,18 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { X, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ApplyAdmission() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const pathname = usePathname();
+
+  const getAdmissionUrl = () => {
+    if (pathname.includes("dhawapur")) {
+      return "https://forms.edunexttechnologies.com/forms/vna/application/";
+    }
+    return "https://forms.edunexttechnologies.com/forms/val/application/";
+  };
 
   const branches = [
     {
@@ -51,8 +57,10 @@ export default function ApplyAdmission() {
                 about and dare to lead it.
               </p>
 
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <a
+                href={getAdmissionUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-sans font-semibold text-white hover:bg-secondary hover:text-black transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
               >
                 Start Application
@@ -69,7 +77,7 @@ export default function ApplyAdmission() {
                   <path d="M5 12h14" />
                   <path d="m12 5 7 7-7 7" />
                 </svg>
-              </button>
+              </a>
             </motion.div>
 
             {/* IMAGE */}
@@ -93,67 +101,6 @@ export default function ApplyAdmission() {
           </div>
         </div>
       </section>
-
-      {/* ADMISSION MODAL */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsModalOpen(false)}
-              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
-            />
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="bg-white dark:bg-gray-900 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden pointer-events-auto border border-gray-100 dark:border-gray-800"
-              >
-                {/* Modal Header */}
-                <div className="relative p-6 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
-                  <h3 className="text-xl font-display font-bold text-gray-900 dark:text-white">
-                    Select Campus
-                  </h3>
-                  <button
-                    onClick={() => setIsModalOpen(false)}
-                    className="absolute top-6 right-6 text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
-
-                {/* Modal Body */}
-                <div className="p-6 space-y-4">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                    Please upload your application for the specific campus you
-                    wish to apply to to proceed with your admission enquiry.
-                  </p>
-                  {branches.map((branch) => (
-                    <a
-                      key={branch.name}
-                      href={branch.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-secondary hover:bg-blue-50/50 dark:hover:bg-gray-800 transition-all group"
-                    >
-                      <span className="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-primary dark:group-hover:text-secondary">
-                        {branch.name}
-                      </span>
-                      <ExternalLink
-                        size={18}
-                        className="text-gray-400 group-hover:text-primary dark:group-hover:text-secondary transition-colors"
-                      />
-                    </a>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-          </>
-        )}
-      </AnimatePresence>
     </>
   );
 }

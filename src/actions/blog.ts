@@ -54,6 +54,44 @@ export async function createBlog(data: any) {
 
     revalidatePath("/blogs", "layout");
 
+    // Optional: Send OneSignal Notification
+    try {
+      if (
+        process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID &&
+        process.env.ONESIGNAL_REST_API_KEY
+      ) {
+        const notificationPayload = {
+          app_id: process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID,
+          included_segments: ["Subscribed Users"],
+          headings: { en: "New Article!" },
+          contents: { en: data.title },
+          url: `${process.env.NEXT_PUBLIC_BLOG_URL || "https://blog.vishwanathacademy.com"}/${slug}`,
+        };
+
+        const response = await fetch(
+          "https://onesignal.com/api/v1/notifications",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Basic ${process.env.ONESIGNAL_REST_API_KEY}`,
+            },
+            body: JSON.stringify(notificationPayload),
+          },
+        );
+
+        if (!response.ok) {
+          const errData = await response.text();
+          console.error("OneSignal push dispatch failed:", errData);
+        } else {
+          console.log("OneSignal push dispatched successfully for blog:", slug);
+        }
+      }
+    } catch (err) {
+      // Don't fail the blog creation if push fails
+      console.error("Failed to execute OneSignal push routine:", err);
+    }
+
     return { success: true, data: JSON.parse(JSON.stringify(newBlog)) };
   } catch (error: any) {
     return {

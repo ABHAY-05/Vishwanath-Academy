@@ -59,6 +59,9 @@ importers:
       react-masonry-css:
         specifier: ^1.0.16
         version: 1.0.16(react@19.2.1)
+      react-onesignal:
+        specifier: ^3.4.6
+        version: 3.4.6
       react-quill-new:
         specifier: ^3.8.3
         version: 3.8.3(quill-delta@5.1.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -1957,6 +1960,10 @@ packages:
     resolution: {integrity: sha512-KSW0hR2VQmltt/qAa3eXOctQDyOu7+ZBevtKgpNDSzT7k5LA/0XntNa9z9HKCdz3QlxmJHglTZ18e4sX4V8zZQ==}
     peerDependencies:
       react: '>=16.0.0'
+
+  react-onesignal@3.4.6:
+    resolution: {integrity: sha512-Jxr5GMdHssaZBVeWjhwn4ImqP5qcc8ekrSIVYrvetlf+7UNn9zUrXFFcAoWGi1BRru/4UcDEB+lOaBEPJVI1yw==}
+    engines: {node: '>=14', npm: '>=6'}
 
   react-property@2.0.2:
     resolution: {integrity: sha512-+PbtI3VuDV0l6CleQMsx2gtK0JZbZKbpdu5ynr+lbsuvtmgbNcS3VM0tuY2QjFNOcWxvXeHjDpy42RO+4U2rug==}
@@ -4260,6 +4267,8 @@ snapshots:
   react-masonry-css@1.0.16(react@19.2.1):
     dependencies:
       react: 19.2.1
+
+  react-onesignal@3.4.6: {}
 
   react-property@2.0.2: {}
 

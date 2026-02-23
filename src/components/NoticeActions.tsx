@@ -135,15 +135,34 @@ export default function NoticeActions({
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
-                    PDF or Image Link (Optional)
+                    PDF or Image Attachment (Upload to replace existing)
                   </label>
                   <input
-                    type="url"
+                    type="file"
                     name="pdfLink"
-                    defaultValue={notice.pdfLink}
-                    placeholder="https://example.com/file.pdf"
-                    className="w-full px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 focus:ring-2 focus:ring-blue-500 outline-none"
+                    accept="image/*,application/pdf"
+                    className="w-full px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 focus:ring-2 focus:ring-blue-500 outline-none file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 dark:file:bg-blue-900/30 dark:file:text-blue-400"
                   />
+                  <input
+                    type="hidden"
+                    name="existingPdfLink"
+                    value={notice.pdfLink || ""}
+                  />
+                  {notice.pdfLink && (
+                    <div className="mt-2 text-sm text-neutral-500 dark:text-neutral-400 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                      <span>
+                        Current attachment:{" "}
+                        <a
+                          href={notice.pdfLink}
+                          target="_blank"
+                          className="text-blue-600 dark:text-blue-400 hover:underline"
+                        >
+                          View File
+                        </a>
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="flex justify-end gap-3 pt-2">
                   <button

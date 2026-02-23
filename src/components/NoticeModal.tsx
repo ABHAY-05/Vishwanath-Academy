@@ -3,6 +3,7 @@
 import { Calendar, FileText, ExternalLink, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ShareButtons from "./ShareButtons";
+import Image from "next/image";
 
 interface Notice {
   _id: string;
@@ -29,6 +30,11 @@ export default function NoticeModal({
 
   // Handle both potentially used field names for the attachment
   const attachmentLink = notice.pdfLink || notice.file;
+
+  // Check if attachment is an image
+  const isImageAttachment =
+    attachmentLink &&
+    /\.(jpg|jpeg|png|webp|gif)$/i.test(attachmentLink.split("?")[0]);
 
   return (
     <AnimatePresence>
@@ -81,6 +87,18 @@ export default function NoticeModal({
               </div>
             </div>
 
+            {isImageAttachment && attachmentLink && (
+              <div className="mb-8 w-full relative rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-800 flex justify-center shadow-inner border border-neutral-200 dark:border-neutral-700">
+                <Image
+                  src={attachmentLink}
+                  alt="Notice Attachment"
+                  width={800}
+                  height={1200}
+                  className="w-full h-auto object-contain max-h-[60vh]"
+                />
+              </div>
+            )}
+
             <div className="prose dark:prose-invert max-w-none text-neutral-600 dark:text-neutral-300">
               <p className="whitespace-pre-wrap leading-relaxed">
                 {notice.description}
@@ -89,7 +107,7 @@ export default function NoticeModal({
 
             {/* Footer / Actions */}
             <div className="mt-8 pt-6 border-t border-neutral-200 dark:border-neutral-800 space-y-6">
-              {attachmentLink && (
+              {attachmentLink && !isImageAttachment && (
                 <a
                   href={attachmentLink}
                   target="_blank"
@@ -97,7 +115,7 @@ export default function NoticeModal({
                   className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform duration-200"
                 >
                   <FileText size={18} />
-                  View Attachment
+                  View Attachment Document
                   <ExternalLink size={16} />
                 </a>
               )}

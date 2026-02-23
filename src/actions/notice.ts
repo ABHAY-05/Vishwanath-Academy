@@ -3,6 +3,7 @@
 import dbConnect from "@/lib/db";
 import Notice from "@/lib/models/Notice";
 import { revalidatePath } from "next/cache";
+import { processAndUploadDocument } from "@/lib/cloudinary";
 
 export async function getNotices(branch: string) {
   await dbConnect();
@@ -37,10 +38,24 @@ export async function createNotice(formData: FormData) {
   const description = formData.get("description") as string;
   const branch = formData.get("branch") as string;
   const date = formData.get("date") as string;
-  const pdfLink = formData.get("pdfLink") as string;
+  const file = formData.get("pdfLink") as File;
 
   if (!title || !description || !branch) {
     throw new Error("Missing required fields");
+  }
+
+  let finalUrl = "";
+  if (file && file.size > 0 && file.name) {
+    try {
+      const res = await processAndUploadDocument(
+        file,
+        "vishwanath-academy/notices",
+      );
+      finalUrl = res.secure_url;
+    } catch (err: any) {
+      console.error("Failed to upload notice attachment:", err);
+      throw new Error("Failed to upload attachment");
+    }
   }
 
   await Notice.create({
@@ -48,7 +63,7 @@ export async function createNotice(formData: FormData) {
     description,
     branch,
     createdAt: date ? new Date(date) : new Date(),
-    pdfLink,
+    pdfLink: finalUrl || undefined,
     author: authorName,
   });
 
@@ -68,17 +83,34 @@ export async function updateNotice(
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
   const date = formData.get("date") as string;
-  const pdfLink = formData.get("pdfLink") as string;
+  const file = formData.get("pdfLink") as File;
+
+  // existing url fallback (if user doesn't replace the file but form passes the hidden string or something)
+  const existingPdfLinkStr = formData.get("existingPdfLink") as string;
 
   if (!title || !description) {
     throw new Error("Missing required fields");
+  }
+
+  let finalUrl = existingPdfLinkStr || undefined;
+  if (file && file.size > 0 && file.name) {
+    try {
+      const res = await processAndUploadDocument(
+        file,
+        "vishwanath-academy/notices",
+      );
+      finalUrl = res.secure_url;
+    } catch (err: any) {
+      console.error("Failed to upload notice attachment during update:", err);
+      throw new Error("Failed to upload new attachment");
+    }
   }
 
   await Notice.findByIdAndUpdate(id, {
     title,
     description,
     createdAt: date ? new Date(date) : new Date(),
-    pdfLink,
+    pdfLink: finalUrl,
   });
 
   revalidatePath(`/${branch}/admin/notices`);

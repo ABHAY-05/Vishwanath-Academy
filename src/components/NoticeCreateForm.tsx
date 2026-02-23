@@ -59,13 +59,13 @@ export default function NoticeCreateForm({ branch }: { branch: string }) {
           </div>
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
-              PDF or Image Link (Optional)
+              PDF or Image Attachment (Optional)
             </label>
             <input
-              type="url"
+              type="file"
               name="pdfLink"
-              placeholder="https://example.com/file.pdf"
-              className="w-full px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              accept="image/*,application/pdf"
+              className="w-full px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 focus:ring-2 focus:ring-blue-500 outline-none transition-all file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 dark:file:bg-blue-900/30 dark:file:text-blue-400 hover:file:bg-blue-100 dark:hover:file:bg-blue-900/50"
             />
           </div>
         </div>

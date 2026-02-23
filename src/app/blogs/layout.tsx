@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BlogsNavbar from "@/components/blogs/BlogsNavbar";
 import BlogsFooter from "@/components/blogs/BlogsFooter";
+import OneSignalWrapper from "@/components/blogs/OneSignalWrapper";
 
 export const metadata: Metadata = {
   title: "Blogs | Vishwanath Academy",
@@ -18,6 +19,7 @@ export default function BlogsLayout({
       <BlogsNavbar />
       <main className="flex-1">{children}</main>
       <BlogsFooter />
+      <OneSignalWrapper />
     </div>
   );
 }

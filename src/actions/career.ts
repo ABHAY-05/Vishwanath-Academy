@@ -77,7 +77,7 @@ export async function submitCareerApplication(formData: FormData) {
 
     const { data, error } = await resend.emails.send({
       from: "Career Portal <onboarding@resend.dev>", // Replace with verified domain if available
-      to: [process.env.CONTACT_EMAIL || "vishwanathacademy22@gmail.com"],
+      to: [process.env.CAREER_EMAIL || "vishwanathacademy22@gmail.com"],
       subject: `New Career Application: ${fullName} - ${position} (${branch})`,
       html: htmlContent,
       replyTo: email,

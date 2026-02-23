@@ -291,16 +291,10 @@ export default function Footer({ branch }: { branch?: string }) {
           {/* COLUMN 3: CONTACT */}
           <div className={contactCols}>
             {branch === "aashiana" && (
-              <BranchContactCard
-                data={siteConfig.branches.aashiana}
-                withMap={true}
-              />
+              <BranchContactCard data={siteConfig.branches.aashiana} />
             )}
             {branch === "dhawapur" && (
-              <BranchContactCard
-                data={siteConfig.branches.dhawapur}
-                withMap={true}
-              />
+              <BranchContactCard data={siteConfig.branches.dhawapur} />
             )}
             {!branch && (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
