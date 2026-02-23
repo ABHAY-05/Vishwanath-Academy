@@ -59,9 +59,17 @@ export default function OneSignalBell() {
     if (!isInitialized) return;
 
     if (isSubscribed) {
-      await OneSignal.User.PushSubscription.optOut();
-      setIsSubscribed(false);
+      const confirmUnsub = window.confirm(
+        "Are you sure you want to unsubscribe from notifications?",
+      );
+      if (confirmUnsub) {
+        await OneSignal.User.PushSubscription.optOut();
+        setIsSubscribed(false);
+      }
     } else {
+      // Trigger optIn (which will enable if already granted natively)
+      await OneSignal.User.PushSubscription.optIn();
+      // And show the slidedown prompt if they haven't granted native permission
       await OneSignal.Slidedown.promptPush();
     }
   };
@@ -84,9 +92,7 @@ export default function OneSignalBell() {
         className={`group relative flex items-center justify-center w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${
           isBlocked
             ? "bg-red-500 text-white hover:bg-red-600"
-            : isSubscribed
-              ? "bg-neutral-800 dark:bg-neutral-200 text-white dark:text-neutral-900 border-2 border-transparent"
-              : "bg-blue-600 text-white hover:bg-blue-700"
+            : "bg-blue-600 text-white hover:bg-blue-700"
         }`}
         aria-label={
           isBlocked
