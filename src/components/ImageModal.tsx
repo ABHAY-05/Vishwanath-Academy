@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Plus, Minus } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface Props {
   isOpen: boolean;
@@ -23,6 +23,8 @@ export default function ImageModal({
   onPrev,
 }: Props) {
   const [zoom, setZoom] = useState(1);
+  const [initialDistance, setInitialDistance] = useState<number | null>(null);
+  const [initialZoom, setInitialZoom] = useState<number>(1);
   const currentImage = images[currentIndex];
 
   // Reset zoom when image changes or modal opens
@@ -70,25 +72,25 @@ export default function ImageModal({
 
           {/* Navigation Buttons */}
           <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors z-50 hidden md:block disabled:opacity-30 disabled:cursor-not-allowed"
+            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-2 md:p-3 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors z-[60] disabled:opacity-30 disabled:cursor-not-allowed"
             onClick={(e) => {
               e.stopPropagation();
               onPrev?.();
             }}
             disabled={images.length <= 1}
           >
-            <ChevronLeft size={32} />
+            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
           </button>
 
           <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-3 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors z-50 hidden md:block disabled:opacity-30 disabled:cursor-not-allowed"
+            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-2 md:p-3 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors z-[60] disabled:opacity-30 disabled:cursor-not-allowed"
             onClick={(e) => {
               e.stopPropagation();
               onNext?.();
             }}
             disabled={images.length <= 1}
           >
-            <ChevronRight size={32} />
+            <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
           </button>
 
           {/* Zoom Controls */}
@@ -118,8 +120,31 @@ export default function ImageModal({
 
           {/* Image Container */}
           <motion.div
-            className="relative w-full h-full flex items-center justify-center p-4 md:p-12"
+            className="relative w-full h-full flex items-center justify-center p-4 md:p-12 touch-none"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={(e) => {
+              if (e.touches.length === 2) {
+                const dist = Math.hypot(
+                  e.touches[0].clientX - e.touches[1].clientX,
+                  e.touches[0].clientY - e.touches[1].clientY,
+                );
+                setInitialDistance(dist);
+                setInitialZoom(zoom);
+              }
+            }}
+            onTouchMove={(e) => {
+              if (e.touches.length === 2 && initialDistance !== null) {
+                const dist = Math.hypot(
+                  e.touches[0].clientX - e.touches[1].clientX,
+                  e.touches[0].clientY - e.touches[1].clientY,
+                );
+                const scale = dist / initialDistance;
+                setZoom(Math.min(Math.max(initialZoom * scale, 1), 4));
+              }
+            }}
+            onTouchEnd={() => {
+              setInitialDistance(null);
+            }}
           >
             <motion.div
               animate={{ scale: zoom }}
