@@ -11,7 +11,7 @@ export default function CurriculumContent() {
   return (
     <main className="bg-white dark:bg-gray-950 pb-20 overflow-hidden">
       {/* 1. HERO SECTION - Modern Gradient */}
-      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[225px] md:h-[400px] flex items-center justify-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-blue-900 dark:bg-gray-900">
           <div className="absolute inset-0 opacity-20 bg-[url('/pattern-grid.svg')] bg-repeat" />
@@ -21,12 +21,12 @@ export default function CurriculumContent() {
           <motion.div
             animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-32 -left-32 w-96 h-96 bg-primary/30 rounded-full blur-3xl"
+            className="absolute -top-32 -left-32 w-72 md:w-96 h-72 md:h-96 bg-primary/30 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ scale: [1, 1.3, 1], rotate: [0, -60, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-3xl"
+            className="absolute bottom-0 right-0 w-[375px] md:w-[500px] h-[375px] md:h-[500px] bg-secondary/20 rounded-full blur-3xl"
           />
         </div>
 
@@ -39,7 +39,7 @@ export default function CurriculumContent() {
             <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-blue-100 font-semibold text-sm mb-4">
               Academic Excellence
             </span>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">
+            <h1 className="text-3xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">
               {title}
             </h1>
           </motion.div>
@@ -103,7 +103,7 @@ export default function CurriculumContent() {
               >
                 {/* Decorative blob behind text/image pair */}
                 <div
-                  className={`absolute top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-3xl -z-10 ${isImageLeft ? "right-0" : "left-0"}`}
+                  className={`absolute top-1/2 -translate-y-1/2 w-[375px] md:w-[500px] h-[375px] md:h-[500px] bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-3xl -z-10 ${isImageLeft ? "right-0" : "left-0"}`}
                 />
 
                 {/* IMAGE */}
@@ -137,7 +137,7 @@ export default function CurriculumContent() {
                   className="w-full md:w-1/2 space-y-6"
                 >
                   <div className="flex items-center gap-4">
-                    <h2 className="text-3xl md:text-4xl font-display font-bold text-primary dark:text-white">
+                    <h2 className="text-2xl md:text-4xl font-display font-bold text-primary dark:text-white">
                       {level.title}
                     </h2>
                   </div>

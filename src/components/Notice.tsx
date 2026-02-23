@@ -39,14 +39,14 @@ export default function NoticeBoard({ notices = [] }: { notices?: Notice[] }) {
   return (
     <section className="bg-gray-50 dark:bg-gray-900 py-16 relative overflow-hidden">
       {/* Decorative background blob */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[375px] md:w-[500px] h-[375px] md:h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* LEFT: NOTICE BOARD */}
           <div className="lg:col-span-2 space-y-8">
             <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-800 pb-4">
-              <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white">
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-white">
                 <span className="text-primary dark:text-secondary">
                   Announcements
                 </span>
@@ -63,7 +63,7 @@ export default function NoticeBoard({ notices = [] }: { notices?: Notice[] }) {
               </Link>
             </div>
 
-            <div className="h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary/20 hover:scrollbar-thumb-primary/40 scrollbar-track-transparent">
+            <div className="h-[300px] md:h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary/20 hover:scrollbar-thumb-primary/40 scrollbar-track-transparent">
               <div className="space-y-4">
                 {notices.length === 0 ? (
                   <div className="text-center py-10 text-gray-500">
@@ -121,7 +121,7 @@ export default function NoticeBoard({ notices = [] }: { notices?: Notice[] }) {
                   href={getLink(item.href)}
                   className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-lg hover:border-secondary/30 transition-all duration-300 group"
                 >
-                  <span className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 text-2xl group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                  <span className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 text-xl md:text-2xl group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
                     {item.icon}
                   </span>
                   <span className="font-san font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary dark:group-hover:text-white transition-colors">

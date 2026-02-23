@@ -119,7 +119,7 @@ export default function BlogsNavbar() {
       <div className="bg-primary text-white py-4 px-4 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex flex-col flex-1 items-center justify-center text-center">
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
+            <h1 className="text-xl md:text-3xl font-bold tracking-tight">
               Vishwanath Academy &ndash; Blogs
             </h1>
             <span className="text-base md:text-lg font-medium text-white/90 inline-block mt-0.5 uppercase tracking-widest">
@@ -156,7 +156,7 @@ export default function BlogsNavbar() {
               <button className="flex items-center gap-1 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-secondary transition-colors py-2">
                 Your Guide <ChevronDown size={14} />
               </button>
-              <div className="absolute top-full left-0 w-48 bg-white dark:bg-neutral-900 shadow-xl rounded-b-lg border-t-2 border-primary dark:border-secondary opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col z-50">
+              <div className="absolute top-full left-0 w-32 md:w-48 bg-white dark:bg-neutral-900 shadow-xl rounded-b-lg border-t-2 border-primary dark:border-secondary opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col z-50">
                 <Link
                   href="/tag/affiliation"
                   className="px-4 py-2 hover:bg-gray-50 dark:hover:bg-neutral-800 text-sm font-medium border-b border-gray-50 dark:border-neutral-800 text-gray-700 dark:text-gray-200"
@@ -168,7 +168,7 @@ export default function BlogsNavbar() {
                     Submit your reviews{" "}
                     <ChevronDown size={14} className="-rotate-90" />
                   </div>
-                  <div className="absolute top-0 left-full ml-0 w-48 bg-white dark:bg-neutral-900 shadow-xl rounded-lg border-t-2 border-primary dark:border-secondary opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 flex flex-col z-50">
+                  <div className="absolute top-0 left-full ml-0 w-32 md:w-48 bg-white dark:bg-neutral-900 shadow-xl rounded-lg border-t-2 border-primary dark:border-secondary opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 flex flex-col z-50">
                     <a
                       href="https://www.google.com/maps/place/Vishwanath+Academy/@26.7773978,80.9088641,17z/data=!3m1!4b1!4m6!3m5!1s0x399bfbfa91bd1e95:0xe7358e9c5e8c8659!8m2!3d26.7773978!4d80.9088641!16s%2Fg%2F1w6r6phk?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D"
                       target="_blank"
@@ -195,7 +195,7 @@ export default function BlogsNavbar() {
               <button className="flex items-center gap-1 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-secondary transition-colors py-2">
                 Students Section <ChevronDown size={14} />
               </button>
-              <div className="absolute top-full left-0 w-56 bg-white dark:bg-neutral-900 shadow-xl rounded-b-lg border-t-2 border-primary dark:border-secondary opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col z-50">
+              <div className="absolute top-full left-0 w-40 md:w-56 bg-white dark:bg-neutral-900 shadow-xl rounded-b-lg border-t-2 border-primary dark:border-secondary opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col z-50">
                 <Link
                   href="/tag/parents-corner"
                   className="px-4 py-2 hover:bg-gray-50 dark:hover:bg-neutral-800 text-sm font-medium border-b border-gray-50 dark:border-neutral-800 text-gray-700 dark:text-gray-200"
@@ -288,7 +288,7 @@ export default function BlogsNavbar() {
 
       {/* MOBILE MENU */}
       <aside
-        className={`fixed right-0 top-0 z-50 h-full w-80 bg-white dark:bg-neutral-950 shadow-2xl transition-transform duration-300 ${
+        className={`fixed right-0 top-0 z-50 h-full w-64 md:w-80 bg-white dark:bg-neutral-950 shadow-2xl transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

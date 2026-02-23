@@ -45,7 +45,7 @@ export default function PrincipalMessage({ branch }: { branch: string }) {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border-8 border-white dark:border-gray-800">
+            <div className="relative aspect-[3/4] w-3/4 max-w-[260px] md:w-full md:max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 md:border-8 border-white dark:border-gray-800">
               <Image
                 src={data.image}
                 alt={data.name}
@@ -70,7 +70,7 @@ export default function PrincipalMessage({ branch }: { branch: string }) {
               </span>
             </div>
 
-            <h2 className="text-3xl lg:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-2xl lg:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">
               Principal&apos;s{" "}
               <span className="text-primary dark:text-secondary">Message</span>
             </h2>

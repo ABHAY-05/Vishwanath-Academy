@@ -29,7 +29,7 @@ export default function BooksContent() {
   return (
     <main className="bg-white dark:bg-gray-950 pb-20 overflow-hidden">
       {/* 1. HERO SECTION - Modern Gradient */}
-      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[225px] md:h-[400px] flex items-center justify-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-blue-900 dark:bg-gray-900">
           <div className="absolute inset-0 opacity-20 bg-[url('/pattern-grid.svg')] bg-repeat" />
@@ -39,12 +39,12 @@ export default function BooksContent() {
           <motion.div
             animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-32 -left-32 w-96 h-96 bg-primary/30 rounded-full blur-3xl"
+            className="absolute -top-32 -left-32 w-72 md:w-96 h-72 md:h-96 bg-primary/30 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ scale: [1, 1.3, 1], rotate: [0, -60, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-3xl"
+            className="absolute bottom-0 right-0 w-[375px] md:w-[500px] h-[375px] md:h-[500px] bg-secondary/20 rounded-full blur-3xl"
           />
         </div>
 
@@ -57,7 +57,7 @@ export default function BooksContent() {
             <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-blue-100 font-semibold text-sm mb-4">
               Essential Resources
             </span>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">
+            <h1 className="text-3xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">
               {title}
             </h1>
             <p className="text-lg md:text-xl text-blue-100/90 max-w-2xl mx-auto font-light leading-relaxed">
@@ -74,7 +74,7 @@ export default function BooksContent() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold font-display text-gray-900 dark:text-white mb-4"
+            className="text-2xl md:text-3xl font-bold font-display text-gray-900 dark:text-white mb-4"
           >
             {intro}
           </motion.h2>
@@ -111,7 +111,7 @@ export default function BooksContent() {
                   <BookOpen className="w-8 h-8" />
                 </div>
 
-                <h3 className="text-2xl font-bold font-display text-gray-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
                   Class {className}
                 </h3>
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-6">

@@ -71,17 +71,17 @@ export default function OurManagement({ branch }: { branch?: string }) {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
         {/* HEADER */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl lg:text-4xl text-gray-900 dark:text-white font-display mb-4">
+          <h2 className="text-2xl lg:text-4xl text-gray-900 dark:text-white font-display mb-4">
             Our{" "}
             <span className="text-primary dark:text-secondary">Management</span>
           </h2>
 
           <p className="max-w-3xl mx-auto text-gray-700 dark:text-gray-300 italic font-body text-lg">
-            <span className="text-primary dark:text-secondary text-2xl mr-2">
+            <span className="text-primary dark:text-secondary text-xl md:text-2xl mr-2">
               “
             </span>
             Art of Teaching is the Art of Assisting Discovery.
-            <span className="text-primary dark:text-secondary text-2xl ml-2">
+            <span className="text-primary dark:text-secondary text-xl md:text-2xl ml-2">
               ”
             </span>
           </p>
@@ -105,7 +105,7 @@ export default function OurManagement({ branch }: { branch?: string }) {
                     className="block h-full"
                   >
                     <div className="text-center h-full">
-                      <div className="relative w-full aspect-4/5 mb-4 overflow-hidden rounded-lg border bg-white shadow-md">
+                      <div className="relative w-3/4 max-w-[240px] mx-auto md:w-full md:max-w-none aspect-[4/5] mb-4 overflow-hidden rounded-lg border bg-white shadow-md">
                         <Image
                           src={person.image}
                           alt={person.name}

@@ -178,7 +178,7 @@ export default function AdminBoardResultsPage({
     <div className="p-6 max-w-7xl mx-auto">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
             Board Results Management
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1">
@@ -269,7 +269,7 @@ export default function AdminBoardResultsPage({
             <form onSubmit={handleHighlightUpload} className="space-y-4">
               <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer relative min-h-[200px] flex flex-col items-center justify-center">
                 {highlightPreview ? (
-                  <div className="relative w-full h-48">
+                  <div className="relative w-full h-32 md:h-48">
                     <Image
                       src={highlightPreview}
                       alt="Preview"
@@ -482,7 +482,7 @@ export default function AdminBoardResultsPage({
                       {formClassXFile ? (
                         <>
                           <ImageIcon className="text-primary dark:text-secondary" size={24} />
-                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-48">
+                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-32 md:w-48">
                             {formClassXFile.name}
                           </span>
                         </>
@@ -517,7 +517,7 @@ export default function AdminBoardResultsPage({
                       {formClassXIIFile ? (
                         <>
                           <ImageIcon className="text-primary dark:text-secondary" size={24} />
-                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-48">
+                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-32 md:w-48">
                             {formClassXIIFile.name}
                           </span>
                         </>

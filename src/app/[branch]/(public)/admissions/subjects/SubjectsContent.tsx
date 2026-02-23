@@ -10,7 +10,7 @@ export default function SubjectsContent() {
   return (
     <main className="bg-white dark:bg-gray-950 pb-20 overflow-hidden">
       {/* 1. HERO SECTION - Modern Gradient */}
-      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[225px] md:h-[400px] flex items-center justify-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-blue-900 dark:bg-gray-900">
           <div className="absolute inset-0 opacity-20 bg-[url('/pattern-grid.svg')] bg-repeat" />
@@ -20,12 +20,12 @@ export default function SubjectsContent() {
           <motion.div
             animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-32 -left-32 w-96 h-96 bg-primary/30 rounded-full blur-3xl"
+            className="absolute -top-32 -left-32 w-72 md:w-96 h-72 md:h-96 bg-primary/30 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ scale: [1, 1.3, 1], rotate: [0, -60, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-3xl"
+            className="absolute bottom-0 right-0 w-[375px] md:w-[500px] h-[375px] md:h-[500px] bg-secondary/20 rounded-full blur-3xl"
           />
         </div>
 
@@ -38,7 +38,7 @@ export default function SubjectsContent() {
             <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-blue-100 font-semibold text-sm mb-4">
               Curriculum Choices
             </span>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">
+            <h1 className="text-3xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">
               {title}
             </h1>
             <p className="text-lg md:text-xl text-blue-100/90 max-w-2xl mx-auto font-light leading-relaxed">
@@ -60,8 +60,8 @@ export default function SubjectsContent() {
               className="bg-white dark:bg-gray-900 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-800"
             >
               <div className="bg-gradient-to-r from-primary to-blue-800 px-8 py-6 relative overflow-hidden">
-                <div className="absolute right-0 top-0 w-32 h-32 bg-white/10 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2" />
-                <h2 className="text-2xl md:text-3xl font-bold font-display text-white uppercase tracking-wider relative z-10 flex items-center gap-3">
+                <div className="absolute right-0 top-0 w-24 md:w-32 h-24 md:h-32 bg-white/10 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2" />
+                <h2 className="text-xl md:text-3xl font-bold font-display text-white uppercase tracking-wider relative z-10 flex items-center gap-3">
                   <BookOpen className="text-secondary opacity-80" />
                   {stream.name}
                 </h2>

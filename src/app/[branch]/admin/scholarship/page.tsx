@@ -228,7 +228,7 @@ export default function AdminScholarshipPage() {
     <div className="p-6 max-w-7xl mx-auto">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
             Scholarship Management
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1">
@@ -391,7 +391,7 @@ export default function AdminScholarshipPage() {
               <form onSubmit={handleImageUpload} className="space-y-4">
                 <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer relative min-h-[200px] flex flex-col items-center justify-center">
                   {previewUrl ? (
-                    <div className="relative w-full h-48">
+                    <div className="relative w-full h-32 md:h-48">
                       <Image
                         src={previewUrl}
                         alt="Preview"

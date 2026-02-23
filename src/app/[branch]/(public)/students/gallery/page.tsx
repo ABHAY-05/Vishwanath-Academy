@@ -129,7 +129,7 @@ export default function GalleryPage({
       {/* Hero Section */}
       <section className="relative py-20 bg-blue-50 dark:bg-gray-900 overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold font-display text-neutral-900 dark:text-white mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold font-display text-neutral-900 dark:text-white mb-4">
             Our <span className="text-blue-600">Gallery</span>
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
@@ -139,8 +139,8 @@ export default function GalleryPage({
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+        <div className="absolute top-0 left-0 w-48 md:w-64 h-48 md:h-64 bg-blue-200/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-64 md:w-80 h-64 md:h-80 bg-purple-200/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
       </section>
 
       {/* Filter Tabs */}

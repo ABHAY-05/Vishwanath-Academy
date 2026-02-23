@@ -46,7 +46,7 @@ export default async function AdminDashboard({
       {/* Welcome Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-neutral-800 dark:text-neutral-200">
+          <h1 className="text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-200">
             Welcome back, {user?.firstName || "Admin"}!
           </h1>
           <p className="text-neutral-600 dark:text-neutral-400">
@@ -69,7 +69,7 @@ export default async function AdminDashboard({
               <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
                 {stat.label}
               </p>
-              <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
+              <h3 className="text-xl md:text-2xl font-bold text-neutral-900 dark:text-white">
                 {stat.value}
               </h3>
             </div>

@@ -246,7 +246,7 @@ export default function AboutPage() {
   return (
     <main className="bg-white dark:bg-gray-950 pb-20 overflow-hidden">
       {/* 1. HERO SECTION - Modern Gradient */}
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
         {/* Background Image/Pattern */}
         <div className="absolute inset-0 bg-blue-900 dark:bg-gray-900">
           <div className="absolute inset-0 opacity-20 bg-[url('/pattern-grid.svg')] bg-repeat" />
@@ -256,12 +256,12 @@ export default function AboutPage() {
           <motion.div
             animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-32 -left-32 w-96 h-96 bg-primary/30 rounded-full blur-3xl"
+            className="absolute -top-32 -left-32 w-72 md:w-96 h-72 md:h-96 bg-primary/30 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ scale: [1, 1.3, 1], rotate: [0, -60, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-3xl"
+            className="absolute bottom-0 right-0 w-[375px] md:w-[500px] h-[375px] md:h-[500px] bg-secondary/20 rounded-full blur-3xl"
           />
         </div>
 
@@ -271,7 +271,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-7xl font-display font-bold text-white mb-6 tracking-tight">
               About Us
             </h1>
             <p className="text-lg md:text-xl text-blue-100/90 max-w-2xl mx-auto font-light leading-relaxed">
@@ -330,7 +330,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="lg:col-span-6 relative"
           >
-            <div className="relative h-[500px] w-full rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white dark:border-gray-800 z-10">
+            <div className="relative h-[375px] md:h-[500px] w-full rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white dark:border-gray-800 z-10">
               <Image
                 src="/VNA-About.jpg"
                 alt="Students at Vishwanath Academy"
@@ -341,8 +341,8 @@ export default function AboutPage() {
               />
             </div>
             {/* Decos */}
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary/20 rounded-full blur-3xl -z-10" />
-            <div className="absolute -top-10 -left-10 w-48 h-48 bg-primary/20 rounded-full blur-3xl -z-10" />
+            <div className="absolute -bottom-10 -right-10 w-48 md:w-64 h-48 md:h-64 bg-secondary/20 rounded-full blur-3xl -z-10" />
+            <div className="absolute -top-10 -left-10 w-32 md:w-48 h-32 md:h-48 bg-primary/20 rounded-full blur-3xl -z-10" />
             <div className="absolute top-10 -right-4 w-24 h-24 bg-pattern-dots opacity-20 -z-10" />
           </motion.div>
 
@@ -356,7 +356,7 @@ export default function AboutPage() {
             <div className="inline-block px-3 py-1 bg-blue-50 dark:bg-gray-800 text-primary dark:text-secondary rounded-full text-sm font-bold mb-4 w-fit">
               Who We Are
             </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+            <h2 className="text-3xl lg:text-5xl font-display font-bold text-gray-900 dark:text-white mb-8 leading-tight">
               About <br />
               <span className="text-primary dark:text-secondary">
                 Vishwanath Academy
@@ -406,7 +406,7 @@ export default function AboutPage() {
         {/* 4. MODERN TABS SECTION */}
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* Tab Navigation */}
-          <div className="lg:col-span-3 flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 sticky top-24">
+          <div className="lg:col-span-3 p-2 flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 sticky top-24">
             {tabData.map((tab, index) => (
               <button
                 key={index}
@@ -438,7 +438,7 @@ export default function AboutPage() {
           <div className="lg:col-span-9">
             <div className="bg-white dark:bg-gray-900 rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100 dark:border-gray-800 relative overflow-hidden min-h-[500px]">
               {/* Decoration */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full pointer-events-none" />
+              <div className="absolute top-0 right-0 w-48 md:w-64 h-48 md:h-64 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full pointer-events-none" />
 
               <AnimatePresence mode="wait">
                 <motion.div
@@ -455,7 +455,7 @@ export default function AboutPage() {
                         return <Icon size={32} />;
                       })()}
                     </div>
-                    <h3 className="text-3xl font-display font-bold text-gray-900 dark:text-white whitespace-pre-line">
+                    <h3 className="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-white whitespace-pre-line">
                       {tabData[activeTab].title}
                     </h3>
                   </div>

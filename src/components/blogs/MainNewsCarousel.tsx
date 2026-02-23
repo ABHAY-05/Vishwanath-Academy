@@ -18,7 +18,7 @@ export function MainNewsCarousel({ blogs }: { blogs: IBlog[] }) {
 
   if (!blogs || blogs.length === 0) {
     return (
-      <div className="w-full h-[400px] md:h-[500px] bg-gray-50 dark:bg-neutral-950 border border-gray-100 dark:border-neutral-800 rounded-xl flex items-center justify-center text-gray-400 dark:text-gray-600 transition-colors">
+      <div className="w-full h-[300px] md:h-[500px] bg-gray-50 dark:bg-neutral-950 border border-gray-100 dark:border-neutral-800 rounded-xl flex items-center justify-center text-gray-400 dark:text-gray-600 transition-colors">
         No news articles yet.
       </div>
     );
@@ -69,7 +69,7 @@ export function MainNewsCarousel({ blogs }: { blogs: IBlog[] }) {
           // @ts-ignore
           swiper.params.navigation.nextEl = nextRef.current;
         }}
-        className="w-full h-[400px] md:h-[500px]"
+        className="w-full h-[300px] md:h-[500px]"
       >
         {blogs.map((blog) => (
           <SwiperSlide key={String(blog._id)}>
@@ -94,7 +94,7 @@ export function MainNewsCarousel({ blogs }: { blogs: IBlog[] }) {
                   ))}
                 </div>
                 <Link href={`/${blog.slug}`} className="z-30 group/link">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 line-clamp-3 group-hover/link:text-secondary transition-colors leading-tight drop-shadow-md">
+                  <h3 className="text-xl md:text-3xl font-bold text-white mb-4 line-clamp-3 group-hover/link:text-secondary transition-colors leading-tight drop-shadow-md">
                     {blog.title}
                   </h3>
                 </Link>

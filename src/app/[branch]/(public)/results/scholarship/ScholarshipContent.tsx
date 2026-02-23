@@ -51,7 +51,7 @@ export default function ScholarshipContent({
   return (
     <main className="bg-white dark:bg-gray-950 pb-20">
       {/* 1. HERO SECTION */}
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-blue-900 dark:bg-gray-900">
           <div className="absolute inset-0 opacity-20 bg-[url('/pattern-grid.svg')] bg-repeat" />
@@ -61,12 +61,12 @@ export default function ScholarshipContent({
           <motion.div
             animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-32 -left-32 w-96 h-96 bg-primary/30 rounded-full blur-3xl"
+            className="absolute -top-32 -left-32 w-72 md:w-96 h-72 md:h-96 bg-primary/30 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ scale: [1, 1.3, 1], rotate: [0, -60, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-3xl"
+            className="absolute bottom-0 right-0 w-[375px] md:w-[500px] h-[375px] md:h-[500px] bg-secondary/20 rounded-full blur-3xl"
           />
         </div>
 
@@ -80,7 +80,7 @@ export default function ScholarshipContent({
               <Trophy size={14} className="inline mr-2" />
               Meritorious Students
             </span>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">
+            <h1 className="text-3xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight">
               Bright Child Scholarship
             </h1>
             <p className="text-lg md:text-xl text-blue-100/90 max-w-2xl mx-auto font-light leading-relaxed">
@@ -94,7 +94,7 @@ export default function ScholarshipContent({
       {/* 2. Main Content & Wide Image */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 space-y-16">
         <div className="text-center max-w-4xl mx-auto space-y-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white">
+          <h2 className="text-2xl md:text-4xl font-display font-bold text-gray-900 dark:text-white">
             Shri Markandey Tewari{" "}
             <span className="text-primary dark:text-secondary">
               {" "}
@@ -135,7 +135,7 @@ export default function ScholarshipContent({
         <section>
           <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
             <div>
-              <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-2">
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-white mb-2">
                 Award Recipients
               </h2>
               <p className="text-gray-600 dark:text-gray-400">
@@ -214,7 +214,7 @@ export default function ScholarshipContent({
         <section>
           <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
             <div>
-              <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-2">
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-white mb-2">
                 Felicitation Ceremony
               </h2>
               <p className="text-gray-600 dark:text-gray-400">

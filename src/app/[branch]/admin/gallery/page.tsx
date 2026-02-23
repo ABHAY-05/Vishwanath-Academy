@@ -16,7 +16,7 @@ export default async function GalleryAdminPage({
     <AdminPageGuard requiredPermissionId="gallery">
       <div className="space-y-8">
         <div>
-          <h1 className="text-2xl font-bold text-neutral-800 dark:text-neutral-200">
+          <h1 className="text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-200">
             Gallery Management
           </h1>
           <p className="text-neutral-600 dark:text-neutral-400">

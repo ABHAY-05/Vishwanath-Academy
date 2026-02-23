@@ -26,7 +26,7 @@ export default function AdminPageGuard({
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-6">
       <ShieldAlert className="w-20 h-20 text-red-500 mb-6" />
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+      <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
         Permission Denied
       </h1>
       <p className="text-gray-500 max-w-lg mb-8 text-lg">

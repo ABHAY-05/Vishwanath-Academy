@@ -196,7 +196,7 @@ export default function CBSEAdminPage({
       <div className="p-6 max-w-7xl mx-auto pb-32">
         <div className="mb-8 border-b dark:border-gray-800 pb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
               <ShieldCheck className="w-8 h-8 text-primary dark:text-secondary" />
               CBSE Disclosure Editor
             </h1>
@@ -236,7 +236,7 @@ export default function CBSEAdminPage({
               className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden"
             >
               <div className="p-6 md:p-8 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
-                <h2 className="text-2xl font-display font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <h2 className="text-xl md:text-2xl font-display font-bold text-gray-900 dark:text-white flex items-center gap-2">
                   {section.title}
                 </h2>
               </div>

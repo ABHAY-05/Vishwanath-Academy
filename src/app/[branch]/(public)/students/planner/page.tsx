@@ -33,7 +33,7 @@ export default function AcademicPlannerRedirectPage({
         <div className="flex justify-center pb-4">
           <CalendarDays className="h-24 w-24 text-gray-400 dark:text-gray-600 mb-2 opacity-50 animate-pulse" />
         </div>
-        <h1 className="text-3xl font-bold font-display text-gray-900 dark:text-gray-100">
+        <h1 className="text-2xl md:text-3xl font-bold font-display text-gray-900 dark:text-gray-100">
           Academic Planner Unavailable
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">

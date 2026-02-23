@@ -29,7 +29,7 @@ export default function ApplyAdmission() {
     <>
       <section className="bg-blue-50/30 dark:bg-gray-800 py-16 lg:py-24 relative overflow-hidden">
         {/* Decorative Blob */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[450px] md:w-[600px] h-[450px] md:h-[600px] bg-primary/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
         <div className="mx-auto max-w-7xl px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -43,7 +43,7 @@ export default function ApplyAdmission() {
               <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary dark:bg-secondary/10 dark:text-secondary font-semibold text-sm mb-6">
                 Join Our Family
               </div>
-              <h2 className="text-3xl lg:text-5xl mb-6 text-gray-900 dark:text-white font-display font-bold leading-tight">
+              <h2 className="text-2xl lg:text-5xl mb-6 text-gray-900 dark:text-white font-display font-bold leading-tight">
                 Apply for{" "}
                 <span className="text-primary dark:text-secondary">
                   Admission
@@ -86,7 +86,7 @@ export default function ApplyAdmission() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-              className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group"
+              className="relative h-[300px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group"
             >
               <Image
                 src="/admission.jpg"

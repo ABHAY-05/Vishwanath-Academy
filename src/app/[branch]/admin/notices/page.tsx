@@ -17,7 +17,7 @@ export default async function NoticeEditor({
       <div className="space-y-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-neutral-800 dark:text-neutral-200">
+            <h1 className="text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-200">
               Notice Board Editor
             </h1>
             <p className="text-neutral-600 dark:text-neutral-400">

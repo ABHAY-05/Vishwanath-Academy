@@ -30,7 +30,7 @@ export default async function EducateAChildPage() {
         {/* Main Content Area */}
         <article className="lg:col-span-8 bg-white dark:bg-neutral-900 rounded-2xl shadow-sm border border-gray-100 dark:border-neutral-800 overflow-hidden transition-colors">
           <div className="p-6 md:p-8 lg:p-10 border-b border-gray-100 dark:border-neutral-800">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 dark:text-white leading-tight mb-6">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 dark:text-white leading-tight mb-6">
               Educate a Child in Need with Quality Education for a Brighter
               Future in 2025
             </h1>
@@ -79,7 +79,7 @@ export default async function EducateAChildPage() {
                   rel="noopener noreferrer"
                   className="hover:opacity-90 transition-opacity flex flex-col items-center gap-4"
                 >
-                  <div className="relative w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] rounded-xl overflow-hidden shadow-md">
+                  <div className="relative w-[240px] h-[240px] sm:w-[450px] sm:h-[450px] rounded-xl overflow-hidden shadow-md">
                     <Image
                       src="/blogs/2.jpeg"
                       alt="Donation QR Code"
@@ -99,7 +99,7 @@ export default async function EducateAChildPage() {
                 children."
               </blockquote>
 
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-12 mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mt-12 mb-4">
                 The Impact of Your Support
               </h2>
               <p>
@@ -113,7 +113,7 @@ export default async function EducateAChildPage() {
                 doctors, engineers, and catalysts for positive change.
               </p>
 
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
                 The Power of Education
               </h2>
               <p>
@@ -127,7 +127,7 @@ export default async function EducateAChildPage() {
                 change in their lives.
               </p>
 
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
                 The Challenges Faced by Children in Need
               </h2>
               <p>
@@ -175,7 +175,7 @@ export default async function EducateAChildPage() {
                 poverty in their communities.
               </p>
 
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
                 How You Can Get Involved
               </h2>
               <p>
@@ -214,7 +214,7 @@ export default async function EducateAChildPage() {
 
               {/* Call to action section */}
               <div className="mt-16 bg-gray-50 dark:bg-neutral-800/30 border border-gray-100 dark:border-neutral-800 rounded-2xl p-6 md:p-8">
-                <h2 className="text-3xl font-display font-bold text-center text-gray-900 dark:text-white mb-8">
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-center text-gray-900 dark:text-white mb-8">
                   Help Make a Difference
                 </h2>
 
@@ -225,7 +225,7 @@ export default async function EducateAChildPage() {
                     rel="noopener noreferrer"
                     className="hover:opacity-90 transition-opacity"
                   >
-                    <div className="relative w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] rounded-xl overflow-hidden shadow-md">
+                    <div className="relative w-[240px] h-[240px] sm:w-[450px] sm:h-[450px] rounded-xl overflow-hidden shadow-md">
                       <Image
                         src="/blogs/2.jpeg"
                         alt="Donation QR Code"

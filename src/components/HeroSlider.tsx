@@ -98,7 +98,7 @@ export default function HeroSlider() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-5xl lg:text-7xl font-sans font-bold text-white leading-tight"
+              className="text-4xl lg:text-7xl font-sans font-bold text-white leading-tight"
             >
               Empowering Minds, <br />
               Shaping{" "}

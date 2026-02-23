@@ -22,8 +22,8 @@ export default function OurStrength() {
     <section className="bg-primary py-16 text-white overflow-hidden relative">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-secondary blur-3xl"></div>
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-secondary blur-3xl"></div>
+        <div className="absolute -top-24 -left-24 w-72 md:w-96 h-72 md:h-96 rounded-full bg-secondary blur-3xl"></div>
+        <div className="absolute -bottom-24 -right-24 w-72 md:w-96 h-72 md:h-96 rounded-full bg-secondary blur-3xl"></div>
       </div>
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
@@ -35,7 +35,7 @@ export default function OurStrength() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl lg:text-4xl mb-3 text-white font-display font-semibold">
+          <h2 className="text-2xl lg:text-4xl mb-3 text-white font-display font-semibold">
             Our Strength
           </h2>
           <p className="text-blue-100 max-w-2xl mx-auto font-body text-lg">
@@ -46,7 +46,7 @@ export default function OurStrength() {
 
         <div
           ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -54,13 +54,13 @@ export default function OurStrength() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
+              className="group relative p-4 md:p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="flex flex-col items-center">
-                <div className="mb-4 p-3 rounded-full bg-secondary/20 text-secondary group-hover:scale-110 transition-transform duration-300">
-                  <stat.icon size={32} />
+                <div className="mb-3 md:mb-4 p-2 md:p-3 rounded-full bg-secondary/20 text-secondary group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
-                <div className="text-4xl lg:text-5xl font-display font-bold text-white mb-2">
+                <div className="text-2xl md:text-3xl lg:text-5xl font-display font-bold text-white mb-1 md:mb-2">
                   {inView ? (
                     <CountUp
                       end={stat.value}
@@ -72,7 +72,7 @@ export default function OurStrength() {
                     <span>0{stat.suffix}</span>
                   )}
                 </div>
-                <p className="text-sm font-medium tracking-wider text-blue-100 uppercase opacity-80">
+                <p className="text-xs md:text-sm font-medium tracking-wider text-blue-100 uppercase opacity-80">
                   {stat.label}
                 </p>
               </div>

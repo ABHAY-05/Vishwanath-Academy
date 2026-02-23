@@ -56,11 +56,11 @@ export default function BedApplicationPage({
 
   return (
     <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 pt-24 pb-20 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-96 bg-primary/5 dark:bg-primary/10 -skew-y-3 origin-top-left -z-10" />
+      <div className="absolute top-0 left-0 w-full h-72 md:h-96 bg-primary/5 dark:bg-primary/10 -skew-y-3 origin-top-left -z-10" />
 
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold font-display text-neutral-900 dark:text-white mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold font-display text-neutral-900 dark:text-white mb-4">
             B.Ed Training <span className="text-primary">Application</span>
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
@@ -84,7 +84,7 @@ export default function BedApplicationPage({
                 <div className="w-16 h-16 bg-green-100 dark:bg-green-800 rounded-full flex items-center justify-center text-green-600 dark:text-green-400">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-green-900 dark:text-green-100">
+                <h3 className="text-xl md:text-2xl font-bold text-green-900 dark:text-green-100">
                   Application Submitted!
                 </h3>
                 <p className="text-green-700 dark:text-green-300">

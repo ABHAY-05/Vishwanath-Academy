@@ -30,7 +30,7 @@ export default function YoutubeSection({ branch }: { branch?: string }) {
         <div className="mx-auto max-w-7xl px-6">
           {/* HEADER */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-display text-gray-900 dark:text-white font-bold mb-4">
+            <h2 className="text-2xl lg:text-4xl font-display text-gray-900 dark:text-white font-bold mb-4">
               Youtube{" "}
               <span className="text-primary dark:text-secondary">
                 Video Gallery
@@ -70,7 +70,7 @@ export default function YoutubeSection({ branch }: { branch?: string }) {
 
                   {/* PLAY BUTTON */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/40 text-white text-3xl shadow-xl group-hover:scale-110 group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-300">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/40 text-white text-2xl md:text-3xl shadow-xl group-hover:scale-110 group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-300">
                       ▶
                     </div>
                   </div>

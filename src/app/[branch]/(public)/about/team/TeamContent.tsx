@@ -50,7 +50,7 @@ export default function TeamPage({ branch }: { branch: string }) {
 
   return (
     <main className="bg-white dark:bg-gray-950 pb-20 overflow-hidden">
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-blue-900 dark:bg-gray-900">
           <div className="absolute inset-0 opacity-20 bg-[url('/pattern-grid.svg')] bg-repeat" />
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-black/80 dark:from-black/90 dark:to-blue-950/50" />
@@ -58,12 +58,12 @@ export default function TeamPage({ branch }: { branch: string }) {
           <motion.div
             animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-32 -left-32 w-96 h-96 bg-primary/30 rounded-full blur-3xl"
+            className="absolute -top-32 -left-32 w-72 md:w-96 h-72 md:h-96 bg-primary/30 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ scale: [1, 1.3, 1], rotate: [0, -60, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-3xl"
+            className="absolute bottom-0 right-0 w-[375px] md:w-[500px] h-[375px] md:h-[500px] bg-secondary/20 rounded-full blur-3xl"
           />
         </div>
 
@@ -76,7 +76,7 @@ export default function TeamPage({ branch }: { branch: string }) {
             <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-blue-100 font-semibold text-sm mb-4">
               Dedication & Excellence
             </span>
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-7xl font-display font-bold text-white mb-6 tracking-tight">
               Our Team
             </h1>
             <p className="text-lg md:text-xl text-blue-100/90 max-w-2xl mx-auto font-light leading-relaxed">
@@ -117,12 +117,12 @@ export default function TeamPage({ branch }: { branch: string }) {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
                   </div>
 
-                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/20 rounded-full blur-3xl -z-10" />
-                  <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl -z-10" />
+                  <div className="absolute -bottom-6 -right-6 w-24 md:w-32 h-24 md:h-32 bg-secondary/20 rounded-full blur-3xl -z-10" />
+                  <div className="absolute -top-6 -left-6 w-24 md:w-32 h-24 md:h-32 bg-primary/20 rounded-full blur-3xl -z-10" />
                 </div>
 
                 <div className="mt-8 text-center relative z-20 -mt-12 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl p-6 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 max-w-[85%] mx-auto">
-                  <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mb-1">
+                  <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mb-1">
                     {member.name}
                   </h2>
                   <p className="text-sm font-bold text-primary dark:text-secondary uppercase tracking-wider mb-4">

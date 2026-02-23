@@ -70,7 +70,7 @@ export default async function BlogsHomePage({
       {parentsBlogs.length > 0 && (
         <section>
           <div className="flex items-center gap-4 mb-6">
-            <h2 className="text-2xl font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 border-l-4 border-primary dark:border-secondary pl-4">
+            <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 border-l-4 border-primary dark:border-secondary pl-4">
               Parent&apos;s Corner
             </h2>
             <div className="h-px flex-1 bg-gray-200 dark:bg-secondary/20"></div>
@@ -93,7 +93,7 @@ export default async function BlogsHomePage({
       {studentsBlogs.length > 0 && (
         <section>
           <div className="flex items-center gap-4 mb-6">
-            <h2 className="text-2xl font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 border-l-4 border-primary dark:border-secondary pl-4">
+            <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 border-l-4 border-primary dark:border-secondary pl-4">
               Students Corner
             </h2>
             <div className="h-px flex-1 bg-gray-200 dark:bg-secondary/20"></div>
@@ -115,7 +115,7 @@ export default async function BlogsHomePage({
       {/* All Blogs Paginated */}
       <section id="all-posts" className="scroll-mt-24">
         <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-2xl font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 border-l-4 border-primary dark:border-secondary pl-4">
+          <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 border-l-4 border-primary dark:border-secondary pl-4">
             All Posts
           </h2>
           <div className="h-px flex-1 bg-gray-200 dark:bg-secondary/20"></div>

@@ -104,7 +104,7 @@ export default function CareerHiringAdminPage({
     <AdminPageGuard requiredPermissionId="career-hiring">
       <div className="p-6 max-w-5xl mx-auto">
         <div className="mb-8 border-b dark:border-gray-800 pb-6">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
             <Briefcase className="w-8 h-8 text-primary dark:text-secondary" />
             Career Hiring Graphic
           </h1>

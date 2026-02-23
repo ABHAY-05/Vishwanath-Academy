@@ -25,7 +25,7 @@ export default async function PublicNoticeBoardPage({
     <div className="pt-24 min-h-screen bg-neutral-50 dark:bg-neutral-950">
       {/* Header */}
       <div className="max-w-4xl mx-auto px-6 mb-12 text-center">
-        <h1 className="text-3xl md:text-4xl font-display font-bold text-neutral-900 dark:text-white mb-4">
+        <h1 className="text-2xl md:text-4xl font-display font-bold text-neutral-900 dark:text-white mb-4">
           Notice Board
         </h1>
         <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">

@@ -25,7 +25,7 @@ export default function About() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative"
           >
-            <div className="relative h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[300px] lg:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/vishwanath-img2.jpg"
                 alt="Why Vishwanath Academy"
@@ -49,7 +49,7 @@ export default function About() {
             <span className="text-primary dark:text-secondary font-semibold tracking-wider uppercase text-sm mb-2 block">
               About The Academy
             </span>
-            <h2 className="text-3xl lg:text-5xl font-display font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-2xl lg:text-5xl font-display font-bold text-gray-900 dark:text-white mb-6">
               Why Choose <br />
               <span className="text-primary dark:text-secondary">
                 Vishwanath Academy?

@@ -32,7 +32,7 @@ export default async function AdminBlogsPage({
     <div className="p-6 md:p-8 max-w-7xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white dark:bg-neutral-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-neutral-800 transition-colors">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100">
             Blogs Management
           </h1>
           <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">

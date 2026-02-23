@@ -146,7 +146,7 @@ export default function AdminTCPage({
       <div className="p-6 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
               <FileKey className="w-8 h-8 text-primary dark:text-secondary" />
               Transfer Certificates
             </h1>
@@ -335,7 +335,7 @@ export default function AdminTCPage({
                       {formFile ? (
                         <>
                           <FileIcon className="text-primary dark:text-secondary" size={24} />
-                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-48">
+                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-32 md:w-48">
                             {formFile.name}
                           </span>
                           <span className="text-xs text-gray-400">

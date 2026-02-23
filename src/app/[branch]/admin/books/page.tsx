@@ -121,7 +121,7 @@ export default function BooksAdminPage() {
     <AdminPageGuard requiredPermissionId="books">
       <div className="p-6 max-w-6xl mx-auto">
         <div className="mb-8 border-b dark:border-gray-800 pb-6">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
             <BookOpen className="w-8 h-8 text-primary dark:text-secondary" />
             Books & Stationary Management
           </h1>

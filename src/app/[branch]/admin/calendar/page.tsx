@@ -206,7 +206,7 @@ export default function CalendarAdminPage({
       <div className="p-6 max-w-7xl mx-auto pb-32">
         <div className="mb-8 border-b dark:border-gray-800 pb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
               <Calendar className="w-8 h-8 text-primary dark:text-secondary" />
               Activity Calendar Editor
             </h1>
@@ -256,7 +256,7 @@ export default function CalendarAdminPage({
                       <Calendar className="w-6 h-6" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white">
+                      <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white">
                         Class: {section.className}
                       </h2>
                       <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -270,13 +270,13 @@ export default function CalendarAdminPage({
                   <table className="w-full text-left min-w-[600px]">
                     <thead>
                       <tr className="bg-primary/5 dark:bg-primary/10 border-b border-gray-200 dark:border-gray-800">
-                        <th className="px-6 py-4 text-xs font-bold text-primary dark:text-secondary uppercase tracking-wider whitespace-nowrap w-32">
+                        <th className="px-6 py-4 text-xs font-bold text-primary dark:text-secondary uppercase tracking-wider whitespace-nowrap w-24 md:w-32">
                           Month
                         </th>
                         <th className="px-6 py-4 text-xs font-bold text-primary dark:text-secondary uppercase tracking-wider">
                           Activities & Events
                         </th>
-                        <th className="px-6 py-4 text-xs font-bold text-primary dark:text-secondary uppercase tracking-wider text-right w-64">
+                        <th className="px-6 py-4 text-xs font-bold text-primary dark:text-secondary uppercase tracking-wider text-right w-48 md:w-64">
                           PDF Resource
                         </th>
                       </tr>

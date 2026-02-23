@@ -18,7 +18,7 @@ export default async function TermsAndConditionsPage({
       <main className="bg-gray-50 dark:bg-gray-950 min-h-screen py-32 px-6">
         <div className="max-w-4xl mx-auto bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 p-8 md:p-12 overflow-hidden">
           <div className="mb-10 text-center border-b border-gray-100 dark:border-gray-800 pb-8">
-            <h1 className="text-4xl md:text-5xl font-bold font-display text-primary dark:text-white mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold font-display text-primary dark:text-white mb-4">
               Terms and Conditions
             </h1>
             <p className="text-gray-500 font-san text-sm tracking-wider uppercase font-bold">
@@ -43,7 +43,7 @@ export default async function TermsAndConditionsPage({
               these terms, you are advised not to use our website.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               1. Definitions
             </h2>
             <p>For the purpose of these Terms and Conditions:</p>
@@ -61,7 +61,7 @@ export default async function TermsAndConditionsPage({
               </li>
             </ul>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               2. Website Usage
             </h2>
             <p>The following terms govern the use of our website:</p>
@@ -81,7 +81,7 @@ export default async function TermsAndConditionsPage({
               </li>
             </ul>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               3. Intellectual Property
             </h2>
             <ul className="list-disc pl-6 space-y-2 mb-6">
@@ -97,7 +97,7 @@ export default async function TermsAndConditionsPage({
               </li>
             </ul>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               4. User Responsibilities
             </h2>
             <p>When using the website, you agree:</p>
@@ -117,7 +117,7 @@ export default async function TermsAndConditionsPage({
               </li>
             </ul>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               5. Admissions and Enrollment
             </h2>
             <p>
@@ -128,7 +128,7 @@ export default async function TermsAndConditionsPage({
               criteria.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               6. Limitation of Liability
             </h2>
             <ul className="list-disc pl-6 space-y-2 mb-6">
@@ -148,7 +148,7 @@ export default async function TermsAndConditionsPage({
               </li>
             </ul>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               7. Third-Party Links
             </h2>
             <p>
@@ -159,7 +159,7 @@ export default async function TermsAndConditionsPage({
               third-party website they visit.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               8. Termination of Access
             </h2>
             <p>
@@ -168,7 +168,7 @@ export default async function TermsAndConditionsPage({
               these Terms and Conditions.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               9. Disclaimer
             </h2>
             <ul className="list-disc pl-6 space-y-2 mb-6">
@@ -183,7 +183,7 @@ export default async function TermsAndConditionsPage({
               </li>
             </ul>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               10. Privacy
             </h2>
             <p>
@@ -192,7 +192,7 @@ export default async function TermsAndConditionsPage({
               practices described in our Privacy Policy.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               11. Governing Law
             </h2>
             <p>
@@ -202,7 +202,7 @@ export default async function TermsAndConditionsPage({
               of the courts in Lucknow, Uttar Pradesh.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               12. Changes to Terms
             </h2>
             <p>
@@ -212,7 +212,7 @@ export default async function TermsAndConditionsPage({
               after changes signifies your acceptance of the updated Terms.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               13. Contact Information
             </h2>
             <p>

@@ -109,7 +109,7 @@ export default function AdminPressReleasePage() {
       <div className="p-6 max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
               Press Releases
             </h1>
             <p className="text-gray-500 dark:text-gray-400 mt-1">
@@ -236,7 +236,7 @@ export default function AdminPressReleasePage() {
                       {formFile ? (
                         <>
                           <ImageIcon className="text-primary dark:text-secondary" size={24} />
-                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-48">
+                          <span className="text-sm text-primary dark:text-secondary font-medium truncate w-32 md:w-48">
                             {formFile.name}
                           </span>
                         </>

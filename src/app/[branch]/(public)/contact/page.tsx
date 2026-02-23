@@ -75,12 +75,12 @@ export default function ContactPage({
   return (
     <main className="bg-white dark:bg-gray-950 pb-20">
       {/* 1. HERO SECTION */}
-      <section className="relative h-[300px] flex items-center justify-center bg-blue-50 dark:bg-gray-900">
+      <section className="relative h-[225px] md:h-[300px] flex items-center justify-center bg-blue-50 dark:bg-gray-900">
         <div className="text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-display font-bold text-primary dark:text-white bg-white dark:bg-primary/20 px-8 py-3 rounded-full shadow-sm"
+            className="text-3xl md:text-5xl font-display font-bold text-primary dark:text-white bg-white dark:bg-primary/20 px-8 py-3 rounded-full shadow-sm"
           >
             Contact <span className="text-secondary">Us</span>
           </motion.h1>
@@ -95,8 +95,8 @@ export default function ContactPage({
         </div>
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
+          <div className="absolute top-10 left-10 w-48 md:w-64 h-48 md:h-64 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-48 md:w-64 h-48 md:h-64 bg-secondary/10 rounded-full blur-3xl" />
         </div>
       </section>
 
@@ -113,7 +113,7 @@ export default function ContactPage({
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="p-8 space-y-6">
-                <h2 className="text-2xl font-display font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                <h2 className="text-xl md:text-2xl font-display font-bold text-gray-900 dark:text-white flex items-center gap-3">
                   <span
                     className={`p-2 rounded-lg ${branch === "aashiana" ? "bg-primary/10 text-primary" : "bg-secondary/10 text-secondary-dark"}`}
                   >
@@ -170,7 +170,7 @@ export default function ContactPage({
               </div>
 
               {/* Map Embed */}
-              <div className="h-[300px] lg:h-full bg-gray-100 border-l border-gray-100 dark:border-gray-800">
+              <div className="h-[225px] lg:h-full bg-gray-100 border-l border-gray-100 dark:border-gray-800">
                 <iframe
                   src={currentBranch.mapUrl}
                   width="100%"
@@ -191,7 +191,7 @@ export default function ContactPage({
             {/* Form Side */}
             <div className="lg:col-span-3 p-8 md:p-12 order-2 lg:order-1">
               <div className="mb-8">
-                <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-2">
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-white mb-2">
                   Send us a Message
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 font-body">
@@ -301,7 +301,7 @@ export default function ContactPage({
               <div className="absolute inset-0 opacity-10 pattern-dots"></div>
               <div className="relative z-10 space-y-8">
                 <div>
-                  <h3 className="text-2xl font-display font-bold mb-2">
+                  <h3 className="text-xl md:text-2xl font-display font-bold mb-2">
                     Join Our Team
                   </h3>
                   <p className="text-white/90 leading-relaxed">
@@ -317,7 +317,7 @@ export default function ContactPage({
                 </a>
 
                 <div className="pt-8 border-t border-white/20">
-                  <h3 className="text-2xl font-display font-bold mb-4">
+                  <h3 className="text-xl md:text-2xl font-display font-bold mb-4">
                     Connect With Us
                   </h3>
                   <div className="flex gap-4">
@@ -341,7 +341,7 @@ export default function ContactPage({
         {/* 4. FAQ SECTION */}
         <section className="space-y-8">
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">
               Frequently Asked Questions (FAQs)
             </h2>
             <p className="text-gray-600 dark:text-gray-400">

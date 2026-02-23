@@ -29,7 +29,7 @@ export default function LandingPage() {
             y: [0, 30, 0],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px]"
+          className="absolute top-[-10%] left-[-10%] w-[375px] md:w-[500px] h-[375px] md:h-[500px] bg-primary/20 rounded-full blur-[100px]"
         />
         <motion.div
           animate={{
@@ -38,7 +38,7 @@ export default function LandingPage() {
             y: [0, -50, 0],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[100px]"
+          className="absolute bottom-[-10%] right-[-10%] w-[450px] md:w-[600px] h-[450px] md:h-[600px] bg-secondary/10 rounded-full blur-[100px]"
         />
       </div>
 
@@ -97,7 +97,7 @@ export default function LandingPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6 max-w-lg"
           >
-            <h1 className="text-4xl lg:text-5xl font-display font-bold leading-tight">
+            <h1 className="text-3xl lg:text-5xl font-display font-bold leading-tight">
               Shaping{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                 Future Leaders
@@ -168,7 +168,7 @@ export default function LandingPage() {
           </div>
 
           <div className="text-center mb-4">
-            <h2 className="text-2xl font-bold font-display mb-2">
+            <h2 className="text-xl md:text-2xl font-bold font-display mb-2">
               Select Your Campus
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm">

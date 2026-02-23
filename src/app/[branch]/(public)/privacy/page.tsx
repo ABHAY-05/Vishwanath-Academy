@@ -18,7 +18,7 @@ export default async function PrivacyPolicyPage({
       <main className="bg-gray-50 dark:bg-gray-950 min-h-screen py-32 px-6">
         <div className="max-w-4xl mx-auto bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 p-8 md:p-12 overflow-hidden">
           <div className="mb-10 text-center border-b border-gray-100 dark:border-gray-800 pb-8">
-            <h1 className="text-4xl md:text-5xl font-bold font-display text-primary dark:text-white mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold font-display text-primary dark:text-white mb-4">
               Privacy Policy
             </h1>
             <p className="text-gray-500 font-san text-sm tracking-wider uppercase font-bold">
@@ -27,7 +27,7 @@ export default async function PrivacyPolicyPage({
           </div>
 
           <div className="prose prose-gray dark:prose-invert max-w-none text-gray-700 dark:text-gray-200 font-body leading-loose">
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               1. Introduction
             </h2>
             <p>
@@ -51,7 +51,7 @@ export default async function PrivacyPolicyPage({
               refrain from using our services.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               2. Information We Collect
             </h2>
             <p>
@@ -101,7 +101,7 @@ export default async function PrivacyPolicyPage({
               settings.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               3. How We Use Your Information
             </h2>
             <p>We use the information collected for the following purposes:</p>
@@ -118,7 +118,7 @@ export default async function PrivacyPolicyPage({
               <li>To comply with legal and regulatory requirements.</li>
             </ul>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               4. Sharing and Disclosure of Information
             </h2>
             <p>
@@ -142,7 +142,7 @@ export default async function PrivacyPolicyPage({
               </li>
             </ul>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               5. Data Security
             </h2>
             <p>
@@ -165,7 +165,7 @@ export default async function PrivacyPolicyPage({
               100% secure.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               6. Retention of Information
             </h2>
             <p>
@@ -174,7 +174,7 @@ export default async function PrivacyPolicyPage({
               no longer needed, data is securely deleted or anonymized.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               7. Third-Party Links
             </h2>
             <p>
@@ -184,7 +184,7 @@ export default async function PrivacyPolicyPage({
               privacy policies when you visit their websites.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               8. Children’s Privacy
             </h2>
             <p>
@@ -195,7 +195,7 @@ export default async function PrivacyPolicyPage({
               consent, we will take steps to delete the information promptly.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               9. User Rights
             </h2>
             <p>You have the following rights concerning your personal data:</p>
@@ -222,7 +222,7 @@ export default async function PrivacyPolicyPage({
               details provided below.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               10. Changes to This Privacy Policy
             </h2>
             <p>
@@ -232,7 +232,7 @@ export default async function PrivacyPolicyPage({
               effective date. We encourage you to review this page periodically.
             </p>
 
-            <h2 className="text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold font-display text-gray-900 dark:text-white mt-12 mb-4">
               11. Contact Us
             </h2>
             <p>

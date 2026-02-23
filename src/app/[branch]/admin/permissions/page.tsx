@@ -87,7 +87,7 @@ export default function PermissionsAdminPage({
     return (
       <div className="p-6 max-w-7xl mx-auto flex flex-col items-center justify-center py-32 text-center">
         <ShieldAlert className="w-16 h-16 text-red-500 mb-4" />
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
           Super Admin Access Required
         </h1>
         <p className="text-gray-500 max-w-md">
@@ -179,7 +179,7 @@ export default function PermissionsAdminPage({
   return (
     <div className="p-6 max-w-7xl mx-auto pb-32">
       <div className="mb-8 border-b dark:border-gray-800 pb-6">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
           <KeyRound className="w-8 h-8 text-primary dark:text-secondary" />
           Roles & Access Control
         </h1>

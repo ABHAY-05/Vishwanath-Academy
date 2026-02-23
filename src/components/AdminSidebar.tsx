@@ -255,7 +255,7 @@ export default function AdminSidebar({ branch, username }: AdminSidebarProps) {
       </div>
 
       {/* Desktop Sidebar (Always visible) */}
-      <aside className="hidden md:flex w-72 flex-col h-full z-20">
+      <aside className="hidden md:flex w-56 md:w-72 flex-col h-full z-20">
         <SidebarContent />
       </aside>
 
@@ -275,7 +275,7 @@ export default function AdminSidebar({ branch, username }: AdminSidebarProps) {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", bounce: 0, duration: 0.3 }}
-              className="fixed inset-y-0 left-0 w-72 bg-white dark:bg-neutral-900 z-50 md:hidden shadow-2xl"
+              className="fixed inset-y-0 left-0 w-56 md:w-72 bg-white dark:bg-neutral-900 z-50 md:hidden shadow-2xl"
             >
               <SidebarContent />
             </motion.div>

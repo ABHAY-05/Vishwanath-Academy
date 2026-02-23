@@ -278,7 +278,7 @@ export default function Navbar({ branch }: { branch?: string }) {
 
       {/* MOBILE MENU */}
       <aside
-        className={`fixed right-0 top-0 z-50 h-full w-80 bg-white dark:bg-gray-900 shadow-2xl transition-transform duration-300 ${
+        className={`fixed right-0 top-0 z-50 h-full w-64 md:w-80 bg-white dark:bg-gray-900 shadow-2xl transition-transform duration-300 ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

@@ -46,7 +46,7 @@ export default async function AdminLayout({
   if (!user || !isAuthorized) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-neutral-50 dark:bg-neutral-950 p-4 text-center">
-        <h1 className="text-3xl font-bold text-red-600 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600">
+        <h1 className="text-2xl md:text-3xl font-bold text-red-600 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600">
           Access Restricted
         </h1>
         <p className="text-neutral-600 dark:text-neutral-400 max-w-md mb-8">
