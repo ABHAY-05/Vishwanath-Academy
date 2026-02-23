@@ -27,7 +27,6 @@ export default function OneSignalBell() {
         });
 
         setIsInitialized(true);
-        OneSignal.Slidedown.promptPush();
 
         // Check initial subscription status
         const subscribed = OneSignal.User.PushSubscription.optedIn;
@@ -100,7 +99,7 @@ export default function OneSignalBell() {
         {isBlocked ? (
           <BellOff size={24} className="opacity-80" />
         ) : isSubscribed ? (
-          <BellRing size={24} className="animate-pulse" />
+          <BellRing size={24} className="animate-pulse" fill="currentColor" />
         ) : (
           <Bell
             size={24}
