@@ -21,10 +21,18 @@ export default function OneSignalBell() {
 
     const initializeOneSignal = async () => {
       try {
-        await OneSignal.init({
-          appId: process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID as string,
-          allowLocalhostAsSecureOrigin: true, // Useful for testing
-        });
+        try {
+          await OneSignal.init({
+            appId: process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID as string,
+            allowLocalhostAsSecureOrigin: true, // Useful for testing
+          });
+        } catch (initErr: any) {
+          // React Strict Mode calls useEffect twice, causing OneSignal to throw an already initialized error.
+          // We can safely catch and ignore this specific error to allow the rest of the setup to continue.
+          if (!initErr?.message?.includes("already initialized")) {
+            throw initErr;
+          }
+        }
 
         setIsInitialized(true);
 
